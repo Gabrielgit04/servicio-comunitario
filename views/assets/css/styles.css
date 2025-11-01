@@ -8,6 +8,7 @@ body{
 
 }
 
+/* registro y login estilos */
 .container{
     max-width: 100%;
     height: 100dvh;
@@ -70,7 +71,7 @@ body{
     border-radius: 10px;
     border: solid #DDDDDD;
     background-color: #DDDDDD;
-    text-indent: 30px;
+    text-indent: 35px;
     transition: al ease .2s;
     left: 23px;
     /* box-shadow: 0 0 6px darkslategray; */
@@ -134,7 +135,84 @@ body{
     font-weight: 600;
     letter-spacing: 2px;
 }
+/* hasta aca */
 
+/* aca empiezo con lo demas del login */
+.box-main{
+    display: flex;
+    background-color: rgba(2, 20, 155);
+}
+.first-box{
+    width: 700px;
+    height: 100dvh;
+    background-color:rgba(8, 24, 146, 0.807);
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;    
+}
+.first-box form{
+    width: 400px;
+    height: 420px;
+    background-color:whitesmoke;
+    border-radius: 20px;
+    box-shadow: 0 0 10px whitesmoke;
+    gap: 10px;
+}
+.first-box form header{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 21px;
+    color: rgba(199, 16, 16, 0.895);
+}
+article a{
+    width: fit-content;
+    height: fit-content;
+    
+    font-size: 12px;
+    color: rgba(47, 79, 79, 0.697);
+    text-decoration: none;
+    transition: .3s;
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+    margin-right: 28px;
+}
+article{
+    text-align: right;
+
+}
+.two-box{
+    width: 800px;
+    height: 100dvh;
+    background:url(../imgs/fondo-login.png);
+    border-radius: 40% 0 0 0;
+}
+
+.input_area,.input_password{
+    position: relative;
+    height:50px;
+    line-height: 50px;
+    margin: 20px 0 0px 0;
+    padding: 8px;
+}
+
+.ingresar{
+    height: 35px;
+    width: 90%;
+    transform: translateX(23px);
+    margin-top:80px;
+    border-radius: 7px;
+    border: 1px solid  rgba(8, 24, 146, 0.807);
+    background-color:  rgba(8, 24, 146, 0.807);
+    color: whitesmoke;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+}
+
+/* hasta aca */
 
 @font-face {
     font-family: 'Poppins';
