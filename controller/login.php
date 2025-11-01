@@ -8,12 +8,12 @@ $passUser = $_POST['passw_log'];
 $db = conexionDB();
 
 try{
-    $sqlQuery = $db -> prepare("SELECT * FROM users_admins WHERE correo = :userEmail AND contrasena = :userPassword");
+    $sqlQuery = $db -> prepare("SELECT * FROM users_admins WHERE correo = :userEmail");
 
     $sqlQuery->bindParam('userEmail',$emailUser);
 
     $sqlQuery->execute();
-    $result=$sqlQuery->fetchAll(PDO::FETCH_ASSOC);
+    $result=$sqlQuery->fetch(PDO::FETCH_ASSOC);
     
 
     if(password_verify($passUser,$result['contrasena'])){
