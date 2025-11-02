@@ -12,7 +12,7 @@
         <section class="first-box">
 
             
-        <form action="/controller/login.php" method="post">
+        <form action="/controller/login.php" autocomplete="off" method="post">
             <header><h2>Inicia sesion</h2></header>
             <div class="input_area">
                 <input type="email" name="email_log" id="user" class="entry" placeholder="Correo" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
@@ -33,6 +33,10 @@
 
             <button class="ingresar">ingresar</button>
         </form>
+        <article class="registro-link">
+            <a href="../register/register.php">¿No tienes cuenta? Registrate.</a>
+        </article>
+
         </section>
 
         <section class="two-box">

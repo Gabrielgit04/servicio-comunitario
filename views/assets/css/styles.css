@@ -42,6 +42,7 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .informacion form{
@@ -141,11 +142,12 @@ body{
 .box-main{
     display: flex;
     background-color: rgba(2, 20, 155);
+    animation: aparicion-2 2s ease-in-out
 }
 .first-box{
     width: 700px;
     height: 100dvh;
-    background-color:rgba(8, 24, 146, 0.807);
+    background-color:rgba(6, 23, 152, 0.893);
     display: flex;
     padding: 10px;
     align-items: center;
@@ -157,7 +159,7 @@ body{
     height: 420px;
     background-color:whitesmoke;
     border-radius: 20px;
-    box-shadow: 0 0 10px whitesmoke;
+    /* box-shadow: 0 0 10px whitesmoke; */
     gap: 10px;
 }
 .first-box form header{
@@ -171,23 +173,41 @@ body{
 article a{
     width: fit-content;
     height: fit-content;
-    
     font-size: 12px;
     color: rgba(47, 79, 79, 0.697);
     text-decoration: none;
     transition: .3s;
     font-family: 'Poppins',Arial, Helvetica, sans-serif;
     margin-right: 28px;
+    margin-top: 5px;
 }
 article{
     text-align: right;
+    margin-top: 7px;
+}
+.registro-link a{
+    width: fit-content;
+    height: fit-content;
+    font-size: 15px;
+    color: whitesmoke;
+    text-decoration: none;
+    transition: .3s;
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+    margin-right: 28px;
+    margin-top: 20px;
 
+}
+.registro-link a:hover{
+    text-decoration: underline;
 }
 .two-box{
     width: 800px;
     height: 100dvh;
-    background:url(../imgs/fondo-login.png);
-    border-radius: 40% 0 0 0;
+    background:url(../imgs/laptop2.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 0 38%;
 }
 
 .input_area,.input_password{
@@ -201,7 +221,9 @@ article{
 .ingresar{
     height: 35px;
     width: 90%;
+    text-transform: uppercase;
     transform: translateX(23px);
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
     margin-top:80px;
     border-radius: 7px;
     border: 1px solid  rgba(8, 24, 146, 0.807);
@@ -229,4 +251,15 @@ article{
             opacity: 1;
     
     }
+}
+@keyframes aparicion-2{
+    from{
+        visibility: hidden;
+        opacity: 0;
+}
+to{
+        visibility: visible;
+        opacity: 1;
+
+}
 }

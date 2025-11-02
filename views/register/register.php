@@ -17,7 +17,7 @@
     <section class="informacion">
 
         
-        <form action="/controller/register.php" method="post">
+        <form action="/controller/register.php" autocomplete="off" method="post">
             
             <header class="hd-box-title"><h2>Crea tu usuario</h2></header>
 
@@ -60,6 +60,9 @@
 
             </section>
         </form>
+        <article class="registro-link">
+            <a href="../login/login.php">¿Ya tienes una cuenta? Ven e inicia sesion.</a>
+        </article>
 
     </section>
 
