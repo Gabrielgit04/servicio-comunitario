@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background-color: rgba(2, 20, 155);
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+}
+
+.question-box{
+    width: 100%;
+    height:100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.question-box form{
+    width: 450px;
+    height: 480px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Black.ttf) format('truetype');
+}
+

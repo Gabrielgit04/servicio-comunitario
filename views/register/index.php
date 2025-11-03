@@ -61,7 +61,7 @@
             </section>
         </form>
         <article class="registro-link">
-            <a href="../login/login.php">¿Ya tienes una cuenta? Ven e inicia sesion.</a>
+            <a href="../login/index.php">¿Ya tienes una cuenta? Ven e inicia sesion.</a>
         </article>
 
     </section>

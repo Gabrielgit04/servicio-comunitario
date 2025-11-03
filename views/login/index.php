@@ -34,7 +34,7 @@
             <button class="ingresar">ingresar</button>
         </form>
         <article class="registro-link">
-            <a href="../register/register.php">¿No tienes cuenta? Registrate.</a>
+            <a href="../register/index.php">¿No tienes cuenta? Registrate.</a>
         </article>
 
         </section>
