@@ -14,6 +14,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .question-box form{
     width: 450px;
@@ -22,9 +23,80 @@ body{
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    row-gap: 25px;
+    row-gap:5px;
+    position: absolute;
+    padding: 0 10px;
 }
+
+.entry,.entry_pass{
+    position: absolute;
+    width: 90%;
+    line-height: 28px;
+    outline: none;
+    border-radius: 10px;
+    border: solid #DDDDDD;
+    background-color: #DDDDDD;
+    text-indent: 35px;
+    transition: al ease .2s;
+    left: 23px;
+    /* box-shadow: 0 0 6px darkslategray; */
+}
+.entry:focus::placeholder,.entry_pass:focus::placeholder{
+    opacity: 0;
+}
+.entry::placeholder,.entry_pass::placeholder{
+    font-weight: bold;
+}
+.labelline{
+    position: absolute;
+    z-index: 1111;
+    font-size: 13;
+    font-weight: bold;
+    padding: 0.5;
+    margin: 0 23px;
+}
+
+.icon_lock,.icon_user,.icon_email,.icon_id{
+    margin-top: 6px;
+
+}
+.input_area,.input_password{
+    position: relative;
+    height:50px;
+    line-height: 50px;
+    margin: 20px 0 0px 0;
+    padding: 8px;
+}
+.question-box form select{
+    margin-top: 10px;
+    width: 90%;
+    transform: translateX(23px);
+    height: 30px;
+    border-radius: 6px;
+    background-color: #DDDDDD;
+    font-weight: 600;
+    color: rgb(63, 63, 63);
+}
+
+.btn-secure{
+    height: 35px;
+    width: 90%;
+    text-transform: uppercase;
+    transform: translateX(23px);
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+    margin-top:20px;
+    border-radius: 7px;
+    border: 1px solid  rgba(8, 24, 146, 0.807);
+    background-color:  rgba(8, 24, 146, 0.807);
+    color: whitesmoke;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+
+
+
 
 
 

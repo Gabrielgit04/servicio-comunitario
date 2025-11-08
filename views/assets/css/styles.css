@@ -135,6 +135,7 @@ body{
     color: whitesmoke;
     font-weight: 600;
     letter-spacing: 2px;
+    cursor: pointer;
 }
 /* hasta aca */
 
@@ -231,7 +232,7 @@ article{
     color: whitesmoke;
     font-weight: 600;
     letter-spacing: 2px;
-
+    cursor: pointer;
 }
 
 /* hasta aca */
