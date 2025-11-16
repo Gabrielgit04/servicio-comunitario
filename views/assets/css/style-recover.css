@@ -18,12 +18,12 @@ body{
 }
 .question-box form{
     width: 450px;
-    height: 480px;
+    height: 460px;
     background-color: whitesmoke;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    row-gap:5px;
+    /* row-gap:3px; */
     position: absolute;
     padding: 0 10px;
 }
@@ -93,9 +93,63 @@ body{
     letter-spacing: 2px;
     cursor: pointer;
 }
+.btn-secure:hover{
+    background-color: rgb(5, 28, 201);
+    border: 1px solid  rgb(3, 24, 187);
+    transition: all ease .5s;
+}
 
+.header-box{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: rgba(191, 9, 9, 0.874);
+}
 
+.form-change{
+    font-size: 14px;
+    text-align: center;
+    width: 370px;
+    height: 370px;
+    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 20px;
+}
+.form-change h1{
+    font-size: 22px;
+    text-transform: uppercase;
+    color: rgba(191, 9, 9, 0.874);
+    margin-top: 30px;
+}
 
+.main-box-change{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+.icon_lock_new,.icon_lock_rep{
+    width: 25px;
+}
+
+.send-new{
+    height: 35px;
+    width: 90%;
+    text-transform: uppercase;
+    transform: translateX(23px);
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+    margin-top:45px;
+    border-radius: 7px;
+    border: 1px solid  rgba(8, 24, 146, 0.807);
+    background-color:  rgba(8, 24, 146, 0.807);
+    color: whitesmoke;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
 
 
 

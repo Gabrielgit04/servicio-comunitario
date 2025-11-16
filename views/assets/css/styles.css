@@ -137,7 +137,7 @@ body{
     letter-spacing: 2px;
     cursor: pointer;
 }
-/* hasta aca */
+/* registro hasta aca */
 
 /* aca empiezo con lo demas del login */
 .box-main{
@@ -235,13 +235,91 @@ article{
     cursor: pointer;
 }
 
-/* hasta aca */
+/* login hasta aca */
 
+footer{
+    display: none;
+}
+
+/* impportando fuente */
 @font-face {
     font-family: 'Poppins';
     src: url(../fonts/Poppins-Black.ttf) format('truetype');
 }
 
+/* responsive design */
+@media( width < 450px) and (height > 600px){
+
+    body{
+        overflow-y: scroll;
+    }
+    /* registro responsive */
+    .container{
+        flex-direction: column;
+        justify-content: center;
+        align-items:center ;
+        padding: 10px;
+        gap: 20px;
+    }
+    .back{
+        display:none;
+        }
+    .unidos_logo{
+        margin: 0;
+        width: 80px;
+        height:40px;
+        margin-bottom: 20px;
+    }
+    .informacion{
+        width: 100%;
+        height: 100dvh;
+        padding: 20px 0;
+        
+    }
+    .informacion form{
+        width: 90%;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .registro-link a{
+        margin-right: 0;
+        margin-top: 30px;
+    }
+
+    footer{
+        display: flex;
+        color: whitesmoke;
+    }
+}
+/* hasta aca */
+
+.box main{
+    flex-direction: column;
+    width: 100%;
+    height: 100dvh;
+
+
+    
+}
+.two-box{
+    display: none;}
+
+    .first-box{
+        width: 100%;
+        border-radius: 0;
+        height: 100dvh;
+        padding: 40px;}
+
+        .first-box form{
+            width: 120%;
+            height: auto;
+            padding: 20px 0;
+        }
+
+
+
+/* animaciones */
 @keyframes aparicion{
     from{
             transform: translateY(-100%);
