@@ -29,6 +29,7 @@ try{
     $query->execute();
 
     echo "<script>alert('Usuario registrado correctamente.')</script>";
+    header('Location: ../views/secure_questions.php');
 }   
 catch(PDOException $e){
     echo "<script>alert('El usuario no fue registrado.')</script>";

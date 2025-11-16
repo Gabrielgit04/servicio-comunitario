@@ -10,8 +10,8 @@
     <section class="question-box">
 
         
-        <form action="/controller/secure.php" method="post">
-            <header><h2>Preguntas de seguridad</h2></header>
+        <form action="/controller/secure.php" method="post" autocomplete="off">
+            <header class="header-box"><h2>Preguntas de seguridad</h2></header>
 
             <div class="input_area">
                 <input type="text" name="ci_quest" id="user" class="entry" placeholder="Cedula" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>

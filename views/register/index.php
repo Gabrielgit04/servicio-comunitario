@@ -65,6 +65,9 @@
         </article>
 
     </section>
+    <footer>
+        <p>© 2025 Unidos en Victoria Siempre. Todos los derechos reservados.</p>
+    </footer>
 
     </section>
 </body>
