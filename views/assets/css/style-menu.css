@@ -1,0 +1,172 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+
+.main-box {
+display: flex;
+}
+
+hr{width: 90%;
+    height: 2px;
+}
+.sect-hd-dash{
+    width:100%;
+    padding: 15px;
+}
+.box-header{
+    width: 100%;
+    background-color: rgba(6, 19, 117, 0.807);
+    min-height: 60px;
+    margin-top: 0;
+
+}
+
+/* Sidebar inicial colapsado */
+.box-sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 70px; /* ancho reducido */
+    background-color: #041b2d;;
+    color: whitesmoke;
+    height: 104dvh;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    row-gap: 24.5px;
+}
+.box-sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: whitesmoke;
+    column-gap: 5px;
+    width: 100%;
+}
+.box-sidebar a:hover{
+    color: #041b2d;
+}
+
+/* Al hacer hover se expande */
+.box-sidebar:hover {
+width: 250px; /* ancho expandido */
+z-index: 1;
+box-shadow: 0 0 6px darkslategray;
+}
+
+.box-sidebar figure, .box-dashboard figure a{
+padding: 8px;
+margin: 0;
+cursor: pointer;
+display: flex;
+align-items: center;
+column-gap: 4px;
+}
+
+.box-sidebar figure:hover {
+background: whitesmoke;
+color: #041b2d;
+transition: .5s;
+}
+
+.box-sidebar figOne:hover{
+    background-color: #041b2d;
+    color: whitesmoke;
+}
+
+.box-sidebar img {
+width: 24px;
+margin-right: 5px;
+border-radius: 10px;
+margin-left:5px ;
+padding: 6px;
+background-color: whitesmoke;
+box-shadow:0 0 7px #555;
+}
+
+.box-sidebar h4 {
+opacity: 0; /* oculto por defecto */
+white-space: nowrap;
+transition: opacity 0.3s ease;
+text-transform: uppercase;
+}
+
+/* Cuando el menú está expandido (hover), mostramos los textos */
+.box-sidebar:hover h4 {
+opacity: 1;
+}
+
+
+.box-dashboard{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 100%;
+    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    row-gap:8px;
+}
+.box-dashboard p{
+    letter-spacing: 1px;
+    font-style: italic;
+}
+ul{
+    list-style-type: none;
+    line-height: 30px;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #DDDDDD;
+    border-radius: 10px;
+
+}
+.title{
+    display: flex;
+    height: fit-content;
+    column-gap: 20px;
+    background-color: #DDDDDD;
+    border-radius: 10px;
+    box-shadow: 0 0 1px darkslategray;
+}
+
+.title img{
+    width: 150px;
+    height:120px;
+    border-radius: 10px 0 0 10px;
+}
+
+.welcome-hd{
+    height: 100px;
+}
+.list-option{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: space-around;
+}
+
+.parrafos{
+    font-size:16px ;
+    background-color: rgba(236, 236, 13, 0.988);
+    border-radius: 10px;
+    padding: 13px 10px;
+    width: 450px;
+}
+.parrafothree{
+    border-radius: 10px;
+    padding: 6px;
+    background-color: rgba(191, 9, 9, 0.874);
+    color: whitesmoke;
+}
+/* importando fuente */
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Black.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url(../fonts/Poppins-Light.ttf) format('truetype');
+}
+
+/* animaciones */
+
