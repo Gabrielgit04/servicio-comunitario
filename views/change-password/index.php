@@ -8,6 +8,7 @@
 </head>
 <body>
     <main class="main-box-change">
+        <img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit">
 
         <form action="" method="POST" class="form-change">
             <h1>Cambia tu contraseña</h1>

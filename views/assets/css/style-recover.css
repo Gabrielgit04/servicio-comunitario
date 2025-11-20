@@ -6,6 +6,17 @@ body{
     background-color: rgba(2, 20, 155);
     font-family: 'Poppins',Arial, Helvetica, sans-serif;
 }
+.exit{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius:50% ;
+}
+/* preguntas de seguridad */
 
 .question-box{
     width: 100%;
@@ -107,6 +118,8 @@ body{
     color: rgba(191, 9, 9, 0.874);
 }
 
+/* cambio de contrasena */
+
 .form-change{
     font-size: 14px;
     text-align: center;
@@ -151,11 +164,68 @@ body{
     cursor: pointer;
 }
 
+/* recover password */
+.btn-recover{
+    height: 35px;
+    width: 90%;
+    text-transform: uppercase;
+    transform: translateX(23px);
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+    margin-top:50px;
+    border-radius: 7px;
+    border: 1px solid  rgba(8, 24, 146, 0.807);
+    background-color:  rgba(8, 24, 146, 0.807);
+    color: whitesmoke;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+}
+.recover-form{
+    width: 450px;
+    height: 460px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap:8px;
+    position: absolute;
+    padding: 0 10px;
+
+    
+}
+
+
+/* responsive design */
+@media( width < 450px) and (height > 600px){
+
+    body{
+        padding: 20px;
+    }
+    .question-box form{
+        width: 100%;
+        height: 480px;
+    }
+
+    .header-box{
+        font-size: 14px;
+    }
+
+    .btn-secure{
+        margin-top: 60px;
+        transform: translateX(18px);
+    }
+    .entry,.entry_pass{
+        left: 18px;
+}
+
+.question-box form select{
+    transform: translateX(18px);
+}
 
 
 
-
-
+}
 
 
 
