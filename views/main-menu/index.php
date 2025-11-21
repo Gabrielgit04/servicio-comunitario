@@ -1,17 +1,17 @@
 <?php 
-include_once '../../controller/register.php'
+session_start();
 
-
-
+if(!isset($_SESSION['nombre'])){
+    header('Location:../../views/login/index.php');
+};
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style-menu.css">
-    <title>Menu Hover</title>
+    <title>Menu</title>
 <body>
 
     <main class="main-box">
@@ -19,7 +19,7 @@ include_once '../../controller/register.php'
         <nav class="box-sidebar">
 
             <figure class="figOne">
-                    <a href="">
+                    <a href="#" aria-disabled="true">
                 <img src="../assets/imgs/icons/home.svg" alt="Inicio">
                 <h4>HOME</h4>
             </a>
@@ -39,14 +39,14 @@ include_once '../../controller/register.php'
                 </figure>
 
                 <figure class="figFourt">
-                    <a href="">
+                    <a href="../../views/contact/index.php">
                 <img src="../assets/imgs/icons/address-book.svg" alt="Opción 4">
                 <h4>Contacto</h4>
             </a>
             </figure>
 
             <figure class="figFive">
-                <a href=""><img src="../assets/imgs/icons/logout-2.svg" alt="Opción 5">
+                <a href="../../controller/close-session/index.php"><img src="../assets/imgs/icons/logout-2.svg" alt="Opción 5">
                 <h4>Salir</h4>
             </a>
             </figure>
@@ -58,8 +58,8 @@ include_once '../../controller/register.php'
             <header class="title">
                 <img src="../assets/imgs/man-1835_256.gif" alt="man-setup">
                 <div class="welcome-hd">
-                    <h1>Bienvenido</h1>
-                    <h5>Te damos la bienvenido usuario, aprovecha este sistema para agilizar tus procesos administrativos. </h5>
+                    <h1>Bienvenido <?php echo $_SESSION['nombre'] ?></h1>
+                    <h5>Te damos la bienvenido <?php echo $_SESSION['nombre'] ?>, aprovecha este sistema para agilizar tus procesos administrativos. </h5>
                 </div>
                     
             </header>

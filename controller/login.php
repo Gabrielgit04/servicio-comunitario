@@ -13,11 +13,18 @@ try{
     $sqlQuery->bindParam('userEmail',$emailUser);
 
     $sqlQuery->execute();
+    
     $result=$sqlQuery->fetch(PDO::FETCH_ASSOC);
+
+    if($result){
+        $_SESSION['nombre'] = $result['nombre_completo'];
+        $_SESSION['correo'] = $result['correo'];
+    }
     
 
     if(password_verify($passUser,$result['contrasena'])){
         echo"<script>alert('Usuario encontrado. Bienvenido.')</script>";
+        header('Location: ../../views/main-menu/index.php');
     }else{
         echo"<script>alert('Contraseña incorrecta.')</script>";
     }

@@ -290,32 +290,32 @@ footer{
     footer{
         display: flex;
         color: whitesmoke;
+        .box main{
+            flex-direction: column;
+            width: 100%;
+            height: 100dvh;
+        
+        
+            
+        }
+        .two-box{
+            display: none;}
+        
+            .first-box{
+                width: 100%;
+                border-radius: 0;
+                height: 100dvh;
+                padding: 40px;}
+        
+                .first-box form{
+                    width: 120%;
+                    height: auto;
+                    padding: 20px 0;
+                }
     }
 }
 /* hasta aca */
 
-.box main{
-    flex-direction: column;
-    width: 100%;
-    height: 100dvh;
-
-
-    
-}
-.two-box{
-    display: none;}
-
-    .first-box{
-        width: 100%;
-        border-radius: 0;
-        height: 100dvh;
-        padding: 40px;}
-
-        .first-box form{
-            width: 120%;
-            height: auto;
-            padding: 20px 0;
-        }
 
 
 
