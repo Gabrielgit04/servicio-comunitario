@@ -1,37 +1,36 @@
 <?php
-
 include '../models/conexion.php';
+session_start();
 
-$idUserQuest = $_POST['ci_quest'];
 $questOne = $_POST['security-question'];
 $questTwo = $_POST['security-question-2'];
 $answerOne = $_POST['quest1'];
-$answerTwo= $_POST['quest2'];
+$answerTwo = $_POST['quest2'];
+
+$answerOneHash = password_hash($answerOne, PASSWORD_BCRYPT);
+$answerTwoHash = password_hash($answerTwo, PASSWORD_BCRYPT);
 
 $db = conexionDB();
-try{
-    $sql = $db ->prepare("INSERT INTO secure_questions(id_user,question1,answer1,question2,answer2)VALUES(:userID,:oneQuest,:oneAnswer,:twoQuest,:twoAnswer)");
 
-    $sql->bindParam(':userID',$idUserQuest);
-    $sql->bindParam(':oneQuest',$questOne);
-    $sql->bindParam(':oneAnswer',$answerOne);
-    $sql->bindParam(':twoQuest',$questTwo);
-    $sql->bindParam(':twoAnswer',$answerTwo);
+try {
+    // Usar directamente el ID de la sesión
+    $idUser = $_SESSION['idGlobal'];
+
+
+    $sql = $db->prepare("INSERT INTO secure_questions(id_user, question1, answer1, question2, answer2)
+                    VALUES(:idUserQuest, :oneQuest, :oneAnswer, :twoQuest, :twoAnswer)");
+
+    $sql->bindParam(':idUserQuest', $idUser, PDO::PARAM_INT);
+    $sql->bindParam(':oneQuest', $questOne, PDO::PARAM_STR);
+    $sql->bindParam(':oneAnswer', $answerOneHash, PDO::PARAM_STR);
+    $sql->bindParam(':twoQuest', $questTwo, PDO::PARAM_STR);
+    $sql->bindParam(':twoAnswer', $answerTwoHash, PDO::PARAM_STR);
     $sql->execute();
 
-    echo"<div class'box-success'><h3>Tus respuestas se han registrado correctamente.</h3></div>";
-
-
-}catch(PDOException $e){
-    echo"<script>alert('No se registraron las respuestas..')</script>";
-
+    header("Location: ../../views/login/index.php?success=1");
+    exit;
+} catch (PDOException $e) {
+    header("Location: ../../views/secure-questions/index.php?error=db");
+    exit;
 }
-
-
-
-
-
-
-
-
 ?>

@@ -1,10 +1,4 @@
-<?php 
-session_start();
 
-if(!isset($_SESSION['nombre'])){
-    header('Location:../../views/login/index.php');
-};
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +32,7 @@ if(!isset($_SESSION['nombre'])){
                             class="icon_user"></span></div>
             </div>
 
-            <select id="security-question" name="security-question" required>
+            <select id="security-question" name="security-question-2" required>
                 <option value="" selected disabled>-- Selecciona una pregunta --</option>
                 <option value="rol-consejo">¿Cuáll es tu cargo en el consejo comunal?</option>
                 <option value="first-job">¿Cuál fue tu primer trabajo?</option>
