@@ -1,6 +1,7 @@
 <?php
 
 include '../models/conexion.php';
+session_start();
 
 //definiendo variables, traidas desde el front
 
@@ -9,6 +10,7 @@ $name=htmlspecialchars(ucfirst($_POST['nombre']));
 $correo=htmlspecialchars($_POST['email']);
 $passw=$_POST['passw'];
 $rol=htmlspecialchars($_POST['rol']);
+
 
 
 $password_hash = password_hash($passw,PASSWORD_BCRYPT);
@@ -27,9 +29,11 @@ try{
     $query->bindParam(':rol',$rol);
 
     $query->execute();
+    $_SESSION['idGlobal'] = $id;
 
+    
     echo "<script>alert('Usuario registrado correctamente.')</script>";
-    header('Location: ../views/secure_questions.php');
+    header('Location: ../../views/secure-questions/index.php');
 }   
 catch(PDOException $e){
     echo "<script>alert('El usuario no fue registrado.')</script>";

@@ -1,10 +1,4 @@
-<?php 
-session_start();
 
-if(!isset($_SESSION['nombre'])){
-    header('Location:../../views/login/index.php');
-};
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
