@@ -93,7 +93,7 @@ body{
     position: relative;
     height:50px;
     line-height: 50px;
-    margin: 20px 0 0px 0;
+    margin: 18px 0 0px 0;
     padding: 8px;
 }
 .question-box form select{
@@ -199,9 +199,10 @@ body{
     cursor: pointer;
 
 }
-.recover-form{
+.question-box .recover-form{
     width: 450px;
-    height: 460px;
+    height: 440px;
+    min-height: fit-content;
     background-color: whitesmoke;
     border-radius: 20px;
     display: flex;
@@ -211,6 +212,25 @@ body{
     padding: 0 10px;
 
     
+}
+.question-box .recover{
+    width: 450px;
+    height: 440px;
+    min-height: fit-content;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: 0 8px;
+
+}
+.text{
+    font-family:'Poppins-light', Arial, Helvetica, sans-serif ;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px darkslategray;
+    text-indent: 10px;
+    font-size: 14px;
 }
 
 
@@ -247,6 +267,10 @@ body{
 
 
 
+@font-face {
+    font-family: 'Poppins-light';
+    src: url(../fonts/Poppins-Light.ttf) format('truetype');
+}
 
 
 @font-face {

@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +9,9 @@ $_SESSION['id'];
     <title>Document</title>
 </head>
 <body>
-    <pre><?php if(isset($_SESSION['id'])){
-        var_dump($_SESSION['id']);
+    <pre><?php if(isset($_SESSION['q1'])){
+        var_dump($_SESSION['q1']);
+        var_dump($_SESSION['q2']);
     } ?></pre>
         
     </pre>

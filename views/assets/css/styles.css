@@ -55,6 +55,7 @@ body{
     background-color: whitesmoke;
     gap: 20px;
     border-radius: 20px;
+    min-height: fit-content;
 }
 .inputs{
     width: 100%;
@@ -128,8 +129,10 @@ body{
     height: 35px;
     width: 90%;
     transform: translateX(23px);
-    margin-top: 15px;
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+    margin-top: 30px;
     border-radius: 7px;
+    text-transform: uppercase;
     border: 1px solid  rgba(8, 24, 146, 0.807);
     background-color:  rgba(8, 24, 146, 0.807);
     color: whitesmoke;
