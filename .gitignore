@@ -1,1 +1,2 @@
-./servicio/controller/errores.php
+*.htaccess
+errores.php

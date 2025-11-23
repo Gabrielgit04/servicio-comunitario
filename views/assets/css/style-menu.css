@@ -9,6 +9,7 @@ body{
 
 .main-box {
 display: flex;
+animation: aparecer-up 0.8s linear;
 }
 
 hr{width: 90%;
@@ -128,6 +129,7 @@ ul{
     background-color: #DDDDDD;
     border-radius: 10px;
     box-shadow: 0 0 1px darkslategray;
+    height: fit-content;
 }
 
 .title img{
@@ -138,6 +140,11 @@ ul{
 
 .welcome-hd{
     height: 100px;
+
+}
+
+.welcome-hd h5{
+    font-size: 13px;
 }
 .list-option{
     display:grid;
@@ -146,18 +153,20 @@ ul{
 }
 
 .parrafos{
-    font-size:16px ;
+    font-size:15px ;
     background-color: rgba(236, 236, 13, 0.988);
     border-radius: 10px;
     padding: 13px 10px;
-    width: 450px;
+    width: 430px;
 }
 .parrafothree{
     border-radius: 10px;
     padding: 6px;
     background-color: rgba(191, 9, 9, 0.874);
     color: whitesmoke;
+    font-size:15px ;
 }
+
 /* importando fuente */
 @font-face {
     font-family: 'Poppins';
@@ -169,4 +178,12 @@ ul{
 }
 
 /* animaciones */
-
+@keyframes aparecer-up {
+    from{
+        transform: translateY(-100%);
+    }
+    to{
+        transform: translateY(0%);
+    }
+    
+}

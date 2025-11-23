@@ -1,6 +1,6 @@
 <?php
-include '../models/conexion.php';
 session_start();
+include '../models/conexion.php';
 
 $questOne = $_POST['security-question'];
 $questTwo = $_POST['security-question-2'];

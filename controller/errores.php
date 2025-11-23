@@ -9,10 +9,11 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <pre><?php 
-    if (!$result){
-        var_dump($_SESSION['idGlobal']);} 
-        ?>
+    <pre><?php if(isset($_SESSION['q1'])){
+        var_dump($_SESSION['q1']);
+        var_dump($_SESSION['q2']);
+    } ?></pre>
+        
     </pre>
 </body>
 </html>

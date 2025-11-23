@@ -17,12 +17,11 @@
 
             <select id="security-question" name="security-question" required>
                 <option value="" selected disabled>-- Selecciona una pregunta --</option>
-                <option value="rol-consejo">¿Cuáll es tu cargo en el consejo comunal?</option>
-                <option value="first-job">¿Cuál fue tu primer trabajo?</option>
-                <option value="favorite-teacher">
-                    ¿Cuál era el nombre de tu maestro favorito?</option>
-                <option value="name-mom">¿Nombre de tu Mamá?</option>
-                <option value="son-daughter">¿Nombre de tu Hijo/a?</option>
+                <option value="¿Cuáll es tu cargo en el consejo comunal?">¿Cuáll es tu cargo en el consejo comunal?</option>
+                <option value="¿Cuál fue tu primer trabajo?">¿Cuál fue tu primer trabajo?</option>
+                <option value="¿Cuál era el nombre de tu maestro favorito?">¿Cuál era el nombre de tu maestro favorito?</option>
+                <option value="¿Nombre de tu Mamá?">¿Nombre de tu Mamá?</option>
+                <option value="¿Nombre de tu Hijo/a?">¿Nombre de tu Hijo/a?</option>
             </select>
 
 
@@ -34,13 +33,13 @@
 
             <select id="security-question" name="security-question-2" required>
                 <option value="" selected disabled>-- Selecciona una pregunta --</option>
-                <option value="rol-consejo">¿Cuáll es tu cargo en el consejo comunal?</option>
-                <option value="first-job">¿Cuál fue tu primer trabajo?</option>
-                <option value="favorite-teacher">
-                    ¿Cuál era el nombre de tu maestro favorito?</option>
-                <option value="name-mom">¿Nombre de tu Mamá?</option>
-                <option value="son-daughter">¿Nombre de tu Hijo/a?</option>
+                <option value="¿Cuáll es tu cargo en el consejo comunal?">¿Cuáll es tu cargo en el consejo comunal?</option>
+                <option value="¿Cuál fue tu primer trabajo?">¿Cuál fue tu primer trabajo?</option>
+                <option value="¿Cuál era el nombre de tu maestro favorito?">¿Cuál era el nombre de tu maestro favorito?</option>
+                <option value="¿Nombre de tu Mamá?">¿Nombre de tu Mamá?</option>
+                <option value="¿Nombre de tu Hijo/a?">¿Nombre de tu Hijo/a?</option>
             </select>
+
 
 
             <div class="input_area">

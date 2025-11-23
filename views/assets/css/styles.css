@@ -55,6 +55,7 @@ body{
     background-color: whitesmoke;
     gap: 20px;
     border-radius: 20px;
+    min-height: fit-content;
 }
 .inputs{
     width: 100%;
@@ -128,8 +129,10 @@ body{
     height: 35px;
     width: 90%;
     transform: translateX(23px);
-    margin-top: 15px;
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+    margin-top: 30px;
     border-radius: 7px;
+    text-transform: uppercase;
     border: 1px solid  rgba(8, 24, 146, 0.807);
     background-color:  rgba(8, 24, 146, 0.807);
     color: whitesmoke;
@@ -158,10 +161,12 @@ body{
 .first-box form{
     width: 400px;
     height: 420px;
+    min-height: fit-content;
+    padding: 10px;
     background-color:whitesmoke;
     border-radius: 20px;
     /* box-shadow: 0 0 10px whitesmoke; */
-    gap: 10px;
+    gap: 9px;
 }
 .first-box form header{
     width: 100%;
@@ -225,7 +230,7 @@ article{
     text-transform: uppercase;
     transform: translateX(23px);
     font-family: 'Poppins',Arial, Helvetica, sans-serif;
-    margin-top:80px;
+    margin-top:60px;
     border-radius: 7px;
     border: 1px solid  rgba(8, 24, 146, 0.807);
     background-color:  rgba(8, 24, 146, 0.807);
@@ -315,6 +320,51 @@ footer{
     }
 }
 /* hasta aca */
+.success-box{
+    background-color:#28a745;
+    width: 89%;
+    text-align: center;
+    height: fit-content;
+    border-radius: 6px;
+    display:flex ;
+    position: relative;
+    left:6% ;
+    margin: 10px 0 0 0;
+    transition: all ease-in-out .4s;
+}
+.error-box{
+    background-color:#a10f0f;
+    width: 89%;
+    text-align: center;
+    height: fit-content;
+    border-radius: 6px;
+    display:flex ;
+    position: relative;
+    left:6% ;
+    margin: 10px 0 0 0;
+}
+.success-box p, .error-box p{
+    color: #DDDDDD;
+    font-family:'Poppins' ;
+    width: 100%;
+    text-align: center;
+}
+
+.barra-de-tiempo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 5px;
+    border-radius: 10px 0 10px 0px;
+    background-color: #DDDDDD;
+    width: 100%;
+    animation: shrink 2s linear forwards; /* duración: 5 segundos */
+    animation-delay: 1.2s;
+}
+
+
+
+
 
 
 
@@ -339,6 +389,15 @@ footer{
 to{
         visibility: visible;
         opacity: 1;
+}
+}
 
-}
-}
+    @keyframes shrink {
+        from {
+        width: 100%;
+        }
+        to {
+        width: 0%;
+    }
+        }
+        
