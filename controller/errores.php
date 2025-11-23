@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,10 +10,10 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <pre><?php 
-    if (!$result){
-        var_dump($_SESSION['idGlobal']);} 
-        ?>
+    <pre><?php if(isset($_SESSION['id'])){
+        var_dump($_SESSION['id']);
+    } ?></pre>
+        
     </pre>
 </body>
 </html>

@@ -1,10 +1,4 @@
-<?php 
-session_start();
 
-if(!isset($_SESSION['nombre'])){
-    header('Location:../../views/login/index.php');
-};
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,17 +10,11 @@ if(!isset($_SESSION['nombre'])){
 <body>
     <section class="question-box">
 
-        <img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit">
+        <a href="../../views/login/index.php"><img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit"></a>
 
         
         <form action="/controller/secure.php" method="post" autocomplete="off">
             <header class="header-box"><h2>Recupera tu cuenta</h2></header>
-
-            <div class="input_area">
-                <input type="text" name="ci_quest" id="user" class="entry" placeholder="Cedula" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
-                <div class="labelline"><span><img src="../assets/imgs/icons/id.svg" alt="icon"
-                            class="icon_user"></span></div>
-            </div>
 
 
 
@@ -41,7 +29,7 @@ if(!isset($_SESSION['nombre'])){
             </select>
 
             <div class="input_area">
-                <input type="text" name="quest1" id="user" class="entry" placeholder="Respuesta" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
+                <input type="text" name="recover-" id="user" class="entry" placeholder="Respuesta" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
                 <div class="labelline"><span><img src="../assets/imgs/icons/clipboard.svg" alt="icon"
                             class="icon_user"></span></div>
             </div>

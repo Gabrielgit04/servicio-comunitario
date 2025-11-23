@@ -1,5 +1,6 @@
 <?php
 include '../models/conexion.php';
+include '../views/login/index.php';
 session_start();
 
 $emailUser = $_POST['email_log'];
@@ -14,21 +15,26 @@ try{
 
     $sqlQuery->execute();
     
-    $result=$sqlQuery->fetch(PDO::FETCH_ASSOC);
+    $result=$sqlQuery->fetch(PDO::FETCH_ASSOC);    
 
-    if($result){
+    if ($result && password_verify($passUser, $result['contrasena'])) {
         $_SESSION['nombre'] = $result['nombre_completo'];
         $_SESSION['correo'] = $result['correo'];
-    }
+        $_SESSION['Logueado'] = true;
+
+        unset($_SESSION['error']);
+
     
 
-    if(password_verify($passUser,$result['contrasena'])){
-        echo"<script>alert('Usuario encontrado. Bienvenido.')</script>";
-        header('Location: ../../views/main-menu/index.php');
-    }else{
-        echo"<script>alert('Contraseña incorrecta.')</script>";
-    }
-}catch(PDOException $e){
+        // Primera vez: mostrar mensaje en login
+            header("Location: ../../views/login/index.php");
+            exit();
+        }
+    else {
+        $_SESSION['error'] = 'Usuario o contraseña incorrecta';
+        header("Location: ../../views/login/index.php");
+        exit();
+    }}catch(PDOException $e){
     echo"<script>alert('No se pudo iniciar la sesion, por favor, intente de nuevo.')</script>";
 }
 
