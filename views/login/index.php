@@ -25,7 +25,7 @@ if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] == true) {
         <section class="first-box">
 
 
-            <form action="/controller/login.php" autocomplete="off" method="post">
+            <form action="http://localhost/servicio-comunitario/controller/login.php" autocomplete="off" method="post">
                 <header>
                     <h2>Inicia sesion</h2>
                 </header>
