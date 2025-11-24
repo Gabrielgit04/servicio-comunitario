@@ -55,7 +55,7 @@
 
                 <select name="rol" id="rol">
                     <option selected disabled>Selecciona un rol</option>
-                    <option value="Admin">Admin</option>
+                    <option value="Administrador">Administrador</option>
                 </select>
                 <button>Registrar</button>
 

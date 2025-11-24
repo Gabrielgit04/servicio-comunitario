@@ -3,8 +3,8 @@ include '../models/conexion.php';
 include '../views/login/index.php';
 session_start();
 
-$emailUser = $_POST['email_log'];
-$passUser = $_POST['passw_log'];
+$emailUser = htmlspecialchars($_POST['email_log']);
+$passUser = htmlspecialchars($_POST['passw_log']);
 
 $db = conexionDB();
 
@@ -20,6 +20,7 @@ try{
     if ($result && password_verify($passUser, $result['contrasena'])) {
         $_SESSION['nombre'] = $result['nombre_completo'];
         $_SESSION['correo'] = $result['correo'];
+        $_SESSION['ci'] = $result['ci'];
         $_SESSION['Logueado'] = true;
 
         unset($_SESSION['error']);

@@ -6,7 +6,6 @@ if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] == true) {
     $mensaje = 'Has iniciado sesion correctamente';
     unset($_SESSION['Logueado']);
 }
-
 ?>
 
 

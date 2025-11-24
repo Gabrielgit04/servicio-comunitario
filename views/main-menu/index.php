@@ -65,13 +65,24 @@ if(!isset($_SESSION['nombre'])){
             </header>
 
             <div class="list-option">
-                <article class="parrafos">
-                    <p class="parrafoone">Este es el Sistema de Gestión del Consejo Comunal Las Margaritas, una herramienta desarrollada por estudiantes de la UNEFA con el propósito de fortalecer la organización comunitaria.</p>
-                    <p class="parrafotwo">Este sistema surge como respuesta a la necesidad de modernizar los procesos administrativos, reemplazando los controles manuales por una plataforma digital que permita:</p>
-                </article>
-
-            <article>
+                <article class="info_admin">
+                    <figure>
+                        <img src="../assets/imgs/logo-unidos.webp" alt="bandera de venezuela" class="img-bandera">
+                        <article>Venezuela - Estado Falcón</article>
+                    </figure>
                     <ul>
+                        <li><strong>Cedula:</strong> <?php echo $_SESSION['ci'] ?></li>
+                        <li><strong>Comunidad:</strong> Consejo Comunal Las Margaritas, Unidos En Victoria Siempre Venceremos</li>
+                        <li><strong>Correo:</strong> <?php echo $_SESSION['correo'] ?></li>
+                        <li><strong>Rol:</strong> Administrador</li>
+                    </ul>
+                    <article class="link-pass"><a href="../change-password/index.php">Cambiar contraseña</a></article>
+                </article>
+                    <article class="parrafos">
+                        <p class="parrafoone">Este es el Sistema de Gestión del Consejo Comunal Las Margaritas, una herramienta desarrollada por estudiantes de la UNEFA con el propósito de fortalecer la organización comunitaria.</p>
+                        <p class="parrafotwo">Este sistema surge como respuesta a la necesidad de modernizar los procesos administrativos, reemplazando los controles manuales por una plataforma digital que permita:</p>                   
+                <article>
+                    <ul class="ulist">
                         <li>📊 Registrar y organizar datos de manera segura y eficiente.</li>
                         
                         <li>🗂️ Centralizar la información del consejo comunal en un solo lugar.</li>
@@ -81,6 +92,8 @@ if(!isset($_SESSION['nombre'])){
                         <li>🤝 Fomentar la transparencia y participación de la comunidad.<li>
                     </ul>
             </article>
+            </article>
+
         </div>
                 
                 <p class="parrafothree">Con esta aplicación buscamos apoyar a la comunidad de Las Margaritas en la construcción de una gestión más ordenada, confiable y accesible para todos sus integrantes.</p>
