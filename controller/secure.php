@@ -2,10 +2,10 @@
 session_start();
 include '../models/conexion.php';
 
-$questOne = $_POST['security-question'];
-$questTwo = $_POST['security-question-2'];
-$answerOne = $_POST['quest1'];
-$answerTwo = $_POST['quest2'];
+$questOne = htmlspecialchars($_POST['security-question']);
+$questTwo = htmlspecialchars($_POST['security-question-2']);
+$answerOne = htmlspecialchars($_POST['quest1']);
+$answerTwo = htmlspecialchars($_POST['quest2']);
 
 $answerOneHash = password_hash($answerOne, PASSWORD_BCRYPT);
 $answerTwoHash = password_hash($answerTwo, PASSWORD_BCRYPT);

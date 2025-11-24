@@ -37,7 +37,7 @@ hr{width: 90%;
     height: 104dvh;
     transition: width 0.3s ease;
     overflow: hidden;
-    row-gap: 24.5px;
+    row-gap: 65px;
 }
 .box-sidebar a {
     display: flex;
@@ -107,20 +107,77 @@ opacity: 1;
     background-color: whitesmoke;
     width: 100%;
     font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
-    row-gap:8px;
+    row-gap:20px;
 }
 .box-dashboard p{
     letter-spacing: 1px;
     font-style: italic;
 }
-ul{
+.ulist{
     list-style-type: none;
-    line-height: 30px;
+    line-height: 40px;
     font-size: 16px;
-    padding: 10px;
-    background-color: #DDDDDD;
-    border-radius: 10px;
+    
 
+}
+
+.info_admin{ 
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 4px;
+    height:360px;
+    grid-template-rows: repeat(2,auto);
+
+    border-radius: 30px 10px 30px 10px;
+    background-color: #DDDDDD;
+
+}
+.info_admin li{
+    margin: 8px 0;
+    font-size: 15px;
+}
+.info_admin ul{
+    padding: 20px;
+    list-style-type: none;
+    height: 100%;
+    min-height: fit-content;
+    line-height: 30px;
+}
+.info_admin a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+.info_admin a:hover{
+    text-decoration: underline;
+    color: #ddd;
+}
+.link-pass{
+    grid-column: span 2;
+    margin-top: 10px;
+    padding: 10px 10px;
+    width: 97.1%;
+    border-radius: 0 0 30px 10px;
+    text-align: center;
+    background-color: #100aa8;
+}
+.info_admin figure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 8px;
+    height: 100%;
+    min-height: fit-content;
+    margin-left:3px;
+    margin-top: 3px;
+}
+.img-bandera{
+    
+    width: 340px;
+    height: 270px;
+    border-radius: 30px 0 30px 0;
 }
 .title{
     display: flex;
@@ -150,21 +207,29 @@ ul{
     display:grid;
     grid-template-columns: repeat(2,1fr);
     justify-content: space-around;
+    margin-top: 40px;
+    column-gap: 15px;
+}
+
+.parrafoone,.parrafotwo{
+    padding:5px 15px;
 }
 
 .parrafos{
     font-size:15px ;
     background-color: rgba(236, 236, 13, 0.988);
     border-radius: 10px;
-    padding: 13px 10px;
-    width: 430px;
+    padding: 13px;
+    width: 600px;
+    text-indent: 10px;
 }
 .parrafothree{
     border-radius: 10px;
     padding: 6px;
     background-color: rgba(191, 9, 9, 0.874);
     color: whitesmoke;
-    font-size:15px ;
+    font-size:15px;
+    margin-top: 30px;
 }
 
 /* importando fuente */
@@ -186,4 +251,116 @@ ul{
         transform: translateY(0%);
     }
     
+}
+
+/* responsive design */
+/* =========================
+   Responsive para Canaima
+   ========================= */
+
+/* Pantallas pequeñas (tablets y laptops Canaima ~1366px o menos) */
+@media screen and (max-width: 1366px) {
+    .box-sidebar {
+        width: 60px; /* sidebar más compacto */
+    }
+    .box-sidebar:hover {
+        width: 200px; /* expandido pero no tan grande */
+    }
+    .box-sidebar img {
+        width: 20px;
+        padding: 4px;
+    }
+    .box-sidebar h4 {
+        font-size: 12px;
+    }
+
+    .info_admin {
+        grid-template-columns: 1fr; /* una sola columna */
+        height: auto;
+    }
+    .img-bandera {
+        width: 260px;
+        height: 200px;
+    }
+    .title img {
+        width: 120px;
+        height: 100px;
+    }
+    .parrafos {
+        width: 100%; /* que se ajuste al ancho disponible */
+        font-size: 14px;
+    }
+}
+
+/* Pantallas medianas (<=1024px) */
+@media screen and (max-width: 1024px) {
+    .main-box {
+        flex-direction: column; /* sidebar arriba y dashboard abajo */
+    }
+    .box-sidebar {
+        flex-direction: row;
+        height: auto;
+        width: 100%;
+        justify-content: space-around;
+        row-gap: 0;
+    }
+    .box-sidebar:hover {
+        width: 100%; /* no expandir en hover */
+        box-shadow: none;
+    }
+    .box-dashboard {
+        padding: 10px;
+    }
+    .list-option {
+        grid-template-columns: 1fr; /* opciones en una sola columna */
+        row-gap: 15px;
+    }
+}
+
+/* Pantallas pequeñas (<=768px) */
+@media screen and (max-width: 768px) {
+    .sect-hd-dash {
+        padding: 8px;
+    }
+    .box-header {
+        min-height: 50px;
+    }
+    .welcome-hd h5 {
+        font-size: 11px;
+    }
+    .parrafos {
+        font-size: 13px;
+        padding: 10px;
+    }
+    .parrafothree {
+        font-size: 13px;
+    }
+}
+
+/* Pantallas muy pequeñas (<=480px, modo tablet/mini Canaima) */
+@media screen and (max-width: 480px) {
+    .box-sidebar {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+    .box-sidebar img {
+        width: 18px;
+    }
+    .box-dashboard {
+        row-gap: 10px;
+    }
+    .title {
+        flex-direction: column;
+        align-items: center;
+    }
+    .title img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px 10px 0 0;
+    }
+    .img-bandera {
+        width: 100%;
+        height: auto;
+    }
 }
