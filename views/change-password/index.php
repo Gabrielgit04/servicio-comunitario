@@ -11,17 +11,17 @@
     <main class="main-box-change">
         <img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit">
 
-        <form action="" method="POST" class="form-change">
+        <form action="../../controller/recover/new_password.php" method="POST" class="form-change">
             <h1>Cambia tu contraseña</h1>
         
         <div class="input_area">
-            <input type="text" name="new_password" id="user" class="entry" placeholder="Nueva contraseña" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
+            <input type="password" name="new_password" id="user" class="entry" placeholder="Nueva contraseña" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
             <div class="labelline"><span><img src="../assets/imgs/icons/icons8-lock-48.png" alt="icon"
                         class="icon_lock_new"></span></div>
         </div>
 
         <div class="input_area">
-            <input type="text" name="rep_password" id="user" class="entry" placeholder="Repite la nueva contraseña" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
+            <input type="password" name="rep_password" id="user" class="entry" placeholder="Repite la nueva contraseña" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
             <div class="labelline"><span><img src="../assets/imgs/icons/icons8-lock-48.png" alt="icon"
                         class="icon_lock_rep"></span></div>
         </div>
