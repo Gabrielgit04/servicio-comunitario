@@ -22,16 +22,16 @@ session_start();
 
 
             <div class="input_area">
-                <input type="text" name="recover-" id="user" class="entry" placeholder="Respuesta" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
+                <input type="text" name="answer" id="user" class="entry" placeholder="Respuesta" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
                 <div class="labelline"><span><img src="../assets/imgs/icons/clipboard.svg" alt="icon"
                             class="icon_user"></span></div>
             </div>
 
-            <h5 class="text"><?php echo $_SESSION['q2'] ?></h5>
+            <h5 class="text"> <?php echo $_SESSION['q2'] ?></h5>
             
 
             <div class="input_area">
-                <input type="text" name="quest2" id="user" class="entry" placeholder="Respuesta" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
+                <input type="text" name="answer-2" id="user" class="entry" placeholder="Respuesta" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
                 <div class="labelline"><span><img src="../assets/imgs/icons/clipboard.svg" alt="icon"
                             class="icon_user"></span></div>
             </div>
