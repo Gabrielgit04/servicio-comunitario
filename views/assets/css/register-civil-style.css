@@ -1,0 +1,163 @@
+    body {
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        background-color: #DDDDDD;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .form-container {
+        width: 70%;
+        margin: 40px auto;
+        background-color: white;
+        border: 3px solid #100aa8;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px 30px;
+        box-sizing: border-box;
+    }
+    .form-container form section{
+        overflow-y:scroll;
+        height: 500px;
+        padding-right: 4px;
+        
+    
+    .form-container form{
+        max-height: 500px;
+        overflow: hidden;}
+
+    }
+    .form-all-cont{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: 1fr;
+        height: 100dvh;
+    }
+
+    .exit{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius:50% ;
+}
+
+
+    .form-container h2 {
+        text-align: center;
+        color: #100aa8;
+        margin-bottom: 20px;
+    }
+    .cont-header{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+        height: 100dvh;
+        min-height: fit-content;
+        background:linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('../imgs/bandera.webp') no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+        border-radius: 0 20% 20% 0;
+    }
+
+    .cont-header header h2{
+        color: #DDDDDD;
+        font-size: 40px;
+    }
+    .cont-header article p{
+        color: #DDDDDD;
+        font-size: 18px;
+        text-indent: 15px;
+        text-align: justify;
+    }
+    .cont-header article{
+        margin-top: 20px;
+        font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+        font-weight: lighter;
+        padding: 20px;
+        line-height: 28px;
+        height:400px;
+        row-gap:15px ;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .entry:focus {
+        outline: none;
+    }
+
+
+
+    .submit-btn {
+        margin-top: 25px;
+        width: 100%;
+        padding: 12px;
+        background-color: #100aa8;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+        background-color: rgba(236, 236, 13, 0.988);
+        color: #100aa8;
+    }
+
+    .entry,.entry_pass{
+    position: absolute;
+    width: 90%;
+    line-height: 28px;
+    outline: none;
+    border-radius: 10px;
+    border: solid #DDDDDD;
+    background-color: #DDDDDD;
+    text-indent: 35px;
+    transition: al ease .2s;
+    left: 23px;
+    /* box-shadow: 0 0 6px darkslategray; */
+}
+.entry:focus::placeholder,.entry_pass:focus::placeholder{
+    opacity: 0;
+}
+.entry::placeholder,.entry_pass::placeholder{
+    font-weight: bold;
+}
+.labelline{
+    position: absolute;
+    z-index: 1111;
+    font-size: 13;
+    font-weight: bold;
+    padding: 0.5;
+    margin: 0 23px;
+}
+
+.icon_lock,.icon_user,.icon_email,.icon_id{
+    margin-top: 6px;
+
+}
+.input_area,.input_password{
+    position: relative;
+    height:50px;
+    line-height: 50px;
+    margin: 20px 0 0px 0;
+    padding: 8px;
+}
+
+/* importando fuente */
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Black.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url(../fonts/Poppins-Light.ttf) format('truetype');
+}
