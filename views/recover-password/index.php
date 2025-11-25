@@ -1,6 +1,5 @@
-<?php 
-session_start();
-?>
+<?php
+session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@ session_start();
         <a href="../../views/login/index.php"><img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit"></a>
 
         
-        <form action="/controller/recover/recover.php" method="post" autocomplete="off" class='recover'>
+        <form action="/controller/recover/recover.php" method="post" autocomplete="off">
             <header class="header-box"><h2>Recupera tu cuenta</h2></header>
 
             <h5 class="text"><?php echo $_SESSION['q1'] ?></h5>
@@ -27,7 +26,7 @@ session_start();
                             class="icon_user"></span></div>
             </div>
 
-            <h5 class="text"> <?php echo $_SESSION['q2'] ?></h5>
+            <h5 class="text"><?php echo $_SESSION['q2'] ?></h5>
             
 
             <div class="input_area">
@@ -35,6 +34,8 @@ session_start();
                 <div class="labelline"><span><img src="../assets/imgs/icons/clipboard.svg" alt="icon"
                             class="icon_user"></span></div>
             </div>
+
+
 
             <button class="btn-secure">Enviar</button>
         </form>

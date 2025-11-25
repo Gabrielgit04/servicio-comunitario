@@ -16,8 +16,6 @@ try{
     if ($resultId) {
         // Si existe la cédula en la tabla, la guardamos en sesión
         $_SESSION['id']=$idCi;
-
-        // variables globales de preguntas guardadas en sesion
         $_SESSION['q1']=$resultId['question1'];
         $_SESSION['q2']=$resultId['question2'];
 
@@ -31,7 +29,7 @@ try{
     }
 
 } catch (PDOException $e) {
-    header('Location:../../views/auth-identification/index.php');
+    header('Location:../../views/aut-identification/index.php');
     exit;
 }
 ?>
