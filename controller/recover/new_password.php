@@ -6,22 +6,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newPassword = $_POST['new_password'];
     $repeatPassword = $_POST['rep_password'];
 
-    if ($newPassword === $repeatPassword) {
+    if ($newPassword == $repeatPassword) {
         try {
             $userID= $_SESSION['id_user']; 
             $dbConnect = conexionDB();
 
             $newPasswordHash = password_hash($newPassword, PASSWORD_BCRYPT);
 
-            $sql = $dbConnect->prepare('UPDATE users_admins SET contrasena = :hashNewPassword WHERE id = :id');
+            $sql = $dbConnect->prepare('UPDATE users_admins SET contrasena = :hashNewPassword WHERE ci = :id');
             $sql->bindParam(':hashNewPassword', $newPasswordHash);
-            $sql->bindParam(':id', $userId, PDO::PARAM_INT);
+            $sql->bindParam(':id', $userID, PDO::PARAM_INT);
             $sql->execute();
+
+            // echo $newPasswordHash;
 
             header('Location: ../../views/login/index.php');
             exit;
         } catch (PDOException $e) {
-            header("Location: ../../views/change-password/index.php");
+            echo $e;
+            header("Location: ../../controller/errores.php");
             exit;
         }
     } else {
