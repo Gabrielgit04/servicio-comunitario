@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['id'];
+$_SESSION['search'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,10 +10,16 @@ $_SESSION['id'];
     <title>Document</title>
 </head>
 <body>
-    <pre><?php if(isset($_SESSION['q1'])){
-        var_dump($_SESSION['q1']);
-        var_dump($_SESSION['q2']);
-    } ?></pre>
+    <pre><?php 
+        if(!empty($_SESSION['search'])){
+            foreach($_SESSION['search'] as $item){
+                echo 'Cédula: ' . $item['ID_CI'] . ' | Nombre: ' . $item['FirstName'] . ' | Apellido: ' . $item['LastName'] . "\n";
+                var_dump($item);
+                unset($_SESSION['search']);
+            }
+        }else {
+            echo "No se encontraron resultados para la búsqueda.";
+        }?></pre>
         
     </pre>
 </body>

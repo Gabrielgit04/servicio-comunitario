@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+.read-all-cont {
+    width: 100%;
+    display: grid;
+    box-sizing: border-box;
+    height: 100dvh;
+    grid-template-columns: 2fr 1fr; /* 3 columnas */
+    grid-template-rows: 120px 1fr;        /* 2 filas */
+    grid-template-areas: 
+        " header header"
+        " table table table";
+        padding: 15px;
+
+}
+
+.header-registradas {
+    display: grid;
+    grid-template-columns: 50px  700px 1fr;
+    gap:0 30px;
+    width:216%;
+    padding: 20px;
+    background-color: #100aa8;
+    grid-area: header;   /* sin comillas */
+    align-items: center;
+    min-height: fit-content;
+    position: absolute;
+}
+.header-registradas h2{
+    color: white;
+    margin: 14px 0 10px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+    .exit{
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 30px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius:50% ;
+}
+
+
+
+.table-container {
+    background-color: #fbfcfd;
+    overflow:hidden;
+    position: absolute;
+    top: 140px;
+    width: 100%;
+    min-width:fit-content ;
+    max-width: 100%;
+    height: fit-content;
+    /* min-height: 580px; */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.548);
+    border-radius: 10px;
+    grid-area: table;   /* sin comillas */
+    font-size: 13px;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+    border: 1px solid #DDDDDD;
+}
+
+/* Use native table layout for predictable columns; allow horizontal scroll on small screens */
+.table-container table{
+    border-collapse: collapse;
+    width: fit-content;
+    table-layout: fixed;
+    min-width: 800px; /* ensures scroll when many columns */
+    background: transparent;
+}
+
+.table-container thead th{
+    background-color: #b60a0a; /* header color different from left pane */
+    color: #ffffff;
+    text-align: left;
+    padding:5px 8px;
+    width: 180px;
+    border-radius: 10px 0 0 0;
+    min-width: fit-content;
+    font-weight: 700;
+    vertical-align: middle;
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin: 0 10px;
+    border-left: solid #860707 3px;
+    z-index: 5;
+    /* Smooth width transitions for JS-driven column resize */
+    .table-container th,
+    .table-container td{
+        box-sizing: border-box;
+        transition: width 260ms cubic-bezier(.2,.9,.2,1), background-color 120ms ease;
+    }
+
+}
+
+.table-container tbody td{
+    padding:10px 2px 10px 2px;
+    font-size: 12px;
+    width: 500px;
+    text-align: center;
+    color: #233043;
+    border-bottom: 1px solid #a7cdf3;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.table-container tbody tr{
+    transition: all ease .2s;
+    margin-left: 1opx;
+
+}
+/* Row striping and left accent bar for visual separation */
+.table-container tbody tr:nth-child(even) {
+    background-color: #ffffff;
+    border-left: 3px solid #a8b9fa;
+}
+
+.table-container tbody tr:nth-child(odd) {
+    background-color: #DDDDDD;
+    border-left: 3px solid #6b83d2;
+    margin-left: 10px;
+}
+
+.table-container tbody tr:hover{
+    background-color: #eef4ff;
+    transform: translateY(-1px);
+}
+
+/* Small helper for header row when table uses multiple cells */
+.table-container thead th:first-child{
+    border-radius: 6px 0 0 0;
+}
+.table-container thead th:last-child{
+    border-radius: 0 6px 0 0;
+}
+.search{
+    width: 580px;
+    height: 45px;
+    border-radius: 30px;
+    border: none;
+    position: relative;
+    z-index: 10;
+    outline: transparent;
+    margin: 5px 50px 5px 0px;
+    text-indent: 50px;
+    background-color:whitesmoke ;
+}
+.search::placeholder{
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-indent: -10px;
+}
+.span-search button{
+    position: absolute;
+    width: 20px;
+    margin-left: 10px;
+    margin-top: 14px;
+    border: none;
+    z-index: 11;
+    cursor: pointer;    
+    background-color: transparent;
+}   
+.search:focus::placeholder{
+    color: transparent;
+}
+
+/* Make table scroll horizontally on small screens */
+@media (max-width: 900px){
+    .table-container{ padding: 6px; }
+    .table-container table{ min-width: 720px; }
+    .table-container tbody td{ white-space: nowrap; }
+}
+
+@media (max-width: 520px){
+    .table-container{ height: 420px; }
+    .table-container thead th, .table-container tbody td{ padding: 8px 10px; font-size: 12px; }
+    .table-container table{ min-width: 600px; }
+}
+
+
+/* hasta aca el read */
+
+/* importando fuente */
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Black.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url(../fonts/Poppins-Light.ttf) format('truetype');
+}

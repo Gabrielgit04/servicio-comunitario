@@ -199,7 +199,7 @@ option{
 .table-container {
     background-color: #fbfcfd;
     overflow:scroll;
-    width: fit-content;
+    width: 100%;
     min-width:fit-content ;
     height: 580px;
     margin: 10px;
@@ -249,8 +249,8 @@ option{
     color: #233043;
     border-bottom: 1px solid #a7cdf3;
     vertical-align: middle;
-    overflow: visible;
-    white-space:normal;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .table-container tbody tr{
     transition: all ease .2s;
@@ -266,6 +266,7 @@ option{
 .table-container tbody tr:nth-child(odd) {
     background-color: #DDDDDD;
     border-left: 4px solid #e6ecff;
+    margin-left: 10px;
 }
 
 .table-container tbody tr:hover{
@@ -281,7 +282,8 @@ option{
     border-radius: 0 6px 0 0;
 }
 .table-container tbody td:hover {
-    white-space: normal;   /* permite salto de línea */
+    white-space:normal;
+    box-sizing: content-box;   /* permite salto de línea */
     overflow: visible;     /* muestra todo el contenido */
     min-width: 100px;    /* expande la celda */
     background-color: #233043; /* opcional: resaltar */
@@ -289,7 +291,6 @@ option{
     position: relative;
     color: white;
     transition: .3s;
-    transform: scale(1.1);
     border-radius: 5px;
 }
 

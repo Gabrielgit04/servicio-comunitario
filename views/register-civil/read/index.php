@@ -1,35 +1,49 @@
 <?php
 include '../../../models/conexion.php';
+session_start();
 
 
 $db = conexionDB();
-if(!empty($db)){
-    $sql = $db->prepare('SELECT * FROM People_Data');
-    $sql->execute();
-    $civiles=$sql->fetchAll(PDO::FETCH_ASSOC);
-}
 
+if(!empty($_SESSION['search'])){
+        $civiles = $_SESSION['search'];
+        unset($_SESSION['search']);
+}else{
+    if(!empty($db)){
+        $sql = $db->prepare('SELECT * FROM People_Data');
+        $sql->execute();
+        $civiles=$sql->fetchAll(PDO::FETCH_ASSOC);
+;
+    }
+}
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/register-civil-style.css">
+    <link rel="stylesheet" href="../../assets/css/rud.css">
     <title>Civiles registrados</title>
 </head>
 <body>
+    <header class="header-registradas">
+        <a href="../../main-menu/index.php"><img src="../../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit" ></a>
+        
+        <h2>Personas registradas en la comunidad</h2>
+        <span class="span-search">
+                <form action="../../../controller/register-civil/search.php" autocomplete="off" method="POST">
+                    <button id="btnSearch"><img src="../../assets/imgs/icons/search.svg" alt="search"></button>
+                    <input type="search" name="search" class="search" id="search" placeholder="Buscar por Nombre | Apellido | Cedula"style="text-transform: capitalize;" required>
+                </form>
+        </span>
+    </header>
     <section class="read-all-cont">
 
-            <header class="header-registradas">
-                <a href="../../main-menu/index.php"><img src="../../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit"></a>
-                
-                <h2>Personas registradas en la comunidad</h2>
-            </header>
+
         
-        <div class="table-container">
+        <div class="table-container" readonly>
             <table>
                 <thead>
                     <tr>
@@ -81,55 +95,5 @@ if(!empty($db)){
         </div>
 
     </section>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function(){
-        const table = document.querySelector('.table-container table');
-        if(!table) return;
-
-        // Start compact
-        table.style.tableLayout = table.style.tableLayout || 'fixed';
-
-        let resetTimeout = null;
-
-        function expandCol(index){
-            clearTimeout(resetTimeout);
-            // switch to auto so column can size to content
-            table.style.tableLayout = 'auto';
-            // keep other cells compact
-            table.querySelectorAll('th, td').forEach(el => el.style.whiteSpace = 'nowrap');
-            // allow the hovered column to wrap and expand
-            const sel = 'th:nth-child(' + (index + 1) + '), td:nth-child(' + (index + 1) + ')';
-            table.querySelectorAll(sel).forEach(el => el.style.whiteSpace = 'normal');
-        }
-
-        function reset(){
-            clearTimeout(resetTimeout);
-            // small delay to avoid flicker when moving between cells
-            resetTimeout = setTimeout(() => {
-                table.style.tableLayout = 'fixed';
-                table.querySelectorAll('th, td').forEach(el => el.style.whiteSpace = '');
-            }, 120);
-        }
-
-        // header cells
-        table.querySelectorAll('thead th').forEach((th, i) => {
-            th.addEventListener('mouseenter', () => expandCol(i));
-            th.addEventListener('mouseleave', reset);
-        });
-
-        // body cells (attach per-cell to know the column index)
-        table.querySelectorAll('tbody tr').forEach(tr => {
-            tr.querySelectorAll('td').forEach((td, i) => {
-                td.addEventListener('mouseenter', () => expandCol(i));
-                td.addEventListener('mouseleave', reset);
-            });
-        });
-
-        // also reset when leaving the table
-        table.addEventListener('mouseleave', reset);
-    });
-    </script>
-
 </body>
 </html>
