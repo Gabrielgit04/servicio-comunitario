@@ -1,4 +1,4 @@
-
+<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -141,7 +141,8 @@ opacity: 1;
     list-style-type: none;
     height: 100%;
     min-height: fit-content;
-    line-height: 30px;
+    line-height:27px;
+    margin-right: 10px;
 }
 .info_admin a{
     text-decoration: none;
