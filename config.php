@@ -1,5 +1,6 @@
 <?php
 // define('APP_ROOT', dirname(__FILE__));
+// define('BASE_URL', APP_ROOT . 'http://localhost:3000/');
 define('BASE_URL',  'http://localhost/servicio-comunitario/');
 // define('VIEWS_PATH', BASE_URL . 'views/');
 // define('CONtROLLER', APP_ROOT . 'controller/');
