@@ -13,7 +13,7 @@
         <a href="../../views/login/index.php"><img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit"></a>
 
         
-        <form action="/controller/recover/auth-id.php" method="post" autocomplete="off" class="ced-form">
+        <form action="/controller/recover/authIdController.php" method="post" autocomplete="off" class="ced-form">
             <header class="header-box"><h2>Identificate</h2></header>
             <p>Ingresa tu cedula para identificarte</p>
 

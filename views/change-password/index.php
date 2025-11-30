@@ -11,7 +11,7 @@
     <main class="main-box-change">
         <img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit">
 
-        <form action="../../controller/recover/new_password.php" method="POST" class="form-change">
+        <form action="../../controller/recover/newPasswordController.php" method="POST" class="form-change">
             <h1>Cambia tu contraseña</h1>
         
         <div class="input_area">

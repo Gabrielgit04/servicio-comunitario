@@ -18,7 +18,7 @@
     <section class="informacion">
 
         
-        <form action="/controller/register.php" autocomplete="off" method="post">
+        <form action="/controller/registerController.php" autocomplete="off" method="post">
             
             <header class="hd-box-title"><h2>Crea tu usuario</h2></header>
 

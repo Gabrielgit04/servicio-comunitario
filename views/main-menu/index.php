@@ -46,7 +46,7 @@ if(!isset($_SESSION['nombre'])){
             </figure>
 
             <figure class="figFive">
-                <a href="../../controller/close-session/index.php"><img src="../assets/imgs/icons/logout-2.svg" alt="Opción 5">
+                <a href="../../controller/close-session/logOutController.php"><img src="../assets/imgs/icons/logout-2.svg" alt="Opción 5">
                 <h4>Salir</h4>
             </a>
             </figure>
