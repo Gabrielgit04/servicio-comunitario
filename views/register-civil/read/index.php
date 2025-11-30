@@ -6,8 +6,12 @@ if (!isset($_SESSION['correo'])) {
     header('Location:../../login/index.php');
 };
 
+if (isset($_SESSION['delete']) && $_SESSION['delete'] == true) {
+        $mensaje = 'El ciudadano ha sido eliminado correctamente';
+        unset($_SESSION['delete']);
+}
 
-$mensaje = '';
+
 $db = conexionDB();
 
 if (!empty($_SESSION['search'])) {
@@ -20,12 +24,6 @@ if (!empty($_SESSION['search'])) {
         $civiles = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-
-if (isset($_SESSION['delete']) && $_SESSION['delete'] == true) {
-        $mensaje = 'Persona eliminada correctamente';
-        unset($_SESSION['delete']);
-}
-
 ?>
 
 

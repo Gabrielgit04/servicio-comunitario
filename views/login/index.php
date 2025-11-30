@@ -26,11 +26,7 @@ if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] == true) {
         <section class="first-box">
 
 
-<<<<<<< HEAD
             <form action="/controller/authController.php" autocomplete="off" method="post">
-=======
-            <form action="http://localhost/servicio-comunitario/controller/login.php" autocomplete="off" method="post">
->>>>>>> 999acd96bfabee27489bddbf82d73706dbca642e
                 <header>
                     <h2>Inicia sesion</h2>
                 </header>
