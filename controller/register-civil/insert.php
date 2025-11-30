@@ -43,9 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $insertQuery->bindParam(':voteType', $voteType);
         $insertQuery->bindParam(':createDate', $createDate);
         $insertQuery->execute();
-        echo "<pre>"."Inserción exitosa."."</pre>";
 
-        header("Location: ../../controller/errores.php?mensaje=Inserción exitosa.&tipo=success");
+        if(isset($insertQuery)){
+            $_SESSION['mensaje'] = true;
+        }
+
+        header("Location: ../../views/register-civil/form-register/index.php?mensaje=Inserción exitosa.&tipo=success");
         exit();
 
     } catch (PDOException $e) {

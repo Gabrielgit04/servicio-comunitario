@@ -1,35 +1,73 @@
 <?php
 include '../../../models/conexion.php';
+session_start();
+
+if (!isset($_SESSION['correo'])) {
+    header('Location:../../login/index.php');
+};
 
 
+$mensaje = '';
 $db = conexionDB();
-if(!empty($db)){
-    $sql = $db->prepare('SELECT * FROM People_Data');
-    $sql->execute();
-    $civiles=$sql->fetchAll(PDO::FETCH_ASSOC);
+
+if (!empty($_SESSION['search'])) {
+    $civiles = $_SESSION['search'];
+    unset($_SESSION['search']);
+} else {
+    if (!empty($db)) {
+        $sql = $db->prepare('SELECT * FROM People_Data');
+        $sql->execute();
+        $civiles = $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+if (isset($_SESSION['delete']) && $_SESSION['delete'] == true) {
+        $mensaje = 'Persona eliminada correctamente';
+        unset($_SESSION['delete']);
 }
 
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/register-civil-style.css">
+    <link rel="stylesheet" href="../../assets/css/rud.css">
     <title>Civiles registrados</title>
 </head>
+
 <body>
+    <header class="header-registradas">
+        <?php if(!empty($mensaje)): ?>
+            <article id="messageDel">
+                <p><?php echo $mensaje ?></p>
+            </article>
+            <script>
+                setTimeout(() => {
+                    let messageDelete = document.getElementById('messageDel');
+                    messageDelete.style.display = 'none'
+                }, 5000);
+            </script>
+        <?php endif; ?>
+
+
+
+        <h2>Personas registradas en la comunidad</h2>
+        <span class="span-search">
+            <form action="../../../controller/register-civil/search.php" autocomplete="off" method="POST">
+                <button id="btnSearch"><img src="../../assets/imgs/icons/search.svg" alt="search"></button>
+                <input type="search" name="search" class="search" id="search" placeholder="Buscar por Nombre | Apellido | Cedula" style="text-transform: capitalize; " required>
+            </form>
+        </span>
+    </header>
     <section class="read-all-cont">
 
-            <header class="header-registradas">
-                <a href="../../main-menu/index.php"><img src="../../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit"></a>
-                
-                <h2>Personas registradas en la comunidad</h2>
-            </header>
-        
-        <div class="table-container">
+
+
+        <div class="table-container" readonly>
             <table>
                 <thead>
                     <tr>
@@ -47,89 +85,74 @@ if(!empty($db)){
                         <th>Serial del carnet de la patria</th>
                         <th>Centro de votacion</th>
                         <th>Tipo de voto</th>
-                        <th>Fecha de registro del civil</th>
-                        <th>Ultima actualizacion</th>
+                        <th>Creado en</th>
+                        <th>Actualizado en</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Aquí se insertarán las filas de datos dinámicamente -->
-                    <?php if(is_array($civiles)): ?>
-                    <?php foreach ($civiles as $civil): ?>
-                        <tr>
-                            <td><?php echo $civil['ID_CI'] ?></td>
-                            <td><?php echo htmlspecialchars($civil['FirstName']) ?></td>
-                            <td><?php echo htmlspecialchars($civil['LastName']) ?></td>
-                            <td><?php echo htmlspecialchars($civil['Sex']) ?></td>
-                            <td><?php echo $civil['Phone_Number'] ?></td>
-                            <td><?php echo htmlspecialchars($civil['Committee_Name']) ?></td>
-                            <td><?php echo htmlspecialchars($civil['Address_Civil']) ?></td>
-                            <td><?php echo $civil['Birth_Date'] ?></td>
-                            <td><?php echo $civil['Age'] ?></td>
-                            <td><?php echo htmlspecialchars($civil['Email_Address']) ?></td>
-                            <td><?php echo htmlspecialchars($civil['Patria_Card_Code']) ?></td>
-                            <td><?php echo htmlspecialchars($civil['Patria_Card_Serial']) ?></td>
-                            <td><?php echo htmlspecialchars($civil['Voting_Center']) ?></td>
-                            <td><?php echo htmlspecialchars($civil['Vote_Type']) ?></td>
-                            <td><?php echo $civil['Create_Date'] ?></td>
-                            <td><?php echo $civil['Update_Date'] ?></td>
-                        
-                        </tr>
-                    <?php endforeach; ?>
+                    <?php if (is_array($civiles)): ?>
+                        <?php foreach ($civiles as $civil): ?>
+                            <tr>
+                                <td><?php echo $civil['ID_CI'] ?></td>
+                                <td><?php echo htmlspecialchars($civil['FirstName']) ?></td>
+                                <td><?php echo htmlspecialchars($civil['LastName']) ?></td>
+                                <td><?php echo htmlspecialchars($civil['Sex']) ?></td>
+                                <td><?php echo $civil['Phone_Number'] ?></td>
+                                <td><?php echo htmlspecialchars($civil['Committee_Name']) ?></td>
+                                <td><?php echo htmlspecialchars($civil['Address_Civil']) ?></td>
+                                <td><?php echo $civil['Birth_Date'] ?></td>
+                                <td><?php echo $civil['Age'] ?></td>
+                                <td><?php echo htmlspecialchars($civil['Email_Address']) ?></td>
+                                <td><?php echo htmlspecialchars($civil['Patria_Card_Code']) ?></td>
+                                <td><?php echo htmlspecialchars($civil['Patria_Card_Serial']) ?></td>
+                                <td><?php echo htmlspecialchars($civil['Voting_Center']) ?></td>
+                                <td><?php echo htmlspecialchars($civil['Vote_Type']) ?></td>
+                                <td><?php echo $civil['Create_Date'] ?></td>
+                                <td><?php echo $civil['Update_Date'] ?></td>
+
+                            </tr>
+                        <?php endforeach; ?>
                     <?php endif ?>
+
                 </tbody>
             </table>
         </div>
+        <dialog id="dialogDelete">
+            <div class="form-index" autocomplete="off">
+                <span><img src="../../assets/imgs/icons/xbox-x.svg" alt="hidemodal" onclick="closeDeleteDialog()" id="close-btn"></span>
+                <h3>Elimina un registro</h3>
+                <div class="btn-send-box">
+                    <div class="input_area">
+                        <input type="text" name="CI-DELETE" id="CI-DELETE" class="entry" placeholder="Ingresa la cedula de la persona a eliminar" required pattern="^[0-9]{6,10}$" title="Ingrese 6 a 10 dígitos numéricos">
+                        <div class="labelline"><span><img src="../../assets/imgs/icons/id.svg" alt="icon" class="icon_lock"></span></div>
+                    </div>
+                    <button class="submit-btn" id="eliminate" onclick="confirmEliminateDialog()">Eliminar registro</button>
+                    <div>
+                    </div>
 
+        </dialog>
+        <dialog id="dialog-delete-confirm">
+            <h3>Confirmar eliminación</h3>
+            <p>¿Estás seguro de que deseas eliminar este usuario? Esta acción no se puede deshacer.</p>
+
+            <form class="actions" action="../../../controller/register-civil/delete.php" method="post">
+                <button class="danger" name='confirmDelete' id="confirm-btn" type="button" onclick="validarFormularioEliminar()">Eliminar</button>
+            </form>
+            <button class="cancel" id="close" onclick="closeDialogTwo()">Cancelar</button>
+        </dialog>
     </section>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function(){
-        const table = document.querySelector('.table-container table');
-        if(!table) return;
 
-        // Start compact
-        table.style.tableLayout = table.style.tableLayout || 'fixed';
+    <footer class="update-and-delete">
+        <a href="../home-register.html"><img src="../../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit" onclick="history.back()"></a>
 
-        let resetTimeout = null;
+        <div class="btns">
+            <input type="submit" value="Eliminar civil" id="delete-btn" onclick="deleteDialog()">
+            <input type="submit" value="Editar civil" id="update-btn" onclick="">
+        </div>
 
-        function expandCol(index){
-            clearTimeout(resetTimeout);
-            // switch to auto so column can size to content
-            table.style.tableLayout = 'auto';
-            // keep other cells compact
-            table.querySelectorAll('th, td').forEach(el => el.style.whiteSpace = 'nowrap');
-            // allow the hovered column to wrap and expand
-            const sel = 'th:nth-child(' + (index + 1) + '), td:nth-child(' + (index + 1) + ')';
-            table.querySelectorAll(sel).forEach(el => el.style.whiteSpace = 'normal');
-        }
-
-        function reset(){
-            clearTimeout(resetTimeout);
-            // small delay to avoid flicker when moving between cells
-            resetTimeout = setTimeout(() => {
-                table.style.tableLayout = 'fixed';
-                table.querySelectorAll('th, td').forEach(el => el.style.whiteSpace = '');
-            }, 120);
-        }
-
-        // header cells
-        table.querySelectorAll('thead th').forEach((th, i) => {
-            th.addEventListener('mouseenter', () => expandCol(i));
-            th.addEventListener('mouseleave', reset);
-        });
-
-        // body cells (attach per-cell to know the column index)
-        table.querySelectorAll('tbody tr').forEach(tr => {
-            tr.querySelectorAll('td').forEach((td, i) => {
-                td.addEventListener('mouseenter', () => expandCol(i));
-                td.addEventListener('mouseleave', reset);
-            });
-        });
-
-        // also reset when leaving the table
-        table.addEventListener('mouseleave', reset);
-    });
-    </script>
-
+    </footer>
+    <script src="../../assets/public/modales.js"></script>
 </body>
+
 </html>

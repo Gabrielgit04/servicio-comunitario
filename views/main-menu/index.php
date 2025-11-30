@@ -26,7 +26,7 @@ if(!isset($_SESSION['nombre'])){
             </a>
             </figure>
             <figure class="figTwo">
-                    <a href="">
+                    <a href="../register-civil/home-register.html">
                 <img src="../assets/imgs/icons/user-plus.svg" alt="Opción 2">
                 <h4>Registro Civil</h4>
             </a>
@@ -47,7 +47,7 @@ if(!isset($_SESSION['nombre'])){
             </figure>
 
             <figure class="figFive">
-                <a href="../../controller/close-session/index.php"><img src="../assets/imgs/icons/logout-2.svg" alt="Opción 5">
+                <a href="../../controller/close-session/logOutController.php"><img src="../assets/imgs/icons/logout-2.svg" alt="Opción 5">
                 <h4>Salir</h4>
             </a>
             </figure>

@@ -1,0 +1,529 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+.read-all-cont {
+    width: 100%;
+    display: grid;
+    box-sizing: border-box;
+    height: 100dvh;
+    grid-template-columns: 2fr 1fr; /* 3 columnas */
+    grid-template-rows: 120px 1fr 1fr;        /* 2 filas */
+    grid-template-areas: 
+        " header header"
+        " table table table"
+        " footer footer ";
+    padding:50px;
+    transform: translateX(0px);
+
+
+}
+
+.header-registradas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:0 30px;
+    width:100%;
+    padding: 20px;
+    background-color: #100aa8;
+    grid-area: header;   /* sin comillas */
+    align-items: center;
+    min-height: fit-content;
+    position: absolute;
+}
+.header-registradas h2{
+    color: white;
+    margin: 14px 0 10px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.exit{
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 35px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius:10px ;
+    z-index: 111;
+}
+
+
+
+.table-container {
+    background-color: #fbfcfd;
+    overflow:hidden;
+    position: absolute;
+    top: 140px;
+    width: 60%;
+    min-width:fit-content ;
+    max-width: 100%;
+    height: fit-content;
+    /* min-height: 580px; */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.548);
+    border-radius: 10px;
+    grid-area: table;   /* sin comillas */
+    font-size: 13px;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+    border: 1px solid #DDDDDD;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    transition: width all ease .3s;
+}
+
+/* Use native table layout for predictable columns; allow horizontal scroll on small screens */
+.table-container table{
+    border-collapse: collapse;
+    width: fit-content;
+    table-layout: fixed;
+    min-width: 800px; /* ensures scroll when many columns */
+    background: transparent;
+    
+}
+
+.table-container thead th{
+    background-color: #b60a0a; /* header color different from left pane */
+    color: #ffffff;
+    text-align: left;
+    padding:2px 8px;    
+    border-radius: 10px 0 0 0;
+    min-width: fit-content;
+    font-weight: 700;
+    vertical-align: middle;
+    position: sticky;
+    top: 0;
+    transition: width all ease .2s;
+    left: 0;
+    border-left: solid #860707 3px;
+    z-index: 5;
+    /* Smooth width transitions for JS-driven column resize */
+    .table-container th,
+    .table-container td{
+        box-sizing: border-box;
+        transition: width 260ms cubic-bezier(.2,.9,.2,1), background-color 120ms ease;
+    }
+
+}
+.table-container thead th:hover{
+    width: 170px;
+    cursor: pointer;}
+
+.table-container tbody td{
+    padding:10px 5px 10px 3px;
+    font-size: 12px;
+    width: 500px;
+    text-align: center;
+    color: #233043;
+    border-bottom: 1px solid #a7cdf3;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right:2px solid #860707;
+}
+.table-container tbody tr{
+    transition: all ease .2s;
+    margin-left: 10px;
+
+}
+.table-container td:hover{
+    background-color: #eef4ff;
+    cursor: pointer;
+    transform: translateY(-1px);
+}
+.table-container  td:focus{
+    outline: none;
+    width: 180px;
+}
+.table-container td :not(:focus){
+    cursor: pointer;
+    text-overflow: ellipsis;
+}
+/* Row striping and left accent bar for visual separation */
+.table-container tbody tr:nth-child(even) {
+    background-color: #ffffff;
+    border-left: 3px solid #a8b9fa;
+}
+
+.table-container tbody tr:nth-child(odd) {
+    background-color: #DDDDDD;
+    border-left: 3px solid #6b83d2;
+    margin-left: 10px;
+}
+
+.table-container tbody tr:hover{
+    background-color: #eef4ff;
+    transform: translateY(-1px);
+}
+
+/* Small helper for header row when table uses multiple cells */
+.table-container thead th:first-child{
+    border-radius: 6px 0 0 0;
+}
+.table-container thead th:last-child{
+    border-radius: 0 6px 0 0;
+}
+.search{
+    width: 600px;
+    height: 45px;
+    border-radius: 30px;
+    border: none;
+    position: relative;
+    z-index: 10;
+    outline: transparent;
+    margin: 5px 50px 5px 0px;
+    text-indent: 50px;
+    background-color:whitesmoke ;
+    left: 50px;
+}
+.search::placeholder{
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-indent: -10px;
+}
+.span-search button{
+    position: absolute;
+    width: 20px;
+    margin-left: 60px;
+    margin-top: 14px;
+    border: none;
+    z-index: 11;
+    cursor: pointer;    
+    background-color: transparent;
+}   
+.search:focus::placeholder{
+    color: transparent;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    margin-left: 0;
+    height: 60px;
+    background-color: #100aa8;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    grid-area: footer;
+    letter-spacing: 2px;
+}
+.btns{
+    display: flex;
+    width: 450px;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+#dialogDelete{
+    border: solid whitesmoke 2px;
+    background-color: whitesmoke;
+    width: 400px;
+    min-width: none;
+    height: 150px;
+    min-height: fit-content;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+dialog::backdrop{
+    background-color: #18191bb3;
+    backdrop-filter: blur(3px);
+}
+#dialogDelete .form-index{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+}
+#dialogDelete .btn-send-box{
+    width: 400px;
+    height: 300px;
+
+}
+#dialogDelete h3{
+    margin-top: 30px;
+    color: #b60a0a;
+    letter-spacing: 2px;
+    width: max-content;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.icon_lock,.icon_user,.icon_email,.icon_id{
+    margin-top: 18px;
+
+}
+
+.entry,.entry_pass{
+    position: absolute;
+    width: 90%;
+    line-height: 35px;
+    outline: none;
+    border-radius: 10px;
+    border: solid #DDDDDD;
+    background-color: #DDDDDD;
+    text-align: center;
+    transition: al ease .2s;
+    left: 15px;
+    text-transform: capitalize;
+    font-size: medium;
+    margin-top: 10px;
+    /* box-shadow: 0 0 6px darkslategray; */
+}
+.entry:focus::placeholder,.entry_pass:focus::placeholder{
+    opacity: 0;
+}
+.entry::placeholder,.entry_pass::placeholder{
+    font-weight: bold;
+    text-indent: 40px;
+    text-transform: none;
+}
+
+
+.labelline{
+    position: absolute;
+    z-index: 1111;
+    font-size: 13;
+    font-weight: bold;
+    padding: 0.5;
+    margin: 0 23px;
+}
+.input_area,.input_password{
+    position: relative;
+    height:60px;
+    line-height: 60px;
+    margin: 20px 0 0px 0;
+    padding: 8px;
+    text-transform: capitalize;
+}
+
+#close-btn{
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    right: 0;
+    position: absolute;
+    display: flex;
+    top: 0;
+    transition: .3s;
+}
+#close-btn:hover{
+    scale: 1.1;
+    transition: .3s;
+}
+#dialogDelete span{
+    width: 93%;
+    display: flex;
+    position: absolute;
+}
+.submit-btn {
+    margin-top: 40px;
+    width: 90%;
+    margin-left: 18px;
+    padding: 12px;
+    background-color: #720707;
+    color: whitesmoke;
+    font-size: 16px;
+    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    }
+.submit-btn:hover {
+    background-color: rgba(192, 55, 55, 0.988);
+    color: #dbdbe4;
+    scale: 1.05;
+    transition: .3s;
+}
+dialog[open]{
+    scale: 1;
+    transition: scale 0.3s ease;
+
+    @starting-style{
+        scale: 0;
+    }
+}
+dialog{
+    transition: scale 0.3s ease,
+    display .3s ease allow-discrete;
+    scale: 0;
+}
+
+
+.btns #delete-btn{
+    width: 170px;
+    height: 45px;
+    border-radius: 10px;
+    border: solid #860707 1px;
+    background-color: #860707;
+    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: whitesmoke;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.3s;
+
+}
+.btns #delete-btn:hover{
+    scale: 1.05;
+    background-color: #720707;
+    transition: 0.3s;
+    outline:#720707 ;
+}
+.btns #update-btn:hover{
+    scale: 1.05;
+    background-color: rgba(18, 117, 18, 0.896);
+    transition: 0.3s;
+    outline: rgba(18, 117, 18, 0.896);
+}
+.btns #update-btn{
+    width: 170px;
+    height: 45px;
+    border-radius: 10px;
+    border: solid rgba(26, 156, 26, 0.896) 1px;
+    background-color: rgba(26, 156, 26, 0.896);
+    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: whitesmoke;
+    cursor: pointer;
+    letter-spacing: 2px;
+
+}
+/* dialog confirm delete */
+#dialog-delete-confirm{
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    user-select: none;
+}
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+#dialog-delete-confirm h3{
+    transform: translate(20px);
+}
+#dialog-delete-confirm p{
+    transform: translate(40px);
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif;
+}
+.danger {
+    background: #d9534f;
+    color: whitesmoke;
+    border: none;
+    width: 120px;
+    height: 36px;
+    padding: 4px 12px;
+    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transform: translate(18px, 45px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+}
+
+.cancel{
+    border: none;
+    background-color: rgba(38, 64, 64, 0.822);
+    box-shadow: 0 0 gray 4px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    width: 120px;
+    margin-top: 10px;
+    color: whitesmoke;
+    transform: translate(300px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    
+}
+
+
+
+/* hasta aca */
+/* delete message */
+#messageDel{
+    display: flex;
+    z-index: 111111111111111;
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    border-radius: 0 6px 6px 0;
+    background-color: #22790e;
+    box-shadow:0 0 10px#2cd905;
+    animation: hide-success 5s ;
+}
+#messageDel p{
+    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-indent: 20px;
+    color: whitesmoke;
+    text-shadow:0 0 7px #233043;
+    font-size: 20px;
+}
+
+/* hasta aca */
+
+/* Make table scroll horizontally on small screens */
+@media (max-width: 900px){
+    .table-container{ padding: 6px; }
+    .table-container table{ min-width: 720px; }
+    .table-container tbody td{ white-space: nowrap; }
+}
+
+@media (max-width: 520px){
+    .table-container{ height: 420px; }
+    .table-container thead th, .table-container tbody td{ padding: 8px 10px; font-size: 12px; }
+    .table-container table{ min-width: 600px; }
+}
+
+
+/* hasta aca el read */
+
+/* importando fuente */
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Black.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url(../fonts/Poppins-Light.ttf) format('truetype');
+}
+
+@keyframes hide-success {
+    from{
+        width: 100%;
+    }
+    to{
+        width:  28%;
+    }
+    
+}

@@ -12,7 +12,7 @@
 
 
         
-        <form action="/controller/secure.php" method="post" autocomplete="off" class="recover-form">
+        <form action="/controller/validateSession.php" method="post" autocomplete="off" class="recover-form">
             <header class="header-box"><h2>Protege tu cuenta</h2></header>
 
             <select id="security-question" name="security-question" required>

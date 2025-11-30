@@ -4,6 +4,9 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
+        opacity: 1;
+        transition: opacity 0.5s ease
+
     }
 
     .form-container {
@@ -107,8 +110,9 @@
     }
 
     .submit-btn:hover {
-        background-color: rgba(236, 236, 13, 0.988);
+        background-color: rgba(228, 228, 56, 0.942);
         color: #100aa8;
+        
     }
 
     .entry,.entry_pass{
@@ -169,153 +173,105 @@ option{
 }
 /* hasta aca el registro civil */
 
-/* aca comienza el read del CRUD */
-.read-all-cont {
-    width: 100%;
-    display: grid;
-    box-sizing: border-box;
-    height: 100dvh;
-    grid-template-columns: 2fr 1fr; /* 3 columnas */
-    grid-template-rows: 120px 1fr;        /* 2 filas */
-    grid-template-areas: 
-        " header header"
-        " table table table";
-    border: solid 1px black;
+/* main view choice */
+.lottie-ani, .lottie-read{
+    width: 300px;
+    height: 250px;
+    margin-left:100px; 
 }
-
-.header-registradas {
+a{
+    width: fit-content;
+    text-decoration: none;
+}
+.main-box{
     display: grid;
-    grid-template-columns: 50px 1fr;
-    gap: 15px;
-    width: 100%;
-    padding: 20px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1fr;
+    height: 100dvh;
+    gap: 50px;
     background-color: #100aa8;
-    grid-area: header;   /* sin comillas */
-    align-items: center;
+    padding: 20px;
+
+}
+.registered-box, .read-box{
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    height: 400px;
     min-height: fit-content;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-sizing: border-box;
+    padding: 15px;
 }
+.registered-box h1, .read-box h1{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    color: #100aa8;
+    margin-bottom: 15px;
 
-.table-container {
-    background-color: #fbfcfd;
-    overflow:scroll;
-    width: fit-content;
-    min-width:fit-content ;
-    height: 580px;
-    margin: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-    border-radius: 10px;
-    grid-area: table;   /* sin comillas */
-    font-size: 12px;
+}
+.registered-box p, .read-box p{
     font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
-    border: 1px solid #eef2f6;
-}
-
-/* Use native table layout for predictable columns; allow horizontal scroll on small screens */
-.table-container table{
-    border-collapse: collapse;
-    width: fit-content;
-    table-layout: fixed;
-    min-width: 800px; /* ensures scroll when many columns */
-    background: transparent;
-    overflow-Y: scroll;
-}
-
-.table-container thead th{
-    background-color: #b60a0a; /* header color different from left pane */
-    color: #ffffff;
-    text-align: left;
-    padding:5px 8px;
-    font-weight: 700;
-    vertical-align: middle;
-    position: sticky;
-    top: 0;
-    border-right: #860707 3px solid;
-    z-index: 5;
-    /* Smooth width transitions for JS-driven column resize */
-    .table-container th,
-    .table-container td{
-        box-sizing: border-box;
-        transition: width 260ms cubic-bezier(.2,.9,.2,1), background-color 120ms ease;
-    }
-
-}
-
-.table-container tbody td{
-    padding:10px 5px 10px 2px;
-    font-size: 12px;
-    width: 500px;
+    font-weight: lighter;
     text-align: center;
-    color: #233043;
-    border-bottom: 1px solid #a7cdf3;
-    vertical-align: middle;
-    overflow: visible;
-    white-space:normal;
+    padding: 0 10px;
+    font-size: 18px;
+    line-height: 28px;
 }
-.table-container tbody tr{
-    transition: all ease .2s;
-    margin-left: 1opx;
-
+.registered-box:hover, .read-box:hover{
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+    transform: scale(1.05)
+    perspective(400px)
+    rotateY(10deg)
+    
 }
-/* Row striping and left accent bar for visual separation */
-.table-container tbody tr:nth-child(even) {
-    background-color: #ffffff;
-    border-left: 4px solid #c7d2ff;
+/* hasta aca */
+.redirect-box-register, .redirect-box-read{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-.table-container tbody tr:nth-child(odd) {
-    background-color: #DDDDDD;
-    border-left: 4px solid #e6ecff;
+.exit-home-register{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius:50% ;
 }
-
-.table-container tbody tr:hover{
-    background-color: #eef4ff;
-    transform: translateY(-1px);
-}
-
-/* Small helper for header row when table uses multiple cells */
-.table-container thead th:first-child{
-    border-radius: 6px 0 0 0;
-}
-.table-container thead th:last-child{
-    border-radius: 0 6px 0 0;
-}
-.table-container tbody td:hover {
-    white-space: normal;   /* permite salto de línea */
-    overflow: visible;     /* muestra todo el contenido */
-    min-width: 100px;    /* expande la celda */
-    background-color: #233043; /* opcional: resaltar */
-    z-index: 10;           /* que se muestre por encima */
-    position: relative;
-    color: white;
-    transition: .3s;
-    transform: scale(1.1);
-    border-radius: 5px;
+body.fade-out {
+    opacity: 0;
 }
 
-/* Make table scroll horizontally on small screens */
-@media (max-width: 900px){
-    .table-container{ padding: 6px; }
-    .table-container table{ min-width: 720px; }
-    .table-container tbody td{ white-space: nowrap; }
+/* caja de mensaje succesfull */
+#message{
+    background-color: rgb(7, 117, 7);
+    color: whitesmoke;
+    display: flex;
+    padding:10px 5px 10px 0;
+    width: 650px;
+    min-width: fit-content;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+    height: fit-content;
+    animation: up 1.5s linear;
 }
 
-@media (max-width: 520px){
-    .table-container{ height: 420px; }
-    .table-container thead th, .table-container tbody td{ padding: 8px 10px; font-size: 12px; }
-    .table-container table{ min-width: 600px; }
+#message p{
+    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.img-bg {
-    background-color: aquamarine;
-    height: 100dvh;
-    grid-area: aside;
-    .bg-img{
-        width: 100%;
-        height: 100dvh;
-    }   /* sin comillas */
-}
-/* hasta aca el read */
+
 
 /* importando fuente */
 @font-face {
@@ -325,4 +281,16 @@ option{
 @font-face {
     font-family: 'Poppins-light';
     src: url(../fonts/Poppins-Light.ttf) format('truetype');
+}
+
+/* animaciones */
+@keyframes up {
+    from{
+        opacity: 0;
+        
+    }
+    to{
+        opacity: 1;
+        
+    }
 }
