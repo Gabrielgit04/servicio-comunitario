@@ -25,7 +25,7 @@ if(!isset($_SESSION['nombre'])){
             </a>
             </figure>
             <figure class="figTwo">
-                    <a href="">
+                    <a href="../register-civil/home-register.html">
                 <img src="../assets/imgs/icons/user-plus.svg" alt="Opción 2">
                 <h4>Registro Civil</h4>
             </a>

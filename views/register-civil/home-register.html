@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/register-civil-style.css">
+    <title>Escoge una seccion</title>
+</head>
+<body>
+                <a href="../main-menu/index.php"><img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit-home-register"></a>
+
+    <main class="main-box">
+        
+        <div class="redirect-box-register">
+        <a href="../register-civil/form-register/index.php">
+        <section class="registered-box">
+            <h1>Registro Civil</h1>
+            <figure class="lottie-ani"></figure>
+            <p>Registra las personas pertenecientes a tu consejo comunal</p>
+        </section></a>
+        </div>
+        <div class="redirect-box-read">
+        <a href="../register-civil/read/index.php">
+        <section class="read-box">
+            <h1>Visualizar tabla</h1>
+            <figure class="lottie-read"></figure>
+            <p>Visualiza, edita y elimina las personas pertenecientes a tu consejo comunal</p>
+
+        </section></a>
+        </div>
+        
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+
+    <script>
+        const animation = lottie.loadAnimation({
+            container: document.querySelector('.lottie-read'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path:'../assets/public/Administrao.json'});
+    </script>
+    <script>
+        const animationRead = lottie.loadAnimation({
+            container: document.querySelector('.lottie-ani'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path:'../assets/public/register.json'});
+    </script>
+    <script>
+  // Detecta clic en enlaces
+    document.querySelectorAll('.exit-home-register').forEach(link => {
+    link.addEventListener('click', e => {
+    e.preventDefault();
+    document.body.classList.add('fade-out');
+    setTimeout(() => {
+        window.location.href = '../main-menu/index.php' ;
+      }, 500); // tiempo igual al de la animación
+    });
+});
+    </script>
+
+</body>
+</html>

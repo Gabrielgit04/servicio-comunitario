@@ -3,6 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 .read-all-cont {
     width: 100%;
@@ -10,19 +11,21 @@ body {
     box-sizing: border-box;
     height: 100dvh;
     grid-template-columns: 2fr 1fr; /* 3 columnas */
-    grid-template-rows: 120px 1fr;        /* 2 filas */
+    grid-template-rows: 120px 1fr 1fr;        /* 2 filas */
     grid-template-areas: 
         " header header"
-        " table table table";
-        padding: 15px;
+        " table table table"
+        " footer footer ";
+    padding:50px;
+    transform: translateX(0px);
 
 }
 
 .header-registradas {
     display: grid;
-    grid-template-columns: 50px  700px 1fr;
+    grid-template-columns: 1fr 1fr;
     gap:0 30px;
-    width:216%;
+    width:100%;
     padding: 20px;
     background-color: #100aa8;
     grid-area: header;   /* sin comillas */
@@ -36,14 +39,15 @@ body {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-    .exit{
-    margin-top: 10px;
+.exit{
+    margin-top: 5px;
     margin-left: 20px;
-    width: 30px;
+    width: 35px;
     cursor: pointer;
     background-color: whitesmoke;
     padding: 5px;
-    border-radius:50% ;
+    border-radius:10px ;
+    z-index: 111;
 }
 
 
@@ -53,7 +57,7 @@ body {
     overflow:hidden;
     position: absolute;
     top: 140px;
-    width: 100%;
+    width: 60%;
     min-width:fit-content ;
     max-width: 100%;
     height: fit-content;
@@ -64,6 +68,8 @@ body {
     font-size: 13px;
     font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
     border: 1px solid #DDDDDD;
+    overflow-x: scroll;
+    transition: width all ease .3s;
 }
 
 /* Use native table layout for predictable columns; allow horizontal scroll on small screens */
@@ -73,22 +79,22 @@ body {
     table-layout: fixed;
     min-width: 800px; /* ensures scroll when many columns */
     background: transparent;
+    
 }
 
 .table-container thead th{
     background-color: #b60a0a; /* header color different from left pane */
     color: #ffffff;
     text-align: left;
-    padding:5px 8px;
-    width: 180px;
+    padding:2px 8px;    
     border-radius: 10px 0 0 0;
     min-width: fit-content;
     font-weight: 700;
     vertical-align: middle;
     position: sticky;
     top: 0;
+    transition: width all ease .2s;
     left: 0;
-    margin: 0 10px;
     border-left: solid #860707 3px;
     z-index: 5;
     /* Smooth width transitions for JS-driven column resize */
@@ -99,9 +105,12 @@ body {
     }
 
 }
+.table-container thead th:hover{
+    width: 170px;
+    cursor: pointer;}
 
 .table-container tbody td{
-    padding:10px 2px 10px 2px;
+    padding:10px 5px 10px 3px;
     font-size: 12px;
     width: 500px;
     text-align: center;
@@ -110,11 +119,25 @@ body {
     vertical-align: middle;
     overflow: hidden;
     white-space: nowrap;
+    border-right:2px solid #860707;
 }
 .table-container tbody tr{
     transition: all ease .2s;
-    margin-left: 1opx;
+    margin-left: 10px;
 
+}
+.table-container td:hover{
+    background-color: #eef4ff;
+    cursor: pointer;
+    transform: translateY(-1px);
+}
+.table-container  td:focus{
+    outline: none;
+    width: 180px;
+}
+.table-container td :not(:focus){
+    cursor: pointer;
+    text-overflow: ellipsis;
 }
 /* Row striping and left accent bar for visual separation */
 .table-container tbody tr:nth-child(even) {
@@ -141,7 +164,7 @@ body {
     border-radius: 0 6px 0 0;
 }
 .search{
-    width: 580px;
+    width: 600px;
     height: 45px;
     border-radius: 30px;
     border: none;
@@ -151,6 +174,7 @@ body {
     margin: 5px 50px 5px 0px;
     text-indent: 50px;
     background-color:whitesmoke ;
+    left: 50px;
 }
 .search::placeholder{
     text-align: center;
@@ -161,7 +185,7 @@ body {
 .span-search button{
     position: absolute;
     width: 20px;
-    margin-left: 10px;
+    margin-left: 60px;
     margin-top: 14px;
     border: none;
     z-index: 11;
@@ -172,6 +196,23 @@ body {
     color: transparent;
 }
 
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    margin-left: 0;
+    height: 60px;
+    background-color: #100aa8;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    grid-area: footer;
+    letter-spacing: 2px;
+}
 /* Make table scroll horizontally on small screens */
 @media (max-width: 900px){
     .table-container{ padding: 6px; }

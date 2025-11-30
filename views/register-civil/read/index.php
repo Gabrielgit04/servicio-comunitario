@@ -13,9 +13,13 @@ if(!empty($_SESSION['search'])){
         $sql = $db->prepare('SELECT * FROM People_Data');
         $sql->execute();
         $civiles=$sql->fetchAll(PDO::FETCH_ASSOC);
-;
+
     }
 }
+if(!isset($_SESSION['nombre'])){
+    header('Location:../../views/login/index.php');
+};
+
 ?>
 
 
@@ -29,13 +33,13 @@ if(!empty($_SESSION['search'])){
 </head>
 <body>
     <header class="header-registradas">
-        <a href="../../main-menu/index.php"><img src="../../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit" ></a>
+       
         
         <h2>Personas registradas en la comunidad</h2>
         <span class="span-search">
                 <form action="../../../controller/register-civil/search.php" autocomplete="off" method="POST">
                     <button id="btnSearch"><img src="../../assets/imgs/icons/search.svg" alt="search"></button>
-                    <input type="search" name="search" class="search" id="search" placeholder="Buscar por Nombre | Apellido | Cedula"style="text-transform: capitalize;" required>
+                    <input type="search" name="search" class="search" id="search" placeholder="Buscar por Nombre | Apellido | Cedula"style="text-transform: capitalize; "   required>
                 </form>
         </span>
     </header>
@@ -90,10 +94,31 @@ if(!empty($_SESSION['search'])){
                         </tr>
                     <?php endforeach; ?>
                     <?php endif ?>
+
                 </tbody>
             </table>
         </div>
+        <dialog id="dialogDelete" style="position: absolute;bottom:0;left:10px;">
+            <h2>Elimina un registro</h2>
+            <span><img src="../../assets/imgs/icons/xbox-x.svg" alt="hidemodal" onclick="closeDeleteDialog()" id="close-btn"></span>
+            <form action="../../../controller/register-civil/delete.php" method="POST">
+                <input type="text" placeholder="Ingresa la cedula de la persona a eliminar" class="deleteinput">
+                <button>Eliminar</button>
+                    
+            </form>
 
-    </section>
+        </dialog>
+        
+    </section>      
+    <footer class="update-and-delete">
+        <a href="../home-register.html"><img src="../../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit" onclick="history.back()" ></a>
+
+        <div class="btns">
+            <input type="submit" value="Eliminar civil" id="delete-btn" onclick="deleteDialog()">
+            <input type="submit" value="Editar civil" class="update-btn" onclick="">
+        </div>
+    
+    </footer>
+    <script src="../../assets/public/modales.js"></script>
 </body>
 </html>

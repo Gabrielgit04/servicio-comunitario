@@ -1,4 +1,9 @@
-<?php require_once dirname(__DIR__, 3) . '/config.php'; ?>
+<?php require_once dirname(__DIR__, 3) . '/config.php'; 
+if(isset($_SESSION['correo'])){
+    header('Location:../../login/index.php');
+};
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +16,7 @@
     <section class="form-all-cont">
 
         <div class="cont-header">
-            <a href=""><img src="../../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit"></a>
+            <a href="../home-register.html"><img src="../../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit"></a>
             <header><h2>Registra a las personas pertenecientes a tu comunidad</h2></header>
             <article>
                 <p>
