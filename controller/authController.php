@@ -7,11 +7,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
-$emailUser = isset($_POST['email_log']) ? trim(htmlspecialchars($_POST['email_log'])) : '';
+$emailUser = isset($_POST['email_log']) ? trim($_POST['email_log']) : '';
 $passUser = isset($_POST['passw_log']) ? $_POST['passw_log'] : '';
 
 if ($emailUser === '' || $passUser === '') {
     $_SESSION['error'] = 'Ingrese correo y contraseña';
+    header("Location: ../../views/login/index.php");
+    exit();
+}
+
+if (!filter_var($emailUser, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['error'] = 'Formato de correo inválido.';
     header("Location: ../../views/login/index.php");
     exit();
 }
@@ -31,7 +37,7 @@ try {
         $_SESSION['Logueado'] = true;
         unset($_SESSION['error']);
 
-        header("Location: ../../views/main-menu/index.php");
+        header("Location: ../../views/login/index.php");
         exit();
     } else {
         $_SESSION['error'] = 'Usuario o contraseña incorrecta';
@@ -39,6 +45,7 @@ try {
         exit();
     }
 } catch (PDOException $e) {
+    error_log('Auth error: ' . $e->getMessage());
     $_SESSION['error'] = 'Error en el servidor. Intente más tarde.';
     header("Location: ../../views/login/index.php");
     exit();
