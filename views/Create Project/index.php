@@ -11,13 +11,13 @@ if(!isset($_SESSION['nombre'])){
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../assets/css/create project.css">
+    <link rel="stylesheet" href="../assets/css/create project.css">
     <title>Crear Proyecto</title>
 </head>
 <body style="font-family: 'Poppins',Arial;">
 
     <a href="../index.php" class="volver" title="Volver">
-        <img src="../../assets/imgs/icons/arrow-left.svg">
+        <img src="../assets/imgs/icons/arrow-left.svg">
     </a>
 
     <br>

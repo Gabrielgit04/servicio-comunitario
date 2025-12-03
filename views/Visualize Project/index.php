@@ -1,6 +1,6 @@
 <?php
 
-include '../../../models/conexion.php';
+include '../../models/conexion.php';
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     die("❌ Error: No se proporcionó ID de proyecto para visualizar.");
@@ -47,14 +47,14 @@ $short_name = (mb_strlen($project_name, 'UTF-8') > $max_length)
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../assets/css/visualize project.css"> 
+    <link rel="stylesheet" href="../assets/css/visualize project.css"> 
     <title>Detalles del Proyecto: <?php echo $proyecto['name_project']; ?></title>
 
 </head>
 <body>
 
     <a href="../index.php" class="volver" title="Volver">
-        <img src="../../assets/imgs/icons/arrow-left.svg" alt="Descripción de la imagen">
+        <img src="../assets/imgs/icons/arrow-left.svg" alt="Descripción de la imagen">
     </a>
 
     <br>

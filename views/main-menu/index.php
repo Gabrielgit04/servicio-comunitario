@@ -33,7 +33,7 @@ if(!isset($_SESSION['nombre'])){
             </figure>
 
             <figure class="figThree">
-                    <a href="">
+                    <a href="../index.php">
                     <img src="../assets/imgs/icons/clipboard-plus.svg" alt="Opción 3">
                     <h4>Gestion de <br>Proyectos</h4>
                 </a>

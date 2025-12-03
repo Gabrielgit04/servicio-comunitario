@@ -6,7 +6,7 @@ if(!isset($_SESSION['nombre'])){
     header('Location:../../views/login/index.php');
 };
 
-include '../../../models/conexion.php';
+include '../../models/conexion.php';
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     die("❌ Error: No se proporcionó ID de proyecto para modificar.");
@@ -46,16 +46,16 @@ function format_price_for_display($price) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../assets/css/create project.css">
+    <link rel="stylesheet" href="../assets/css/modidy project.css">
     <title>Modificar Proyecto: <?php echo htmlspecialchars($proyecto['name_project']); ?></title>
 </head>
 <body>
 
     <a href="../index.php" class="volver" title="Volver">
-        <img src="../../assets/imgs/icons/arrow-left.svg" alt="Volver">
+        <img src="../assets/imgs/icons/arrow-left.svg" alt="Volver">
     </a>
 
-    <h1>Modificar Proyecto</h1>
+    <h1 style="color: whitesmoke;">Modificar Proyecto</h1>
 
     <hr>
     

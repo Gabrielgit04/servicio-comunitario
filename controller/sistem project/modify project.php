@@ -164,7 +164,7 @@ try {
 
     $pdo->commit(); 
 
-    echo "<h1>👍</h1> <br> <p style='color: green;'>El Proyecto $name_project se ha Actualizado</p>";
+    echo "<h1>👍</h1> <br> <p style='color: whitesmoke;'>El Proyecto $name_project se ha Actualizado</p>";
 
 } catch (PDOException $e) {
     $pdo->rollBack(); 
@@ -172,7 +172,7 @@ try {
 }
 ?>
 
-    <p><a href="../../views/sistem project/index.php">Volver a Gestión de Proyectos</a></p>
-    <p><a href="../../views/sistem project/Modify Project/index.php?id=<?php echo htmlspecialchars($id); ?>">Volver a Modificar este Proyecto</a></p>    
+    <p><a href="../../views/index.php">Volver a Gestión de Proyectos</a></p>
+    <p><a href="../../views/Modify Project/index.php?id=<?php echo htmlspecialchars($id); ?>">Volver a Modificar este Proyecto</a></p>    
 
 </div>

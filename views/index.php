@@ -3,10 +3,10 @@
 session_start();
 
 if(!isset($_SESSION['nombre'])){
-    header('Location:../../views/login/index.php');
+    header('Location:login/index.php');
 };
 
-include '../../models/conexion.php';
+include '../models/conexion.php';
 
 $proyectos = [];
 $error_msg = null;
@@ -32,20 +32,20 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/sistem project.css">
+    <link rel="stylesheet" href="../views/assets/css/sistem project.css">
     <title>Listado de Proyectos</title>
 </head>
 <body>
 
-    <a href="../main-menu/index.php" class="volver" title="Volver a HOME">
-        <img src="../assets/imgs/icons/arrow-left.svg">
+    <a href="../views/main-menu/index.php" class="volver" title="Volver a HOME">
+        <img src="../views/assets/imgs/icons/arrow-left.svg">
     </a>
 
     <div class="list-option">
         <article class="titulo">
             <figure class="contenedor-flex">
                 <a>
-                    <img src="../assets/imgs/documento.webp" alt="bandera de venezuela" class="img_proyecto">
+                    <img src="../views/assets/imgs/documento.webp" alt="bandera de venezuela" class="img_proyecto">
                 </a>
                 <h1 class="texto_titulo">Bienvenido a la Gestión de Proyectos</h1>
             </figure>
@@ -61,9 +61,9 @@ try {
 
     <div>
         <p>
-            <a class="btn_create btn-accion" href="./Create Project/index.php">➕ Crear Nuevo Proyecto</a>
+            <a class="btn_create btn-accion" href="../views/Create Project/index.php">➕ Crear Nuevo Proyecto</a>
             | 
-            <a class="btn_recargar btn-accion" href="./index.php">🔄 Recargar Lista</a>
+            <a class="btn_recargar btn-accion" href="#">🔄 Recargar Lista</a>
         </p>
     </div>
 
