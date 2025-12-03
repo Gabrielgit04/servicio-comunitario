@@ -1,0 +1,161 @@
+*
+body {
+    justify-content: center;
+    align-items: center;
+    min-width: 600px;
+    max-width: 100%;
+    margin:  auto;
+    margin-left: 100px;
+    margin-right: 100px; 
+    padding: 20px; 
+    background-color:  rgba(2, 20, 155);
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    overflow-x: auto; 
+    font-weight: bold;
+}
+
+.volver{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    display: flex;
+    background-color: whitesmoke;
+    padding: 3px;
+    border-radius:50% ;
+    
+}
+
+#formulario_datos {
+    text-align: center;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.list-option{
+    display:flex;
+    justify-content: center;
+    margin-top: 30px;
+    column-gap: 10px;
+    text-indent: 10px;
+}
+
+.contenedor_entradas1{
+    justify-content: center;
+    align-items: center;
+    align-items: center;    
+    height: 450px ;
+    width: 300px;
+    margin: auto;    
+    background-color: #ccc;
+    display:grid;
+    padding: 5px;
+    border-radius:10px ;    
+}
+
+.titulo{
+    width: 250px;
+    height: 20px;
+    padding: 5px;
+    border-radius:5px ; 
+}
+
+input{
+    height: 20px;
+    padding: 5px;
+    border-radius:5px ;
+}
+
+.estado{
+    height: 30px;
+    padding: 5px;
+    border-radius:5px ;    
+}
+
+
+
+
+.contenedor_entradas2{
+    justify-content: center;
+    text-align: center;
+    align-items: center;  
+    height: auto;
+    width: auto;
+    margin: auto;      
+    display:grid;
+
+    background-color: #28a745;
+    padding: 15px;
+    border-radius:10px     
+}
+
+.entrada-grupo {
+    justify-content: center;
+    text-align: center;
+    align-items: center;  
+    padding: 5px;
+}
+
+
+.entrada-grupo input {
+    padding: 5px;
+    width: 170px;
+    border: 1px solid #ddd;
+}
+
+.entrada-grupo label {
+    font-weight: bold;
+    margin-right: 5px;
+    
+}
+
+.total-box {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    display: inline-block;
+    text-align: center;   
+    border-radius: 10px;
+}
+
+.btn-accion {
+    padding: 8px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.btn-agregar { 
+    background-color: #28a745;
+    border: #007bff solid; 
+    color: white; 
+    margin-top: 10px; 
+    justify-content: center;
+    text-align: center;
+    align-items: center;      
+    height: 40px;
+}
+
+.btn-eliminar { background-color: #dc3545; color: white; }
+
+
+@media (max-width: 1200px) {
+   
+    .list-option {
+        flex-direction: column;         
+        align-items: center; 
+    }
+    
+    .contenedor_entradas1, .contenedor_entradas2 {
+        margin-bottom: 20px; 
+    }
+}
+
+
+
+
+
+
+
+

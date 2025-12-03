@@ -1,0 +1,133 @@
+* 
+body {
+
+    text-align: center;
+    min-width: 600px;
+    max-width: 100%;
+    margin:  auto; 
+    padding: 20px; 
+    background-color:  rgba(2, 20, 155);
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    overflow-x: auto; 
+    font-weight: bold;
+}
+
+.titulo{
+    background-color: rgb(57, 56, 56);
+    color: #ccc;
+    width: 850px ;
+    border-radius: 10px;
+    display:grid;
+    justify-content: left;
+    align-items: center;
+}
+
+div {
+    max-width: 100%;
+    min-width: 600px;
+    margin: 0 auto;
+}
+
+.img_proyecto{
+    width: 250px;
+    height: 200px;
+    border-radius: 30px 0 30px 0;
+}
+
+.contenedor-flex {
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+}
+
+.texto_titulo {
+    flex-grow: 1; 
+    margin: 0; 
+}
+
+table {
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    background-color: #28a745;
+    color: black;
+    text-align: left;
+    width: 90%; 
+    table-layout: fixed; 
+    margin: 20px 25px;
+    text-align: left;
+    border-radius: 10px;
+}
+.list-option{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: space-around;
+    margin-top: 40px;
+    column-gap: 15px;
+}
+
+.volver{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    display: flex;
+    background-color: whitesmoke;
+    padding: 3px;
+    border-radius:50% ;
+    
+}
+
+.columna_name {
+    min-width: 85%; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.columna_boton {
+    min-width: 10%;
+    display: flex;
+    justify-content: right;
+    text-align: center;
+    align-items: center; 
+    gap: 2px; 
+    padding: 8px;  
+}
+
+.btn-accion {
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: inline-block;
+    white-space: nowrap; 
+    
+}
+
+div {
+    text-align: left;
+    margin: 20px 25px;
+}
+
+
+.btn_create { 
+    background-color: #007bff; color: white; border-color: #007bff;
+}
+.btn_recargar{  background-color: #007bff; color: white; border-color: #007bff; }
+
+
+.btn-ver { background-color: #007bff; color: white; border-color: #007bff; }
+.btn-editar { background-color: #ffc107; color: black; border-color: #ffc107; }
+.btn-eliminar { background-color: #dc3545; color: white; border-color: #dc3545; }
+
+
+#Ejecutado, #Error {
+    padding: 10px;
+    margin: 10px auto;
+    width: fit-content;
+    max-width: 90%;
+    border-radius: 5px;
+}
+#Ejecutado {color: green; border: 1px solid green; background-color: #e6ffe6;}
+#Error {color: red; border: 1px solid red; background-color: #ffe6e6;}
