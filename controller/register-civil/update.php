@@ -34,24 +34,6 @@ $idCivil = isset($raw['cedula']) ? preg_replace('/\D/','', $raw['cedula']) : '';
 $choiceOption = $_GET['choiceUpdate'] ?? '';  
 $updateField = ucwords(isset($raw['UPDATE_FIELD']) ? htmlspecialchars($raw['UPDATE_FIELD']) : '');
 
-// Validaciones
-// if(!array_key_exists($choiceOption,$mapFields)){
-//     $errors[] = 'Escoja una opción válida, por favor';
-// }
-
-// if ($idCivil === '' || !preg_match('/^[0-9]{6,10}$/', $idCivil)) {
-//     $errors[] = 'Cédula inválida (6-10 dígitos).';
-// }
-
-// if ($updateField === '') {
-//     $errors[] = 'El valor a actualizar no puede estar vacío.';
-// }
-
-if (!empty($errors)) {
-    $_SESSION['errors'] = $errors;
-    header('Location: ../../views/register-civil/read/index.php');
-    exit();
-}
 
 $db = conexionDB();
 try {

@@ -166,7 +166,7 @@ if (!empty($_SESSION['search'])) {
                     </div>
                     <div class="input_area">
                         <label for="choice-update" name="choiceUpdate" class="sr-only">Campo a actualizar</label>
-                        <select name="choiceUpdate" id="choice-update" required>
+                        <select name="choiceUpdate" id="choice-update" required onclick="changeInput()">
                             <option value="FirstName">Nombres</option>
                             <option value="LastName">Apellidos</option>
                             <option value="ID_CI">Cédula</option>
@@ -183,10 +183,11 @@ if (!empty($_SESSION['search'])) {
                             <option value="Vote_Type">Tipo de voto</option>
                         </select>
                     </div>
-                    <div class="input_area">
+                    <div class="input_area" id="div-input-update">
                         <input type="text" name="UPDATE_FIELD" id="editCampo" class="entry" placeholder="Actualice el campo" autocomplete="off">
                         <div class="labelline"><span><img src="../../assets/imgs/icons/user-edit.svg" alt="icon" class="icon-user-edit"></span></div>
                     </div>
+                    <div id="dinamic-input"></div>
 
                     <div class="btns-update">
                         <button type="submit" id="btn-submit-update" class="submit-btn-edit" onclick="twoDialogUpdate()">Actualizar</button>

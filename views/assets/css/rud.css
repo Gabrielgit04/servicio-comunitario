@@ -85,7 +85,7 @@ body {
 }
 
 .table-container thead th {
-    background-color: #e93737;
+    background-color: #3d3b3b;
     color: #ffffff;
     text-align: left;
     padding: 6px 8px;
@@ -654,6 +654,23 @@ dialog {
     border-radius: 8px;
     background: #DDDDDD;
     border: 1px solid #DDDDDD;
+}
+
+#dinamic-input{
+    width: 88%;
+    font-weight: 700;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    margin-left: 13px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    background: #DDDDDD;
+    display: none;
+    border: 1px solid #DDDDDD;
+
+}
+#dinamic-input select:focus{
+    border:1px solid #DDDDDD ;
 }
 
 .dialog-edit .entry::placeholder {
