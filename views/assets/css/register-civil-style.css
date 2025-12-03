@@ -5,7 +5,8 @@
         padding: 0;
         overflow: hidden;
         opacity: 1;
-        transition: opacity 0.5s ease
+        transition: opacity 0.5s ease;
+        user-select: none;
 
     }
 
@@ -146,12 +147,14 @@
 select{
     margin-top: 12px;
     width: 92%;
+    margin-bottom: 15px;
     transform: translateX(23px);
     height: 30px;
     border-radius: 6px;
     background-color: #DDDDDD;
     font-weight: 600;
-    color: rgb(63, 63, 63);
+    color: rgba(63, 63, 63, 0.7);
+    border: #DDDDDD solid 1px;
 
 }
 option{

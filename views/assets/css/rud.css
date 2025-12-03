@@ -5,49 +5,54 @@ body {
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     overflow: hidden;
 }
+
 .read-all-cont {
     width: 100%;
     display: grid;
     box-sizing: border-box;
     height: 100dvh;
-    grid-template-columns: 2fr 1fr; /* 3 columnas */
-    grid-template-rows: 120px 1fr 1fr;        /* 2 filas */
-    grid-template-areas: 
+    grid-template-columns: 2fr 1fr;
+    /* 3 columnas */
+    grid-template-rows: 120px 1fr 1fr;
+    /* 2 filas */
+    grid-template-areas:
         " header header"
         " table table table"
         " footer footer ";
-    padding:50px;
+    padding: 20px;
     transform: translateX(0px);
-
 
 }
 
 .header-registradas {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap:0 30px;
-    width:100%;
+    gap: 0 30px;
+    width: 100%;
     padding: 20px;
     background-color: #100aa8;
-    grid-area: header;   /* sin comillas */
+    grid-area: header;
+    /* sin comillas */
     align-items: center;
     min-height: fit-content;
     position: absolute;
 }
-.header-registradas h2{
+
+.header-registradas h2 {
     color: white;
     margin: 14px 0 10px 0;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-.exit{
+
+.exit {
     margin-top: 5px;
     margin-left: 20px;
     width: 35px;
     cursor: pointer;
     background-color: whitesmoke;
     padding: 5px;
-    border-radius:10px ;
+    border-radius: 10px;
     z-index: 111;
 }
 
@@ -55,117 +60,98 @@ body {
 
 .table-container {
     background-color: #fbfcfd;
-    overflow:hidden;
-    position: absolute;
-    top: 140px;
-    width: 60%;
-    min-width:fit-content ;
-    max-width: 100%;
-    height: fit-content;
-    /* min-height: 580px; */
+    position: relative;          /* mejor que absolute para scroll */
+    top: -60px;
+    width: 100%;                 /* ocupa todo el ancho disponible */
+    max-width: 100%;             /* límite para scroll horizontal */
+    height: 500px;               /* altura fija para scroll vertical */
+    overflow-x: auto;            /* scroll horizontal */
+    overflow-y: auto;            /* scroll vertical */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.548);
     border-radius: 10px;
-    grid-area: table;   /* sin comillas */
+    grid-area: table;
     font-size: 13px;
     font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
     border: 1px solid #DDDDDD;
-    overflow-x: scroll;
-    overflow-y: scroll;
-    transition: width all ease .3s;
+    transition: width .3s ease;
 }
 
-/* Use native table layout for predictable columns; allow horizontal scroll on small screens */
-.table-container table{
+.table-container table {
     border-collapse: collapse;
-    width: fit-content;
     table-layout: fixed;
-    min-width: 800px; /* ensures scroll when many columns */
+    min-width: 800px;            /* asegura scroll horizontal */
+    width: 100%;
     background: transparent;
-    
 }
 
-.table-container thead th{
-    background-color: #b60a0a; /* header color different from left pane */
+.table-container thead th {
+    background-color: #e93737;
     color: #ffffff;
     text-align: left;
-    padding:2px 8px;    
-    border-radius: 10px 0 0 0;
-    min-width: fit-content;
+    padding: 6px 8px;
     font-weight: 700;
+    width: 180px;
     vertical-align: middle;
     position: sticky;
     top: 0;
-    transition: width all ease .2s;
-    left: 0;
-    border-left: solid #860707 3px;
+    border-left: solid #9e0a0a 3px;
     z-index: 5;
-    /* Smooth width transitions for JS-driven column resize */
-    .table-container th,
-    .table-container td{
-        box-sizing: border-box;
-        transition: width 260ms cubic-bezier(.2,.9,.2,1), background-color 120ms ease;
-    }
-
+    box-sizing: border-box;
+    transition: width 260ms cubic-bezier(.2, .9, .2, 1), background-color 120ms ease;
 }
-.table-container thead th:hover{
-    width: 170px;
-    cursor: pointer;}
 
-.table-container tbody td{
-    padding:10px 5px 10px 3px;
+.table-container thead th:hover {
+    width: 190px;
+    cursor: pointer;
+}
+
+.table-container tbody td {
+    padding: 10px 5px;
     font-size: 12px;
-    width: 500px;
     text-align: center;
     color: #233043;
     border-bottom: 1px solid #a7cdf3;
     vertical-align: middle;
     overflow: hidden;
     white-space: nowrap;
-    border-right:2px solid #860707;
+    text-overflow: ellipsis;
+    border-right: 2px solid #860707;
+    box-sizing: border-box;
+    transition: background-color 120ms ease;
 }
-.table-container tbody tr{
-    transition: all ease .2s;
-    margin-left: 10px;
 
+.table-container tbody tr {
+    transition: background-color .2s ease;
 }
-.table-container td:hover{
+
+.table-container td:hover {
     background-color: #eef4ff;
     cursor: pointer;
     transform: translateY(-1px);
 }
-.table-container  td:focus{
-    outline: none;
-    width: 180px;
-}
-.table-container td :not(:focus){
-    cursor: pointer;
-    text-overflow: ellipsis;
-}
-/* Row striping and left accent bar for visual separation */
+
+/* Row striping */
 .table-container tbody tr:nth-child(even) {
     background-color: #ffffff;
-    border-left: 3px solid #a8b9fa;
+    border-left: 3px solid #e5e912;
 }
 
 .table-container tbody tr:nth-child(odd) {
     background-color: #DDDDDD;
-    border-left: 3px solid #6b83d2;
-    margin-left: 10px;
+    border-left: 3px solid #224acc;
 }
 
-.table-container tbody tr:hover{
-    background-color: #eef4ff;
-    transform: translateY(-1px);
-}
 
-/* Small helper for header row when table uses multiple cells */
-.table-container thead th:first-child{
+/* Header corners */
+.table-container thead th:first-child {
     border-radius: 6px 0 0 0;
 }
-.table-container thead th:last-child{
+
+.table-container thead th:last-child {
     border-radius: 0 6px 0 0;
 }
-.search{
+
+.search {
     width: 600px;
     height: 45px;
     border-radius: 30px;
@@ -175,30 +161,33 @@ body {
     outline: transparent;
     margin: 5px 50px 5px 0px;
     text-indent: 50px;
-    background-color:whitesmoke ;
+    background-color: whitesmoke;
     left: 50px;
 }
-.search::placeholder{
+
+.search::placeholder {
     text-align: center;
     font-weight: bold;
     letter-spacing: 2px;
     text-indent: -10px;
 }
-.span-search button{
+
+.span-search button {
     position: absolute;
     width: 20px;
     margin-left: 60px;
     margin-top: 14px;
     border: none;
     z-index: 11;
-    cursor: pointer;    
+    cursor: pointer;
     background-color: transparent;
-}   
-.search:focus::placeholder{
+}
+
+.search:focus::placeholder {
     color: transparent;
 }
 
-footer{
+footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -215,13 +204,15 @@ footer{
     grid-area: footer;
     letter-spacing: 2px;
 }
-.btns{
+
+.btns {
     display: flex;
     width: 450px;
     justify-content: space-evenly;
     padding: 10px;
 }
-#dialogDelete{
+
+#dialogDelete {
     border: solid whitesmoke 2px;
     background-color: whitesmoke;
     width: 400px;
@@ -233,23 +224,27 @@ footer{
     overflow: hidden;
     user-select: none;
 }
-dialog::backdrop{
+
+dialog::backdrop {
     background-color: #18191bb3;
     backdrop-filter: blur(3px);
 }
-#dialogDelete .form-index{
+
+#dialogDelete .form-index {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     height: 300px;
 }
-#dialogDelete .btn-send-box{
+
+#dialogDelete .btn-send-box {
     width: 400px;
     height: 300px;
 
 }
-#dialogDelete h3{
+
+#dialogDelete h3 {
     margin-top: 30px;
     color: #b60a0a;
     letter-spacing: 2px;
@@ -259,12 +254,17 @@ dialog::backdrop{
     font-size: 24px;
     text-transform: uppercase;
 }
-.icon_lock,.icon_user,.icon_email,.icon_id{
+
+.icon_lock,
+.icon_user,
+.icon_email,
+.icon_id {
     margin-top: 18px;
 
 }
 
-.entry,.entry_pass{
+.entry,
+.entry_pass {
     position: absolute;
     width: 90%;
     line-height: 35px;
@@ -280,17 +280,21 @@ dialog::backdrop{
     margin-top: 10px;
     /* box-shadow: 0 0 6px darkslategray; */
 }
-.entry:focus::placeholder,.entry_pass:focus::placeholder{
+
+.entry:focus::placeholder,
+.entry_pass:focus::placeholder {
     opacity: 0;
 }
-.entry::placeholder,.entry_pass::placeholder{
+
+.entry::placeholder,
+.entry_pass::placeholder {
     font-weight: bold;
     text-indent: 40px;
     text-transform: none;
 }
 
 
-.labelline{
+.labelline {
     position: absolute;
     z-index: 1111;
     font-size: 13;
@@ -298,16 +302,18 @@ dialog::backdrop{
     padding: 0.5;
     margin: 0 23px;
 }
-.input_area,.input_password{
+
+.input_area,
+.input_password {
     position: relative;
-    height:60px;
+    height: 60px;
     line-height: 60px;
     margin: 20px 0 0px 0;
     padding: 8px;
     text-transform: capitalize;
 }
 
-#close-btn{
+#close-btn {
     width: 25px;
     height: 20px;
     cursor: pointer;
@@ -317,15 +323,18 @@ dialog::backdrop{
     top: 0;
     transition: .3s;
 }
-#close-btn:hover{
+
+#close-btn:hover {
     scale: 1.1;
     transition: .3s;
 }
-#dialogDelete span{
+
+#dialogDelete span {
     width: 93%;
     display: flex;
     position: absolute;
 }
+
 .submit-btn {
     margin-top: 40px;
     width: 90%;
@@ -334,7 +343,7 @@ dialog::backdrop{
     background-color: #720707;
     color: whitesmoke;
     font-size: 16px;
-    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
     font-weight: 600;
     border: none;
     border-radius: 5px;
@@ -342,35 +351,38 @@ dialog::backdrop{
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: 0.3s;
-    }
+}
+
 .submit-btn:hover {
     background-color: rgba(192, 55, 55, 0.988);
     color: #dbdbe4;
     scale: 1.05;
     transition: .3s;
 }
-dialog[open]{
+
+dialog[open] {
     scale: 1;
     transition: scale 0.3s ease;
 
-    @starting-style{
+    @starting-style {
         scale: 0;
     }
 }
-dialog{
+
+dialog {
     transition: scale 0.3s ease,
-    display .3s ease allow-discrete;
+        display .3s ease allow-discrete;
     scale: 0;
 }
 
 
-.btns #delete-btn{
+.btns #delete-btn {
     width: 170px;
     height: 45px;
     border-radius: 10px;
-    border: solid #860707 1px;
-    background-color: #860707;
-    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    border: solid #b73737 1px;
+    background-color: #b73737;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     color: whitesmoke;
@@ -379,25 +391,28 @@ dialog{
     transition: 0.3s;
 
 }
-.btns #delete-btn:hover{
+
+.btns #delete-btn:hover {
     scale: 1.05;
     background-color: #720707;
     transition: 0.3s;
-    outline:#720707 ;
+    outline: #720707;
 }
-.btns #update-btn:hover{
+
+.btns #update-btn:hover {
     scale: 1.05;
     background-color: rgba(18, 117, 18, 0.896);
     transition: 0.3s;
     outline: rgba(18, 117, 18, 0.896);
 }
-.btns #update-btn{
+
+.btns #update-btn {
     width: 170px;
     height: 45px;
     border-radius: 10px;
     border: solid rgba(26, 156, 26, 0.896) 1px;
     background-color: rgba(26, 156, 26, 0.896);
-    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     color: whitesmoke;
@@ -405,14 +420,15 @@ dialog{
     letter-spacing: 2px;
 
 }
+
 /* dialog confirm delete */
-#dialog-delete-confirm{
+#dialog-delete-confirm,#dialog-update-confirm{
     border: none;
     border-radius: 8px;
     padding: 20px;
     max-width: 400px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     user-select: none;
 }
 .actions {
@@ -421,13 +437,16 @@ dialog{
     margin-top: 20px;
     text-transform: uppercase;
 }
-#dialog-delete-confirm h3{
+
+#dialog-delete-confirm h3 {
     transform: translate(20px);
 }
-#dialog-delete-confirm p{
+
+#dialog-delete-confirm p {
     transform: translate(40px);
-    font-family: "Poppins-light",Arial, Helvetica, sans-serif;
+    font-family: "Poppins-light", Arial, Helvetica, sans-serif;
 }
+
 .danger {
     background: #d9534f;
     color: whitesmoke;
@@ -435,7 +454,7 @@ dialog{
     width: 120px;
     height: 36px;
     padding: 4px 12px;
-    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
     font-weight: 600;
     border-radius: 4px;
     cursor: pointer;
@@ -445,14 +464,14 @@ dialog{
 
 }
 
-.cancel{
+.cancel {
     border: none;
     background-color: rgba(38, 64, 64, 0.822);
     box-shadow: 0 0 gray 4px;
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
-    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
     font-weight: 600;
     width: 120px;
     margin-top: 10px;
@@ -461,14 +480,14 @@ dialog{
     text-transform: uppercase;
     letter-spacing: 2px;
 
-    
+
 }
 
 
 
 /* hasta aca */
 /* delete message */
-#messageDel{
+#messageSuccess {
     display: flex;
     z-index: 111111111111111;
     position: absolute;
@@ -476,35 +495,291 @@ dialog{
     width: 100%;
     border-radius: 0 6px 6px 0;
     background-color: #22790e;
-    box-shadow:0 0 10px#2cd905;
-    animation: hide-success 5s ;
+    box-shadow: 0 0 10px#2cd905;
+    animation: hide-success 5s;
 }
-#messageDel p{
-    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+#messageError{
+    display: flex;
+    z-index: 111111111111111;
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    border-radius: 0 6px 6px 0;
+    background-color: #c32620;
+    box-shadow: 0 0 10px#c32620;
+    animation: hide-success 5s;
+}
+
+#messageSuccess p {
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-indent: 20px;
     color: whitesmoke;
-    text-shadow:0 0 7px #233043;
-    font-size: 20px;
+    text-shadow: 0 0 7px #233043;
+    font-size: 18px;
+}
+#messageError p {
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-indent: 20px;
+    color: whitesmoke;
+    text-shadow: 0 0 7px #233043;
+    font-size: 16px;
 }
 
+#dialog-update-confirm span{
+    display: flex;
+    height: 40px;
+    width: 100%;
+    justify-content: space-between;
+}
 /* hasta aca */
 
-/* Make table scroll horizontally on small screens */
-@media (max-width: 900px){
-    .table-container{ padding: 6px; }
-    .table-container table{ min-width: 720px; }
-    .table-container tbody td{ white-space: nowrap; }
+/* Estilos para dialog de edición (dialog-edit) */
+.dialog-edit {
+    border: #ffffff solid 1px;
+    border-radius: 12px;
+    padding: 10px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    background: #ffffff;
+    box-shadow: 0 12px 36px rgba(16, 10, 168, 0.12);
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+    color: #213040;
+    min-height: fit-content;
+    overflow: hidden;
+    user-select: none;
+    align-items: center;
 }
 
-@media (max-width: 520px){
-    .table-container{ height: 420px; }
-    .table-container thead th, .table-container tbody td{ padding: 8px 10px; font-size: 12px; }
-    .table-container table{ min-width: 600px; }
+.dialog-edit .form-index {
+    padding: 10px;
+    width: 90%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px 0;
+    justify-content: center;
+
 }
 
+.dialog-edit #close-edit-btn {
+    position: absolute;
+    right: 4px;
+    top: 7px;
+    cursor: pointer;
+    width: 25px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.dialog-edit .close-icon img {
+    width: 18px;
+    height: 18px;
+}
+
+.dialog-edit h3 {
+    margin: 20px 0 15px 0;
+    color: #100aa8;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.dialog-edit .input_area {
+    position: relative;
+    right: 12px;
+    margin: 8px 0px 6px 0;
+    height: auto;
+    line-height: normal;
+}
+
+.dialog-edit .entry {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #DDDDDD;
+    background-color: #DDDDDD;
+    padding: 10px 0px 10px 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: box-shadow .18s ease, transform .12s ease;
+}
+
+.dialog-edit .entry:focus {
+    box-shadow: 0 6px 18px rgba(16, 10, 168, 0.08);
+    outline: none;
+}
+
+.dialog-edit label {
+    text-transform: none;
+}
+
+.dialog-edit .labelline {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.dialog-edit .labelline img {
+    width: 20px;
+    height: 20px;
+}
+
+.dialog-edit .labelline .icon-user-edit {
+    display: flex;
+    position: absolute;
+    top: -6px;
+    left: 4px;
+}
+
+.dialog-edit select {
+    font-weight: 700;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+    width: 100%;
+    margin-top: 4px;
+    margin-left: 13px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #DDDDDD;
+    border: 1px solid #DDDDDD;
+}
+
+.dialog-edit .entry::placeholder {
+    text-indent: 0;
+}
+
+
+.btns-update {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+
+}
+
+.dialog-edit .submit-btn-edit{
+    background-color: #088813;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 700;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+    transition: 0.3s;
+}
+#dialog-update-confirm span form{
+    height: fit-content;
+    width: fit-content;
+    width: 58%;
+}
+#dialog-update-confirm span form .submit-btn-edit{
+    background-color: #088813;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 700;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+    transition: 0.3s;
+    transform: translateY(-19px);
+}
+
+.dialog-edit .submit-btn-edit:hover, #dialog-update-confirm .submit-btn-edit:hover {
+    scale: 1.1;
+    transition: 0.3s;
+    background-color: #1f640f;
+}
+
+.dialog-edit .cancel-btn-edit, #dialog-update-confirm .cancel-btn-edit {
+    background: rgba(169, 18, 23, 0.82);
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    width: 35%;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+    transition: 0.3s;
+}
+#dialog-update-confirm span .cancel-btn-edit{
+    background: rgba(169, 18, 23, 0.82);
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    width: 35%;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+    transition: 0.3s;
+
+}
+
+.dialog-edit .cancel-btn-edit:hover, #dialog-update-confirm .cancel-btn-edit:hover{
+    scale: 1.1;
+    transition: 0.3s;
+    background-color: rgba(118, 18, 21, 0.82);
+}
+
+
+@media (max-width: 720px) {
+    .dialog-edit .btn-send-box {
+        grid-template-columns: 1fr;
+    }
+
+    .dialog-edit {
+        padding: 12px;
+        max-width: 95%;
+    }
+}
+
+
+@media (max-width: 520px) {
+    .table-container {
+        height: 420px;
+    }
+
+    .table-container thead th,
+    .table-container tbody td {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .table-container table {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 900px) {
+    .table-container {
+        padding: 6px;
+    }
+
+    .table-container table {
+        min-width: 720px;
+    }
+
+    .table-container tbody td {
+        white-space: nowrap;
+    }
+}
 
 /* hasta aca el read */
 
@@ -513,17 +788,19 @@ dialog{
     font-family: 'Poppins';
     src: url(../fonts/Poppins-Black.ttf) format('truetype');
 }
+
 @font-face {
     font-family: 'Poppins-light';
     src: url(../fonts/Poppins-Light.ttf) format('truetype');
 }
 
 @keyframes hide-success {
-    from{
+    from {
         width: 100%;
     }
-    to{
-        width:  28%;
+
+    to {
+        width: 39%;
     }
-    
+
 }
