@@ -95,108 +95,132 @@ function twoDialogUpdate() {
 }
 // envio de formulario del dialgo dos
 function validarFormularioEditar() {
-    // Leer valor de la cédula y redirigir inmediatamente
-    const cedula = document.getElementById("edit_ID_CI").value;
+    // Leer valor de la cédula
+    const cedula = document.getElementById("edit_ID_CI").value.trim();
     if (!cedula) {
         alert('Ingrese una cédula válida antes de confirmar.');
         return false;
     }
-    // Redirigir vía GET (controller espera cedula en query string)
-const choiceUpdate = document.getElementById("choice-update").value;
+
+    // Leer opción seleccionada
+    const choiceUpdate = document.getElementById("choice-update").value;
     if (!choiceUpdate) {
         alert('Seleccione una opción válida antes de confirmar.');
         return false;
     }
-const updateField = document.getElementById("editCampo").value.trim();
-    if (!updateField) {
-        alert('Ingrese el nuevo valor para actualizar.');
-        return false;
+
+    // Detectar si el campo dinámico está activo
+    const campoDinamico = document.getElementById("editCampo");
+    const campoFijo = document.getElementById("editCampoFijo"); // tu input fijo original
+
+    let updateField = "";
+
+    if (campoDinamico && campoDinamico.style.display !== "none") {
+        // Si es un SELECT, validar que no esté en la opción deshabilitada
+        if (campoDinamico.tagName === "SELECT" && campoDinamico.selectedIndex === 0) {
+            alert("Seleccione una opción válida antes de confirmar.");
+            return false;
+        }
+        updateField = campoDinamico.value.trim();
+    } else if (campoFijo && campoFijo.style.display !== "none") {
+        updateField = campoFijo.value.trim();
     }
 
+    if(!updateField){
+        alert("El campo esta vacio.")
+    }
 
-    // Redirigir vía GET con ambos parámetros
-    const url = "../../../controller/register-civil/update.php?cedula=" 
-                + encodeURIComponent(cedula) 
-                + "&choiceUpdate=" 
-                + encodeURIComponent(choiceUpdate)
-                + "&UPDATE_FIELD=" 
-                + encodeURIComponent(updateField);
-
-
+    // Redirigir vía GET con parámetros
+    const url = `../../../controller/register-civil/update.php?cedula=${encodeURIComponent(cedula)}&choiceUpdate=${encodeURIComponent(choiceUpdate)}&UPDATE_FIELD=${encodeURIComponent(updateField)}`;
     window.location.href = url;
-}  
+}
+
+
 function changeInput() {
     const campo = document.getElementById("choice-update");
-    const contenedor = document.getElementById("dialog-edit");
-    const removeField = document.getElementById("div-input-update");
-    const createField = document.getElementById("dinamic-input");
+    const removeField = document.getElementById("div-input-update"); // contenedor del campo fijo
+    const createField = document.getElementById("dinamic-input");    // contenedor del campo dinámico
 
     campo.addEventListener("change", function () {
-        // Limpiar el contenedor dinámico
-        contenedor.remove.apply(removeField);
+        const specialFields = ["Birth_Date", "Voting_Center", "Committee_Name", "Vote_Type", "Sex"];
+        
+        // Limpiar siempre antes de crear
         createField.innerHTML = "";
-        createField.style.display = 'flex';
+        
+        if (specialFields.includes(this.value)) {
+            if (removeField) removeField.style.display = "none";
+            createField.style.display = "flex";
 
-        if (this.value === "Birth_Date") {
-            const inputDate = document.createElement("input");
-            inputDate.type = "date";
-            inputDate.id = "editCampo";   // 👈 id fijo
-            createField.appendChild(inputDate);
+            let newField;
 
-        } else if (this.value === "Voting_Center") {
-            const selectCenter = document.createElement("select");
-            selectCenter.id = "editCampo"; // 👈 id fijo
-            selectCenter.innerHTML = `
-                <option selected disabled>Selecciona el centro de votacion</option>
-                <option value="Liceo Bolivariano Maestro Gallegos">🏫Liceo Bolivariano Maestro Gallegos</option>
-                <option value="Caipa">🏢Caipa</option>
-                <option value="Alicia Tremont de Medina">🏫Alicia Tremont de Medina</option>
-                <option value="Inces">🏤Inces</option>
-            `;
-            createField.appendChild(selectCenter);
+            switch (this.value) {
+                case "Birth_Date":
+                    newField = document.createElement("input");
+                    newField.type = "date";
+                    break;
+                case "Voting_Center":
+                    newField = document.createElement("select");
+                    newField.innerHTML = `
+                        <option selected disabled>Selecciona el centro de votación</option>
+                        <option value="Liceo Bolivariano Maestro Gallegos">🏫Liceo Bolivariano Maestro Gallegos</option>
+                        <option value="Caipa">🏢Caipa</option>
+                        <option value="Alicia Tremont de Medina">🏫Alicia Tremont de Medina</option>
+                        <option value="Inces">🏤Inces</option>
+                    `;
+                    break;
+                case "Committee_Name":
+                    newField = document.createElement("select");
+                    newField.innerHTML = `
+                        <optgroup label="Seleccione un comité">
+                            <option value="alimentacion">Alimentación</option>
+                            <option value="economia_comunal">Economía comunal</option>
+                            <option value="empleo">Empleo</option>
+                            <option value="deporte_juventud">Deporte y juventud</option>
+                            <option value="energia_gas">Mesa técnica de energía y gas</option>
+                            <option value="agua">Mesa técnica de agua</option>
+                            <option value="educacion_cultura">Educación, cultura y formación ciudadana</option>
+                            <option value="habitat_tierra">Hábitat, vivienda y tierra</option>
+                            <option value="medios_alternativos">Medios alternativos</option>
+                            <option value="seguridad_defensa">Seguridad y defensa</option>
+                            <option value="proteccion_nna">Protección de NNA</option>
+                            <option value="salud">Salud</option>
+                            <option value="planificacion">Planificación</option>
+                            <option value="parlamento">Parlamento</option>
+                        </optgroup>
+                    `;
+                    break;
+                case "Vote_Type":
+                    newField = document.createElement("select");
+                    newField.innerHTML = `
+                        <option selected disabled>Selecciona el tipo de voto</option>
+                        <option value="Presencial">📑Presencial</option>
+                        <option value="Asistido">👥Asistido</option>
+                    `;
+                    break;
+                case "Sex":
+                    newField = document.createElement("select");
+                    newField.innerHTML = `
+                        <option selected disabled>Selecciona tu género</option>
+                        <option value="Masculino">🚹Masculino</option>
+                        <option value="Femenino">🚺Femenino</option>
+                    `;
+                    break;
+            }
+
+
+            newField.id = "editCampo";
+            createField.appendChild(newField);
+
+        } else {
+            // Mostrar el campo fijo si no es especial
+            createField.style.display = "none";
+            if (removeField) removeField.style.display = "block";
         }
-        else if (this.value === "Committee_Name") {
-            const selectComite = document.createElement("select");
-            selectComite.id = "editCampo"; // 👈 id fijo
-            selectComite.innerHTML = `
-            <optgroup label="Seleccione un comite">
-                <option value="alimentacion">Alimentación</option>
-                <option value="economia_comunal">Economía comunal</option>
-                <option value="empleo">Empleo</option>
-                <option value="deporte_juventud">Deporte y juventud</option>
-                <option value="energia_gas">Mesa técnica de energía y gas</option>
-                <option value="agua">Mesa técnica de agua</option>
-                <option value="educacion_cultura">Comité de Educación cultura y formación ciudadana</option>
-                <option value="habitat_tierra">Habita viviendo y tierra</option>
-                <option value="medios_alternativos">Medios alternativos</option>
-                <option value="seguridad_defensa">Seguridad y defensa</option>
-                <option value="proteccion_nna">Protección de niño niñas adolescentes</option>
-                <option value="salud">Salud</option>
-                <option value="planificacion">Planificación</option>
-                <option value="parlamento">Parlamento</option>
-            </optgroup>
-            `;
-            createField.appendChild(selectComite);
-        }
-        else if (this.value === "Vote_Type") {
-            const selectVote = document.createElement("select");
-            selectVote.id = "editCampo"; // 👈 id fijo
-            selectVote.innerHTML = `
-                <option selected disabled>Selecciona el tipo de voto</option>
-                <option value="Presencial">📑Presencial</option>
-                <option value="Asistido">👥Asistido</option>
-            `;
-            createField.appendChild(selectVote);
-        }
-        else if (this.value === "Sex") {
-            const selectGender = document.createElement("select");
-            selectGender.id = "editCampo"; // 👈 id fijo
-            selectGender.innerHTML = `
-                <option selected disabled>Selecciona tu genero</option>
-                <option value="Masculino">🚹Masculino</option>
-                <option value="Femenino">🚺Femenino</option>
-            `;
-            createField.appendChild(selectGender);
+    });
+
+    createField.addEventListener("change", function (e) {
+        if (e.target && e.target.id === "editCampo") {
+            console.log("Valor elegido:", e.target.value);
         }
     });
 }

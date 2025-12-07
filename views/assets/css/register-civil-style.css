@@ -18,10 +18,11 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         padding: 20px 30px;
         box-sizing: border-box;
+        height: fit-content;
     }
     .form-container form section{
         overflow-y:scroll;
-        height: 500px;
+        height: 420px;
         padding-right: 4px;
         
     
@@ -65,11 +66,12 @@
         background-size: cover;
         background-attachment: fixed;
         border-radius: 0 20% 20% 0;
+
     }
 
     .cont-header header h2{
         color: #DDDDDD;
-        font-size: 40px;
+        font-size: 35px;
     }
     .cont-header article p{
         color: #DDDDDD;
@@ -182,6 +184,14 @@ option{
     height: 250px;
     margin-left:100px; 
 }
+.lottie-ani img{
+    animation: render-img 3s infinite;
+}
+.lottie-read img{
+    height: 200px;
+    width: 220px;
+    animation: render-img 3s infinite;
+}
 a{
     width: fit-content;
     text-decoration: none;
@@ -273,6 +283,26 @@ body.fade-out {
     font-weight: 600;
     text-transform: uppercase;
 }
+#messageErrores{
+    background-color: rgb(117, 7, 7);
+    color: whitesmoke;
+    display: flex;
+    padding:10px 5px 10px 0;
+    width: 650px;
+    min-width: fit-content;
+    box-shadow: 0 0 8px whitesmoke;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+    height: fit-content;
+    animation: up 1.5s linear;
+}
+
+#messageErrores p{
+    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
 
 
 
@@ -294,6 +324,16 @@ body.fade-out {
     }
     to{
         opacity: 1;
+        
+    }
+}
+@keyframes render-img {
+    from{
+        transform: rotateY(0);
+        
+    }
+    to{
+        transform: rotateY(360deg);
         
     }
 }

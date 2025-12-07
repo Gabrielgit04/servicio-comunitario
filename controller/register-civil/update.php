@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit();
 }
 
-$raw = array_map(function($v){ return is_string($v) ? trim($v) : $v; }, $_GET);
 
 $mapFields = [
     "FirstName" => "FirstName",
@@ -27,12 +26,12 @@ $mapFields = [
     "Vote_Type" => "Vote_Type",
 ];
 
-$errors = [];
+
 
 // Datos recibidos
-$idCivil = isset($raw['cedula']) ? preg_replace('/\D/','', $raw['cedula']) : '';
-$choiceOption = $_GET['choiceUpdate'] ?? '';  
-$updateField = ucwords(isset($raw['UPDATE_FIELD']) ? htmlspecialchars($raw['UPDATE_FIELD']) : '');
+$idCivil = filter_var($_GET['cedula'],FILTER_SANITIZE_NUMBER_INT);
+$choiceOption = $_GET['choiceUpdate'];  
+$updateField = ucwords($_GET['UPDATE_FIELD']);
 
 
 $db = conexionDB();
@@ -50,7 +49,7 @@ try {
     exit();
 } catch (PDOException $e) {
     error_log('Update error: ' . $e->getMessage());
-    $_SESSION['errors'] = ['Error al actualizar el registro.'];
+    //$_SESSION['errors'] = ['Error al actualizar el registro.'];
     header('Location: ../../views/register-civil/read/index.php');
     exit();
 }

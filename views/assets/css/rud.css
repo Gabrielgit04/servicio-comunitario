@@ -61,10 +61,10 @@ body {
 .table-container {
     background-color: #fbfcfd;
     position: relative;          /* mejor que absolute para scroll */
-    top: -60px;
+    top: -65px;
     width: 100%;                 /* ocupa todo el ancho disponible */
     max-width: 100%;             /* límite para scroll horizontal */
-    height: 500px;               /* altura fija para scroll vertical */
+    height: 450px;               /* altura fija para scroll vertical */
     overflow-x: auto;            /* scroll horizontal */
     overflow-y: auto;            /* scroll vertical */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.548);
@@ -90,11 +90,14 @@ body {
     text-align: left;
     padding: 6px 8px;
     font-weight: 700;
-    width: 180px;
+    width: 250px;
     vertical-align: middle;
     position: sticky;
     top: 0;
-    border-left: solid #9e0a0a 3px;
+    text-indent: 10px;
+    letter-spacing: 1.2px;
+    border-radius:0 0 0 20px;
+    border-left: solid whitesmoke 3px;
     z-index: 5;
     box-sizing: border-box;
     transition: width 260ms cubic-bezier(.2, .9, .2, 1), background-color 120ms ease;
@@ -115,7 +118,7 @@ body {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    border-right: 2px solid #860707;
+    border-right: 3px solid #860707;
     box-sizing: border-box;
     transition: background-color 120ms ease;
 }
@@ -126,7 +129,7 @@ body {
 
 .table-container td:hover {
     background-color: #eef4ff;
-    cursor: pointer;
+    cursor: text;
     transform: translateY(-1px);
 }
 
@@ -162,7 +165,7 @@ body {
     margin: 5px 50px 5px 0px;
     text-indent: 50px;
     background-color: whitesmoke;
-    left: 50px;
+    left: 30px;
 }
 
 .search::placeholder {
@@ -175,7 +178,7 @@ body {
 .span-search button {
     position: absolute;
     width: 20px;
-    margin-left: 60px;
+    margin-left: 40px;
     margin-top: 14px;
     border: none;
     z-index: 11;
@@ -644,12 +647,12 @@ dialog {
     left: 4px;
 }
 
-.dialog-edit select {
+.dialog-edit select, .dialog-edit input[type="date"]{
     font-weight: 700;
     font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
     width: 100%;
     margin-top: 4px;
-    margin-left: 13px;
+    margin-left: 10px;
     padding: 10px 12px;
     border-radius: 8px;
     background: #DDDDDD;
@@ -669,7 +672,7 @@ dialog {
     border: 1px solid #DDDDDD;
 
 }
-#dinamic-input select:focus{
+#dinamic-input select:focus,.dialog-edit input[type="date"]:focus{
     border:1px solid #DDDDDD ;
 }
 

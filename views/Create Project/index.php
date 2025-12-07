@@ -1,3 +1,5 @@
+<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; ?>
+
 <?php 
 
 session_start();
@@ -26,7 +28,7 @@ if(!isset($_SESSION['nombre'])){
 
     <hr>
 
-    <form id="formulario_datos" action="../../../controller/sistem project/create project.php" method="POST">
+    <form id="formulario_datos" action="<?php echo BASE_URL . "controller/system-project/create project.php" ?>" method="POST">
         <div class="list-option">
             <article class="contenedor_entradas1">
                 <input type="hidden" name="Id" value="<?php $id_project= mt_rand(10000000, 99999999); echo "$id_project" ?>">
@@ -38,7 +40,7 @@ if(!isset($_SESSION['nombre'])){
                 <input class="fecha" type="date" name="Fecha_culminacion" min="2020-01-01" max="2050-12-31" required>
                 <a>Estado </a>     
                 <select class="estado" name="Estado" required> 
-                    <option value="Pranificando"> Pranificando </option> 
+                    <option value="Planificando"> Planificando </option> 
                     <option value="En_Proceso"> En Proceso </option> 
                     <option value="Incompleto"> Incompleto </option>
                     <option value="Finalizado"> Finalizado </option>  

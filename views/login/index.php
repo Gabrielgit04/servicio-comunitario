@@ -5,6 +5,10 @@ $mensaje = '';
 
 if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] == true) {
     $mensaje = 'Has iniciado sesion correctamente';
+    echo "<script>";
+    echo "const hidebtn = document.getElementById('send')";
+    echo "hidebtn.style.display = 'none'";
+    echo "</script>";
     unset($_SESSION['Logueado']);
 }
 ?>
@@ -17,6 +21,7 @@ if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] == true) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../assets/imgs/logo-unidos.ico">
     <title>Inicia sesion</title>
 </head>
 
@@ -26,7 +31,7 @@ if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] == true) {
         <section class="first-box">
 
 
-            <form action="/controller/authController.php" autocomplete="off" method="post">
+            <form action="http://localhost/servicio-comunitario/controller/authAdmin/authController.php" autocomplete="off" method="post">
                 <header>
                     <h2>Inicia sesion</h2>
                 </header>
@@ -52,10 +57,12 @@ if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] == true) {
                         <div class="barra-de-tiempo"></div>
                     </article>
                     <script>
+                        
                         // Redirigir al menú después de 3 segundos
                         setTimeout(() => {
                             window.location.href = "../../views/main-menu/index.php";
                             error.style.display = "none"
+
                         }, 3500);
                     </script>
                 <?php endif ?>
@@ -73,7 +80,7 @@ if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] == true) {
                 <?php endif ?>
 
 
-                <button class="ingresar">ingresar</button>
+                <button class="ingresar" id="send">ingresar</button>
             </form>
             <article class="registro-link">
                 <a href="../register/index.php">¿No tienes cuenta? Registrate.</a>

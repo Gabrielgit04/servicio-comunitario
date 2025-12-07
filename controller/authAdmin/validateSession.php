@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../models/conexion.php';
+include '../../models/conexion.php';
 
 $questOne = htmlspecialchars($_POST['security-question']);
 $questTwo = htmlspecialchars($_POST['security-question-2']);
@@ -27,7 +27,8 @@ try {
     $sql->bindParam(':twoAnswer', $answerTwoHash, PDO::PARAM_STR);
     $sql->execute();
 
-    header("Location: ../../views/login/index.php?success=1");
+
+    header("Location: ../../views/secure-questions/successfull.php?success=1");
     exit;
 } catch (PDOException $e) {
     header("Location: ../../views/secure-questions/index.php?error=db");

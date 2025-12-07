@@ -1,3 +1,5 @@
+<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; ?>
+
 <?php
 
 session_start();
@@ -59,7 +61,7 @@ function format_price_for_display($price) {
 
     <hr>
     
-    <form id="formulario_datos" action="../../../controller/sistem project/modify project.php" method="POST">
+    <form id="formulario_datos" action="<?php echo BASE_URL . "controller/system-project/modify project.php" ?>" method="POST">
         <div class="list-option">
             <article class="contenedor_entradas1">
                 <input type="hidden" name="Id" value="<?php echo htmlspecialchars($proyecto['id_project']); ?>">
@@ -72,7 +74,7 @@ function format_price_for_display($price) {
                 <a>Estado</a>
                 <select class="estado" name="Estado" required> 
                     <?php
-                    $estados = ["Pranificando", "En_Proceso", "Incompleto", "Finalizado"];
+                    $estados = ["Planificando", "En_Proceso", "Incompleto", "Finalizado"];
                         foreach ($estados as $estado) {
                             $selected = ($proyecto['estado_project'] == $estado) ? 'selected' : '';
                             echo "<option value=\"$estado\" $selected> " . htmlspecialchars(str_replace('_', ' ', $estado)) . " </option>";
@@ -86,7 +88,7 @@ function format_price_for_display($price) {
 
 
             <article class="contenedor_entradas2">
-                <h2>Lista de Entradas y Precios</h2>
+                <h2>Lista de Entradas</h2>
                     <div class="contenedor_entradas" id="contenedor_entradas">
                         <?php
                         $indiceEntrada = 0;
@@ -116,7 +118,6 @@ function format_price_for_display($price) {
                         Total Presupuestado: <span id="total_suma"><?php echo number_format($proyecto['presupuesto_project'], 2, '.', ''); ?></span>
                     </div>
 
-                    <hr>
     
                     <input type="submit" value="Guardar Modificaciones" class="btn-accion btn-agregar">
         
