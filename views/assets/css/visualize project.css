@@ -8,7 +8,7 @@ body {
     margin-left: 20px;
     margin-right: 20px; 
     padding: 20px; 
-    background-color:  rgba(2, 20, 155);
+    background-color:  rgb(6, 18, 109);
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     overflow-x: auto; 
     font-weight: bold;
@@ -31,29 +31,53 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif;
 }
 
 .detalle-tabla th, .detalle-tabla td {
-    border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    border-left: whitesmoke 2px solid;
+    border-radius: 0 0 0 20px;
 }
-        
+      
+table{
+    border-radius: 20px;
+    box-shadow: 0 0 10px #12862d;
+}
 .detalle-tabla th {
+    border-radius: 0 0 0 20px;
     background-color: #f2f2f2;
+    border-left: #28a745 2px solid;
 }
-        
+h1,h2{
+    margin-top: 40px;
+    color: whitesmoke;
+}        
 .info-box p {
     margin: 5px 0;
     font-size: 1.5em;
     border-color: 1px solid aqua;
+    color: whitesmoke;
+    text-indent: 20px;
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif;
 }
 
 .total-box {
     margin-top: 20px;
     padding: 10px;
-    background-color: #007bff;
-    border: 2px solid #007bff;
+    background-color: rgb(240, 240, 48);
+    border: 2px solid rgb(240, 240, 48);
     display: inline-block;  
     border-radius: 10px;
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Black.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-light';
+    src: url(../fonts/Poppins-Light.ttf) format('truetype');
 }

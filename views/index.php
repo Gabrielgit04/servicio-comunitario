@@ -1,3 +1,5 @@
+
+
 <?php 
 
 session_start();
@@ -37,17 +39,17 @@ try {
 </head>
 <body>
 
-    <a href="../views/main-menu/index.php" class="volver" title="Volver a HOME">
-        <img src="../views/assets/imgs/icons/arrow-left.svg">
-    </a>
-
+    
     <div class="list-option">
         <article class="titulo">
-            <figure class="contenedor-flex">
-                <a>
-                    <img src="../views/assets/imgs/documento.webp" alt="bandera de venezuela" class="img_proyecto">
+            <figure class="contenedor-flex">    
+                <a href="../views/main-menu/index.php" class="volver" title="Volver a HOME">
+                    <img src="../views/assets/imgs/icons/arrow-left.svg">
                 </a>
-                <h1 class="texto_titulo">Bienvenido a la Gestión de Proyectos</h1>
+                <a class="link">
+                    <img src="../views/assets/imgs/icons8-project-96.png" alt="bandera de venezuela" class="img_proyecto">
+                    <h1 class="texto_titulo">Bienvenido a la Gestión de Proyectos</h1>
+                </a>
             </figure>
         </article>
     </div>
@@ -63,7 +65,7 @@ try {
         <p>
             <a class="btn_create btn-accion" href="../views/Create Project/index.php">➕ Crear Nuevo Proyecto</a>
             | 
-            <a class="btn_recargar btn-accion" href="#">🔄 Recargar Lista</a>
+            <a class="btn_recargar btn-accion" href="./index.php">🔄 Recargar Lista</a>
         </p>
     </div>
 
@@ -85,7 +87,7 @@ try {
                             <a href="./Visualize Project/index.php?id=<?php echo htmlspecialchars($proyecto['id_project']); ?>" class="btn-accion btn-ver"> 👁️ Ver </a> 
                             <a href="./Modify Project/index.php?id=<?php echo htmlspecialchars($proyecto['id_project']); ?>" class="btn-accion btn-editar"> ✏️ Editar </a> 
                             
-                            <form action="../../controller/sistem project/eliminate project.php" method="POST" style="display:inline;">
+                            <form action="http://localhost/servicio-comunitario/controller/system-project/eliminate project.php" method="POST" style="display:inline;">
                                 <input type="hidden" name="id_project" value="<?php echo htmlspecialchars($proyecto['id_project']); ?>">
                                 <button type="submit" 
                                     onclick="return confirm('¿Está seguro de que desea eliminar el proyecto \'<?php echo htmlspecialchars($proyecto['name_project']); ?>\'? Esto es irreversible.');" class="btn-accion btn-eliminar"> ❌ Eliminar

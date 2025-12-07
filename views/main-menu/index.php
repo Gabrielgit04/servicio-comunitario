@@ -5,6 +5,7 @@ session_start();
 if(!isset($_SESSION['nombre'])){
     header('Location:../../views/login/index.php');
 };
+$_SESSION["id_user"] = $_SESSION['ci'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,7 @@ if(!isset($_SESSION['nombre'])){
         <nav class="box-sidebar">
 
             <figure class="figOne">
-                    <a href="#" aria-disabled="true">
+                    <a href="../main-menu/index.php" aria-disabled="true">
                 <img src="../assets/imgs/icons/home.svg" alt="Inicio">
                 <h4>HOME</h4>
             </a>
@@ -79,23 +80,11 @@ if(!isset($_SESSION['nombre'])){
                     </ul>
                     <article class="link-pass"><a href="../change-password/index.php">Cambiar contraseña</a></article>
                 </article>
-                    <article class="parrafos">
-                        <p class="parrafoone">Este es el Sistema de Gestión del Consejo Comunal Las Margaritas, una herramienta desarrollada por estudiantes de la UNEFA con el propósito de fortalecer la organización comunitaria.</p>
-                        <p class="parrafotwo">Este sistema surge como respuesta a la necesidad de modernizar los procesos administrativos, reemplazando los controles manuales por una plataforma digital que permita:</p>                   
-                <article>
-                    <ul class="ulist">
-                        <li>📊 Registrar y organizar datos de manera segura y eficiente.</li>
-                        
-                        <li>🗂️ Centralizar la información del consejo comunal en un solo lugar.</li>
-                        
-                        <li>⚡ Agilizar trámites y consultas, reduciendo tiempos y errores.</li>
-                        
-                        <li>🤝 Fomentar la transparencia y participación de la comunidad.<li>
-                    </ul>
-            </article>
-            </article>
-
-        </div>
+                <figure class="carrusel">
+                    
+                </figure>
+                    
+            </div>
                 
                 <p class="parrafothree">Con esta aplicación buscamos apoyar a la comunidad de Las Margaritas en la construcción de una gestión más ordenada, confiable y accesible para todos sus integrantes.</p>
         </section>

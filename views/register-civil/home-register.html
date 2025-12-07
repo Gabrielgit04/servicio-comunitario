@@ -15,7 +15,8 @@
         <a href="../register-civil/form-register/index.php">
         <section class="registered-box">
             <h1>Registro Civil</h1>
-            <figure class="lottie-ani"></figure>
+            <figure class="lottie-ani">
+            </figure>
             <p>Registra las personas pertenecientes a tu consejo comunal</p>
         </section></a>
         </div>
@@ -23,7 +24,8 @@
         <a href="../register-civil/read/index.php">
         <section class="read-box">
             <h1>Visualizar tabla</h1>
-            <figure class="lottie-read"></figure>
+            <figure class="lottie-read">
+            </figure>
             <p>Visualiza, edita y elimina las personas pertenecientes a tu consejo comunal</p>
 
         </section></a>
@@ -32,22 +34,6 @@
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
 
-    <script>
-        const animation = lottie.loadAnimation({
-            container: document.querySelector('.lottie-read'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path:'../assets/public/Administrao.json'});
-    </script>
-    <script>
-        const animationRead = lottie.loadAnimation({
-            container: document.querySelector('.lottie-ani'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path:'../assets/public/register.json'});
-    </script>
     <script>
   // Detecta clic en enlaces
     document.querySelectorAll('.exit-home-register').forEach(link => {
@@ -59,6 +45,22 @@
       }, 500); // tiempo igual al de la animación
     });
 });
+    </script>
+    <script>
+        const animation = lottie.loadAnimation({
+            container: document.querySelector('.lottie-read'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path:'../assets/public/Administrao.json'});
+
+            const animationRead = lottie.loadAnimation({
+            container: document.querySelector('.lottie-ani'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path:'../assets/public/register.json'});
+
     </script>
 
 </body>

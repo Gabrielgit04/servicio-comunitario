@@ -124,7 +124,9 @@ opacity: 1;
 .info_admin{ 
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    column-gap: 4px;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
     height:360px;
     grid-template-rows: repeat(2,auto);
 
@@ -133,16 +135,20 @@ opacity: 1;
 
 }
 .info_admin li{
-    margin: 8px 0;
+    margin: 5px 0;
     font-size: 15px;
 }
 .info_admin ul{
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     list-style-type: none;
     height: 100%;
     min-height: fit-content;
-    line-height:27px;
+    line-height:28px;
     margin-right: 10px;
+    overflow: auto;
 }
 .info_admin a{
     text-decoration: none;
@@ -157,9 +163,9 @@ opacity: 1;
 }
 .link-pass{
     grid-column: span 2;
-    margin-top: 10px;
+    margin-top:0;
     padding: 10px 10px;
-    width: 97.1%;
+    width: 96.9%;
     border-radius: 0 0 30px 10px;
     text-align: center;
     background-color: #100aa8;
@@ -168,48 +174,64 @@ opacity: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 8px;
+    row-gap: 20px;
     height: 100%;
     min-height: fit-content;
-    margin-left:3px;
+    margin-left:2px;
     margin-top: 3px;
 }
 .img-bandera{
-    
-    width: 340px;
-    height: 270px;
-    border-radius: 30px 0 30px 0;
+    transform: translateY(8px);
+    width: 300px;
+    height: 270;
+    border-radius: 20px 0 30px 0;
 }
 .title{
     display: flex;
-    height: fit-content;
+    height: 100px;
     column-gap: 20px;
     background-color: #DDDDDD;
     border-radius: 10px;
     box-shadow: 0 0 1px darkslategray;
-    height: fit-content;
 }
 
 .title img{
     width: 150px;
-    height:120px;
     border-radius: 10px 0 0 10px;
 }
 
 .welcome-hd{
     height: 100px;
+    min-height: fit-content;
 
 }
 
 .welcome-hd h5{
     font-size: 13px;
+    transform: translateY(-13px);
+}
+.carrusel{
+    margin-top: 0;
+    width: 92%;
+    height: 100%;
+    animation: bg-carrusel 15s infinite;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    border-radius: 0 20px 20px 0;
+    transform: translateX(10px);
+    background-size: cover;
 }
 .list-option{
     display:grid;
     grid-template-columns: repeat(2,1fr);
     justify-content: space-around;
-    margin-top: 40px;
-    column-gap: 15px;
+    width: fit-content;
+    margin-top: 20px;
+    column-gap: 2px;
+    background-color: #afb7bd;
+    border-radius: 22px;
+    min-height: fit-content;
 }
 
 .parrafoone,.parrafotwo{
@@ -226,7 +248,7 @@ opacity: 1;
 }
 .parrafothree{
     border-radius: 10px;
-    padding: 6px;
+    padding: 12px;
     background-color: rgba(191, 9, 9, 0.874);
     color: whitesmoke;
     font-size:15px;
@@ -250,6 +272,28 @@ opacity: 1;
     }
     to{
         transform: translateY(0%);
+    }
+    
+}
+
+@keyframes bg-carrusel {
+    40%{
+        background-image: url("../imgs/consejo-2.webp")
+    }
+    60%{
+        background-image: url("../imgs/consejo-comunal-bg.webp")
+    }
+    
+    75%{
+        background-image: url("../imgs/consejo-comunal-bg.webp")
+    }
+    
+    87%{
+        background-image: url("../imgs/laptop.webp")
+    }
+    
+    100%{
+        background-image: url("../imgs/R.webp")
     }
     
 }

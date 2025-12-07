@@ -23,11 +23,11 @@ try {
     if ($proyectos_eliminados > 0) {
         $pdo->commit(); 
         $mensaje = "👍 ¡Éxito! El proyecto **$id_project** fue eliminado, junto con $detalles_eliminados detalles.";
-        header("Location: ../../views/sistem project/index.php?success=" . urlencode($mensaje));
+        header("Location: ../../views/index.php?success=" . urlencode($mensaje));
     } else {
         $pdo->rollBack();
         $mensaje = "⚠️ Error: El proyecto con ID **$id_project** no fue encontrado para eliminar.";
-        header("Location: ../../views/sistem project/index.php?error=" . urlencode($mensaje));
+        header("Location: ../../views/index.php?error=" . urlencode($mensaje));
     }
 
 

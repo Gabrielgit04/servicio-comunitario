@@ -126,6 +126,6 @@ if (is_array($descripciones) && count($descripciones) > 0) {
 
 ?>
 
-    <p><a href="../../views/sistem project/index.php">Volver a Gestión de Proyectos</a></p>
+    <p><a href="../../views/index.php">Volver a Gestión de Proyectos</a></p>
         
 </div>

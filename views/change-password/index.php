@@ -1,4 +1,7 @@
-<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; ?>
+<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; 
+session_start();
+$idUsuario = $_SESSION["id_user"]
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +13,20 @@
 <body>
     <main class="main-box-change">
         <img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit">
+        <?php if (isset($_SESSION['errors'])): ?>
+            <article id="messageErrores">
+                <p><?php echo implode(', ', $_SESSION["errors"]) ?></p>
+                <?php unset($_SESSION['errors']) ?>
+            </article>
+            <script>
+                setTimeout(() => document.getElementById('messageErrores').style.display = 'none', 2000);
+            </script>
+        <?php endif; ?>
 
+        
         <form action="../../controller/recover/newPasswordController.php" method="POST" class="form-change">
             <h1>Cambia tu contraseña</h1>
-        
+        <input type="hidden" name="id_user" value="<?php echo htmlspecialchars($idUsuario); ?>">
         <div class="input_area">
             <input type="password" name="new_password" id="user" class="entry" placeholder="Nueva contraseña" minlength="3" maxlength="30"  title="Se permiten letras, numeros y guines bajos, y la longitud debe ser de 3 a 30 caracteres" required>
             <div class="labelline"><span><img src="../assets/imgs/icons/icons8-lock-48.png" alt="icon"
