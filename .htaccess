@@ -1,0 +1,7 @@
+Options All -Indexes
+
+<Files "servicio.db">
+  Order allow,deny
+  Deny from all
+</Files>
+

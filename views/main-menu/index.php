@@ -1,6 +1,7 @@
-<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; ?>
+<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; 
+?>
 <?php 
-session_start();
+include '../../controller/dataFetchDb/fetchUsers.php';
 
 if(!isset($_SESSION['nombre'])){
     header('Location:../../views/login/index.php');
@@ -17,7 +18,6 @@ $_SESSION["id_user"] = $_SESSION['ci'];
 <body>
 
     <main class="main-box">
-
         <nav class="box-sidebar">
 
             <figure class="figOne">
@@ -36,7 +36,7 @@ $_SESSION["id_user"] = $_SESSION['ci'];
             <figure class="figThree">
                     <a href="../index.php">
                     <img src="../assets/imgs/icons/clipboard-plus.svg" alt="Opción 3">
-                    <h4>Gestion de <br>Proyectos</h4>
+                    <h4>Gestion de<br>Proyectos</h4>
                 </a>
                 </figure>
 
@@ -80,13 +80,24 @@ $_SESSION["id_user"] = $_SESSION['ci'];
                     </ul>
                     <article class="link-pass"><a href="../change-password/index.php">Cambiar contraseña</a></article>
                 </article>
-                <figure class="carrusel">
-                    
-                </figure>
-                    
-            </div>
+                    <article class="parrafos">
+                        <p class="parrafoone">Este es el Sistema de Gestión del Consejo Comunal Las Margaritas, una herramienta desarrollada por estudiantes de la UNEFA con el propósito de fortalecer la organización comunitaria.</p>
+                        <p class="parrafotwo">Este sistema surge como respuesta a la necesidad de modernizar los procesos administrativos, reemplazando los controles manuales por una plataforma digital que permita:</p>                   
+                <article>
+                    <ul class="ulist">
+                        <li>📊 Registrar y organizar datos de manera segura y eficiente.</li>
+                        
+                        <li>🗂️ Centralizar la información del consejo comunal en un solo lugar.</li>
+                        
+                        <li>⚡ Agilizar trámites y consultas, reduciendo tiempos y errores.</li>
+                        
+                        <li>🤝 Fomentar la transparencia y participación de la comunidad.<li>
+                    </ul>
+            </article>
+            </article>
+
+        </div>
                 
-                <p class="parrafothree">Con esta aplicación buscamos apoyar a la comunidad de Las Margaritas en la construcción de una gestión más ordenada, confiable y accesible para todos sus integrantes.</p>
         </section>
         </section>
     </main>
