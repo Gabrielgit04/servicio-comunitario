@@ -1,3 +1,4 @@
+<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; ?>
 <?php
 session_start();
 
@@ -7,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/register-civil-style.css">
+    <link rel="stylesheet" href="../assets/css/style-recover.css">
     <title>Preguntas de seguridad</title>
 </head>
 <body>
@@ -16,7 +17,7 @@ session_start();
         <a href="../../views/login/index.php"><img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit"></a>
 
         
-        <form action="/controller/recover/recoverController.php" method="post" autocomplete="off">
+        <form action="<?php echo BASE_URL . "controller/recover/recoverController.php" ?>" method="post" autocomplete="off">
             <header class="header-box"><h2>Recupera tu cuenta</h2></header>
 
             <h5 class="text"><?php echo $_SESSION['q1'] ?></h5>

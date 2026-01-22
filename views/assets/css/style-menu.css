@@ -3,7 +3,7 @@ body{
     box-sizing: border-box;
     background-color: whitesmoke;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    overflow: hidden;
+    /* overflow:hidden; */
 }
 
 
@@ -18,6 +18,7 @@ hr{width: 90%;
 .sect-hd-dash{
     width:100%;
     padding: 15px;
+    margin-left:70px;
 }
 .box-header{
     width: 100%;
@@ -30,6 +31,7 @@ hr{width: 90%;
 /* Sidebar inicial colapsado */
 .box-sidebar{
     display: flex;
+    position: fixed;
     flex-direction: column;
     width: 70px; /* ancho reducido */
     background-color: #041b2d;;
@@ -37,7 +39,7 @@ hr{width: 90%;
     height: 104dvh;
     transition: width 0.3s ease;
     overflow: hidden;
-    row-gap: 65px;
+    row-gap: 69px;
 }
 .box-sidebar a {
     display: flex;
@@ -64,7 +66,7 @@ margin: 0;
 cursor: pointer;
 display: flex;
 align-items: center;
-column-gap: 4px;
+column-gap: 10px;
 }
 
 .box-sidebar figure:hover {
@@ -124,25 +126,30 @@ opacity: 1;
 .info_admin{ 
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    column-gap: 4px;
-    height:360px;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    height:100px;
     grid-template-rows: repeat(2,auto);
-
     border-radius: 30px 10px 30px 10px;
     background-color: #DDDDDD;
 
 }
 .info_admin li{
-    margin: 8px 0;
+    margin: 5px 0;
     font-size: 15px;
 }
 .info_admin ul{
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     list-style-type: none;
     height: 100%;
     min-height: fit-content;
-    line-height:27px;
+    line-height:28px;
     margin-right: 10px;
+    overflow: auto;
 }
 .info_admin a{
     text-decoration: none;
@@ -157,9 +164,9 @@ opacity: 1;
 }
 .link-pass{
     grid-column: span 2;
-    margin-top: 10px;
+    margin-top:0;
     padding: 10px 10px;
-    width: 97.1%;
+    width: 96.9%;
     border-radius: 0 0 30px 10px;
     text-align: center;
     background-color: #100aa8;
@@ -168,48 +175,68 @@ opacity: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 8px;
+    row-gap: 20px;
     height: 100%;
     min-height: fit-content;
-    margin-left:3px;
+    margin-left:2px;
     margin-top: 3px;
 }
 .img-bandera{
-    
-    width: 340px;
-    height: 270px;
-    border-radius: 30px 0 30px 0;
+    transform: translateY(8px);
+    width: 301px;
+    height: 200px;
+    border-radius: 20px 0 30px 0;
 }
 .title{
     display: flex;
-    height: fit-content;
+    height: 100px;
     column-gap: 20px;
     background-color: #DDDDDD;
     border-radius: 10px;
     box-shadow: 0 0 1px darkslategray;
-    height: fit-content;
 }
 
 .title img{
     width: 150px;
-    height:120px;
     border-radius: 10px 0 0 10px;
 }
 
 .welcome-hd{
     height: 100px;
+    min-height: fit-content;
 
+}
+
+.welcome-hd h1{
+    margin-block-start: 10px;
 }
 
 .welcome-hd h5{
     font-size: 13px;
+    transform: translateY(-13px);
+}
+.carrusel{
+    margin-top: 0;
+    width: 92%;
+    height: 100%;
+    animation: bg-carrusel 15s infinite;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    border-radius: 0 20px 20px 0;
+    transform: translateX(10px);
+    background-size: cover;
 }
 .list-option{
     display:grid;
     grid-template-columns: repeat(2,1fr);
     justify-content: space-around;
-    margin-top: 40px;
-    column-gap: 15px;
+    width: fit-content;
+    /* margin-top: 20px; */
+    column-gap: 2px;
+    background-color: #afb7bd;
+    border-radius: 22px;
+    min-height: fit-content;
 }
 
 .parrafoone,.parrafotwo{
@@ -224,15 +251,92 @@ opacity: 1;
     width: 600px;
     text-indent: 10px;
 }
-.parrafothree{
-    border-radius: 10px;
-    padding: 6px;
-    background-color: rgba(191, 9, 9, 0.874);
+
+.dashboard{
+    display: grid;
+    grid-template-columns: 320px 250px 1fr;
+    column-gap: 20px;
+    justify-content: space-around;
+    height: 15px;
+    min-height: fit-content;
+    padding: 5px 5px;
+}
+.dashboard article{
+    border-radius: 20px;
+    padding: 10px;   
+    text-align: center;
+    letter-spacing: 2px;
+}
+.count-admins-box{
+    background-color: #100aa8;
     color: whitesmoke;
-    font-size:15px;
-    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.count-admins-box h4{
+    text-shadow: 0 0 8px rgb(247, 244, 244);
+}
+.count-civil-box{
+    background-color: rgb(22, 192, 22);
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.count-civil-box h4{
+    text-shadow: 0 0 8px rgb(20, 19, 19);
 }
 
+.count-projects-box{
+    background-color: rgb(235, 235, 8);
+    color: rgb(24, 22, 22);
+}
+.count-projects-box h4{
+    text-shadow: 0 0 8px rgb(152, 155, 11);
+}
+
+
+.box-projects{
+    display: grid;
+    grid-template-columns: 150px 0.9fr;
+    justify-content: space-around;
+    column-gap:15px;
+
+}
+.box-projects div{
+    border-radius: 20px;
+    padding: 10px;   
+    text-align: center;
+    letter-spacing: 1.2px;
+    color: rgb(65, 60, 60);
+}
+.box-projects div:first-child{
+    background-color: rgb(201, 196, 196);
+}
+.box-projects div:last-child{
+    background-color: rgb(201, 196, 196);
+
+}
+.box-projects div:last-child ul li{
+    font-size: 12px;
+    font-weight: 600;
+    border-right: 3px solid rgb(65, 60, 60);
+    
+}
+.box-projects div:last-child ul li h3{
+
+    font-size: 20px;}
+.box-projects div:last-child ul{
+    display: grid;
+    grid-template-columns: repeat(4,90px);
+    list-style-type: none;
+    column-gap: 5px;
+    padding-inline-start:5px;
+}
+.count{
+    font-size: 2.1em;}
 /* importando fuente */
 @font-face {
     font-family: 'Poppins';
@@ -254,6 +358,40 @@ opacity: 1;
     
 }
 
+@keyframes bg-carrusel {
+    40%{
+        background-image: url("../imgs/consejo-2.webp")
+    }
+    60%{
+        background-image: url("../imgs/consejo-comunal-bg.webp")
+    }
+    
+    75%{
+        background-image: url("../imgs/consejo-comunal-bg.webp")
+    }
+    
+    87%{
+        background-image: url("../imgs/laptop.webp")
+    }
+    
+    100%{
+        background-image: url("../imgs/R.webp")
+    }
+    
+}
+/* @keyframes animate-number {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        scale: 1.4;
+        opacity: .3;
+        z-index: 0;
+    }
+    100%{
+        opacity: .6;
+    }
+} */
 /* responsive design */
 /* =========================
    Responsive para Canaima

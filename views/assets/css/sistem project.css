@@ -1,80 +1,82 @@
 * 
 body {
-
-    text-align: center;
-    min-width: 600px;
     max-width: 100%;
-    margin:  auto; 
-    padding: 20px; 
-    background-color:  rgba(2, 20, 155);
+    margin:0;  
+    background-color:rgb(6, 18, 109);
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    overflow-x: auto; 
+    overflow-y: auto; 
     font-weight: bold;
+    overflow-x: hidden;
 }
 
 .titulo{
-    background-color: rgb(57, 56, 56);
-    color: #ccc;
-    width: 850px ;
-    border-radius: 10px;
-    display:grid;
-    justify-content: left;
-    align-items: center;
+    background-color: rgb(22, 20, 20);
+    color: whitesmoke;
+    width: 1360px;
+    margin: 0; 
+    
 }
 
 div {
     max-width: 100%;
     min-width: 600px;
-    margin: 0 auto;
+    margin: 40px auto;
 }
 
 .img_proyecto{
-    width: 250px;
-    height: 200px;
+    width: 90px;
+    height: 80px;
     border-radius: 30px 0 30px 0;
 }
 
 .contenedor-flex {
-    display: flex;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    width: 100%;
     align-items: center; 
-    gap: 15px; 
+    column-gap: 30px; 
 }
 
 .texto_titulo {
     flex-grow: 1; 
-    margin: 0; 
+    margin: 0;
+    font-size: 15; 
+}
+.link{
+    display: flex;
+    column-gap: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 table {
     justify-content: center;
     align-items: center;
     align-items: center;
-    background-color: #28a745;
-    color: black;
+    padding: 15px;
+    background-color: #DDDDDD;
+    color: rgb(19, 18, 18);
     text-align: left;
     width: 90%; 
     table-layout: fixed; 
     margin: 20px 25px;
     text-align: left;
     border-radius: 10px;
+    
 }
 .list-option{
     display:grid;
-    grid-template-columns: repeat(2,1fr);
     justify-content: space-around;
-    margin-top: 40px;
-    column-gap: 15px;
+    margin: 0;
 }
 
 .volver{
-    position: absolute;
-    top: 20px;
-    left: 20px;
     width: 30px;
     display: flex;
     background-color: whitesmoke;
     padding: 3px;
     border-radius:50% ;
+    box-shadow: 0 0 8px darkslategray;
     
 }
 
@@ -82,7 +84,9 @@ table {
     min-width: 85%; 
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    color: rgb(22, 21, 21);
+    text-overflow: ellipsis;
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif;
 }
 
 .columna_boton {
@@ -102,7 +106,7 @@ table {
     border-radius: 3px;
     display: inline-block;
     white-space: nowrap; 
-    
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif;
 }
 
 div {
@@ -112,14 +116,15 @@ div {
 
 
 .btn_create { 
-    background-color: #007bff; color: white; border-color: #007bff;
+    background-color: #007bff; color: white; border-color: #007bff; 
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif
 }
-.btn_recargar{  background-color: #007bff; color: white; border-color: #007bff; }
+.btn_recargar{  background-color: #007bff; color: white; border-color: #007bff; font-family: "Poppins-light",Arial, Helvetica, sans-serif }
 
 
-.btn-ver { background-color: #007bff; color: white; border-color: #007bff; }
-.btn-editar { background-color: #ffc107; color: black; border-color: #ffc107; }
-.btn-eliminar { background-color: #dc3545; color: white; border-color: #dc3545; }
+.btn-ver { background-color: #007bff; color: white; border-color: #007bff;font-family: "Poppins-light",Arial, Helvetica, sans-serif;padding: 10px; }
+.btn-editar { background-color: #ffc107; color: black; border-color: #ffc107; font-family: "Poppins-light",Arial, Helvetica, sans-serif;padding: 10px }
+.btn-eliminar { font:16px ; background-color: #dc3545; color: white; border-color: #dc3545;font-family: "Poppins-light",Arial, Helvetica, sans-serif;padding: 10px }
 
 
 #Ejecutado, #Error {
@@ -131,3 +136,13 @@ div {
 }
 #Ejecutado {color: green; border: 1px solid green; background-color: #e6ffe6;}
 #Error {color: red; border: 1px solid red; background-color: #ffe6e6;}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Black.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-light';
+    src: url(../fonts/Poppins-Light.ttf) format('truetype');
+}

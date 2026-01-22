@@ -8,7 +8,7 @@ body {
     margin-left: 100px;
     margin-right: 100px; 
     padding: 20px; 
-    background-color:  rgba(2, 20, 155);
+    background-color:  rgb(6, 18, 109);
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     overflow-x: auto; 
     font-weight: bold;
@@ -27,9 +27,10 @@ body {
 }
 
 #formulario_datos {
-    text-align: center;
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif;
+    text-align: left;
     grid-template-columns: repeat(2,1fr);
-}
+    }
 
 .list-option{
     display:flex;
@@ -39,18 +40,21 @@ body {
     text-indent: 10px;
 }
 
-
 .contenedor_entradas1{
     justify-content: center;
-    align-items: center;
     align-items: center;    
-    height: 450px ;
-    width: 300px;
-    margin: auto;    
+    height: fit-content ;
+    row-gap:0px;
+    width: 300px;    
     background-color: #ccc;
     display:grid;
     padding: 5px;
-    border-radius:10px ;    
+    border-radius:10px ;
+        
+}
+.contenedor_entradas1 a{
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
 
 .titulo{
@@ -73,6 +77,8 @@ input{
 }
 
 
+
+
 .contenedor_entradas2{
     justify-content: center;
     text-align: center;
@@ -81,10 +87,11 @@ input{
     width: auto;
     margin: auto;      
     display:grid;
-
-    background-color: #28a745;
+    color: whitesmoke;
+    background-color: #282b28;
     padding: 15px;
-    border-radius:10px     
+    border-radius:10px;
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif;     
 }
 
 .entrada-grupo {
@@ -95,15 +102,17 @@ input{
 }
 
 
+
 .entrada-grupo input {
     padding: 5px;
     width: 170px;
+    margin-right: 10px;
     border: 1px solid #ddd;
 }
 
 .entrada-grupo label {
     font-weight: bold;
-    margin-right: 5px;
+    margin: 0 20px;
     
 }
 
@@ -127,20 +136,17 @@ input{
 }
 .btn-agregar { 
     background-color: #28a745;
-    border: #007bff solid; 
+    border: #28a745 solid; 
     color: white; 
     margin-top: 10px; 
     justify-content: center;
     text-align: center;
     align-items: center;      
     height: 40px;
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif;
 }
-    
-
-
 
 .btn-eliminar { background-color: #dc3545; color: white; }
-
 
 
 @media (max-width: 1200px) {
@@ -154,5 +160,19 @@ input{
         margin-bottom: 20px; 
     }
 }
+
+
+
+
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Black.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url(../fonts/Poppins-Light.ttf) format('truetype');
+}
+
 
 
