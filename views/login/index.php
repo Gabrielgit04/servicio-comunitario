@@ -5,6 +5,10 @@ $mensaje = '';
 
 if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] == true) {
     $mensaje = 'Has iniciado sesion correctamente';
+    echo "<script>";
+    echo "const hidebtn = document.getElementById('send')";
+    echo "hidebtn.style.display = 'none'";
+    echo "</script>";
     unset($_SESSION['Logueado']);
 }
 ?>

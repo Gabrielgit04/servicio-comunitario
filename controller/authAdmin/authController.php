@@ -1,8 +1,6 @@
 <?php
 session_start();
-include '../../models/conexion.php';
-
-date_default_timezone_set('America/Caracas');
+include '../models/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../../views/login/index.php");

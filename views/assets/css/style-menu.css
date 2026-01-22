@@ -129,8 +129,7 @@ opacity: 1;
     column-gap: 10px;
     justify-content: center;
     align-items: center;
-    height:100px;
-    grid-template-rows: repeat(2,auto);
+    height:100px;    grid-template-rows: repeat(2,auto);
     border-radius: 30px 10px 30px 10px;
     background-color: #DDDDDD;
 
@@ -182,11 +181,11 @@ opacity: 1;
     margin-top: 3px;
 }
 .img-bandera{
+    
     transform: translateY(8px);
     width: 301px;
     height: 200px;
-    border-radius: 20px 0 30px 0;
-}
+    border-radius: 20px 0 30px 0;}
 .title{
     display: flex;
     height: 100px;
@@ -228,7 +227,7 @@ opacity: 1;
     background-size: cover;
 }
 .list-option{
-    display:grid;
+    display:grid; display:grid;
     grid-template-columns: repeat(2,1fr);
     justify-content: space-around;
     width: fit-content;
@@ -280,11 +279,6 @@ opacity: 1;
 }
 .count-civil-box{
     background-color: rgb(22, 192, 22);
-    color: whitesmoke;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .count-civil-box h4{
     text-shadow: 0 0 8px rgb(20, 19, 19);
 }
@@ -379,6 +373,28 @@ opacity: 1;
     }
     
 }
+
+@keyframes bg-carrusel {
+    40%{
+        background-image: url("../imgs/consejo-2.webp")
+    }
+    60%{
+        background-image: url("../imgs/consejo-comunal-bg.webp")
+    }
+    
+    75%{
+        background-image: url("../imgs/consejo-comunal-bg.webp")
+    }
+    
+    87%{
+        background-image: url("../imgs/laptop.webp")
+    }
+    
+    100%{
+        background-image: url("../imgs/R.webp")
+    }
+    
+}
 /* @keyframes animate-number {
     0%{
         opacity: 0;
@@ -391,8 +407,7 @@ opacity: 1;
     100%{
         opacity: .6;
     }
-} */
-/* responsive design */
+} *//* responsive design */
 /* =========================
    Responsive para Canaima
    ========================= */

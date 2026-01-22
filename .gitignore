@@ -1,1 +1,3 @@
-**.htaccess
+.htaccess
+models/servicio.db
+/controller/helpers
