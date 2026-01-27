@@ -129,7 +129,12 @@ opacity: 1;
     column-gap: 10px;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
+    height:100px;
+    grid-template-rows: repeat(2,auto);
+=======
     height:100px;    grid-template-rows: repeat(2,auto);
+>>>>>>> ef11a0db1be1ef5fc4a883171419ca9239588b9d
     border-radius: 30px 10px 30px 10px;
     background-color: #DDDDDD;
 
@@ -181,11 +186,19 @@ opacity: 1;
     margin-top: 3px;
 }
 .img-bandera{
+<<<<<<< HEAD
+    transform: translateY(8px);
+    width: 301px;
+    height: 200px;
+    border-radius: 20px 0 30px 0;
+}
+=======
     
     transform: translateY(8px);
     width: 301px;
     height: 200px;
     border-radius: 20px 0 30px 0;}
+>>>>>>> ef11a0db1be1ef5fc4a883171419ca9239588b9d
 .title{
     display: flex;
     height: 100px;
@@ -279,6 +292,14 @@ opacity: 1;
 }
 .count-civil-box{
     background-color: rgb(22, 192, 22);
+<<<<<<< HEAD
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+=======
+>>>>>>> ef11a0db1be1ef5fc4a883171419ca9239588b9d
 .count-civil-box h4{
     text-shadow: 0 0 8px rgb(20, 19, 19);
 }
@@ -373,6 +394,8 @@ opacity: 1;
     }
     
 }
+<<<<<<< HEAD
+=======
 
 @keyframes bg-carrusel {
     40%{
@@ -395,6 +418,7 @@ opacity: 1;
     }
     
 }
+>>>>>>> ef11a0db1be1ef5fc4a883171419ca9239588b9d
 /* @keyframes animate-number {
     0%{
         opacity: 0;
@@ -407,7 +431,12 @@ opacity: 1;
     100%{
         opacity: .6;
     }
+<<<<<<< HEAD
+} */
+/* responsive design */
+=======
 } *//* responsive design */
+>>>>>>> ef11a0db1be1ef5fc4a883171419ca9239588b9d
 /* =========================
    Responsive para Canaima
    ========================= */

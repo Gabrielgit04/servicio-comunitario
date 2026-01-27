@@ -80,23 +80,45 @@ $_SESSION["id_user"] = $_SESSION['ci'];
                     </ul>
                     <article class="link-pass"><a href="../change-password/index.php">Cambiar contraseña</a></article>
                 </article>
-                    <article class="parrafos">
-                        <p class="parrafoone">Este es el Sistema de Gestión del Consejo Comunal Las Margaritas, una herramienta desarrollada por estudiantes de la UNEFA con el propósito de fortalecer la organización comunitaria.</p>
-                        <p class="parrafotwo">Este sistema surge como respuesta a la necesidad de modernizar los procesos administrativos, reemplazando los controles manuales por una plataforma digital que permita:</p>                   
-                <article>
-                    <ul class="ulist">
-                        <li>📊 Registrar y organizar datos de manera segura y eficiente.</li>
-                        
-                        <li>🗂️ Centralizar la información del consejo comunal en un solo lugar.</li>
-                        
-                        <li>⚡ Agilizar trámites y consultas, reduciendo tiempos y errores.</li>
-                        
-                        <li>🤝 Fomentar la transparencia y participación de la comunidad.<li>
-                    </ul>
-            </article>
-            </article>
+                <figure class="carrusel">
+                    
+                </figure>
+                    
+            </div>
 
-        </div>
+            <div class="dashboard">
+                <article class='count-admins-box'>
+                    <h4>Administradores registrados:</h4>
+                    <h2 class="count"><?php echo $_SESSION['userRegisterTotal']; ?></h2>
+                    <small><b>Ultima conexion:</b><br><?php echo $_SESSION['lastVisited'] ?></small>
+                </article>
+                <article class='count-civil-box'>
+                    <h4>Civiles registrados:</h4>
+                    <h2 class="count"><?php echo $_SESSION['peopleRegisterTotal'] ?></h2>
+                    <small><b>Registro Civil</b></small>
+
+                </article>
+                <article class='count-projects-box'>
+                    <h4>Proyectos registrados:</h4>
+                    <section class="box-projects">
+
+                        <div>
+                            <h5>Total proyectos:</h5>
+                            <h3 style="font-size: 1.6em;"><?php echo $_SESSION['projectsRegisterTotal'] ?></h3>
+                        </div>
+                        <div>
+                            <b>Estado:</b>
+                            <ul>
+                                <li>Planificando<h3><?php echo $_SESSION['projects_state']['Planificando']?></h3></h3></li>
+                                <li>En Proceso<h3><?php echo $_SESSION['projects_state']['En_Proceso'] ?></h3></li>
+                                <li>Incompleto<h3><?php echo $_SESSION['projects_state']['Incompleto'] ?></h3></h3></li>
+                                <li>Finalizado<h3><?php echo $_SESSION['projects_state']['Finalizado']?></h3></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                </article>
+            </div>
                 
         </section>
         </section>
