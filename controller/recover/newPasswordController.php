@@ -36,6 +36,8 @@ if (!$userID) {
     exit();
 }
 
+
+
 try {
     $dbConnect = conexionDB();
     $newPasswordHash = password_hash($newPassword, PASSWORD_BCRYPT);
@@ -49,7 +51,7 @@ try {
     unset($_SESSION['id_user']);
     $_SESSION['mensaje'] = 'Contraseña actualizada con éxito.';
 
-    header('Location: ../../views/login/index.php');
+    header('Location: ../../views/change-password/successfull.php');
     exit();
 } catch (PDOException $e) {
     error_log('NewPassword error: ' . $e->getMessage());

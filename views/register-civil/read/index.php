@@ -97,8 +97,6 @@ if (!empty($_SESSION['search'])) {
                         <th>Serial del carnet de la patria</th>
                         <th>Centro de votacion</th>
                         <th>Tipo de voto</th>
-                        <th>Creado en</th>
-                        <th>Actualizado en</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -120,9 +118,6 @@ if (!empty($_SESSION['search'])) {
                                 <td><?php echo htmlspecialchars($civil['Patria_Card_Serial']) ?></td>
                                 <td><?php echo htmlspecialchars($civil['Voting_Center']) ?></td>
                                 <td><?php echo htmlspecialchars($civil['Vote_Type']) ?></td>
-                                <td><?php echo $civil['Create_Date'] ?></td>
-                                <td><?php echo $civil['Update_Date'] ?></td>
-
                             </tr>
                         <?php endforeach; ?>
                     <?php endif ?>
@@ -184,7 +179,7 @@ if (!empty($_SESSION['search'])) {
                         </select>
                     </div>
                     <div class="input_area" id="div-input-update">
-                        <input type="text" name="UPDATE_FIELD" id="editCampo" class="entry" placeholder="Actualice el campo" autocomplete="off">
+                        <input type="text" name="UPDATE_FIELD" id="editCampoFijo" class="entry" placeholder="Actualice el campo" autocomplete="off">
                         <div class="labelline"><span><img src="../../assets/imgs/icons/user-edit.svg" alt="icon" class="icon-user-edit"></span></div>
                     </div>
                     <div id="dinamic-input"></div>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../assets/imgs/logo-unidos.ico">
     <title>Registrate</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
     <section class="informacion">
 
         
-        <form action="/controller/registerController.php" autocomplete="off" method="post">
+        <form action="<?php echo BASE_URL . "controller/authAdmin/registerController.php" ?>" autocomplete="off" method="post">
             
             <header class="hd-box-title"><h2>Crea tu usuario</h2></header>
 

@@ -158,9 +158,11 @@ body{
 
 .main-box-change{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 70px;
+    column-gap: 10px;
 }
 .icon_lock_new,.icon_lock_rep{
     width: 25px;
@@ -183,6 +185,33 @@ body{
 }
 
 /* recover password */
+.text{
+    font-family: "Poppins-light",Arial, Helvetica, sans-serif;
+    text-indent: 20px;
+    letter-spacing: 2px;
+}
+#messageErrores{
+    background-color: rgb(117, 7, 7);
+    color: whitesmoke;
+    display: flex;
+    padding:10px 5px 10px 0;
+    width: fit-content;
+    margin-bottom: 20px;
+    min-width: fit-content;
+    box-shadow: 0 0 8px whitesmoke;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+    height: fit-content;
+    animation: up 1.5s linear;
+}
+
+#messageErrores p{
+    font-family: 'Poppins-light',Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
 .btn-recover{
     height: 35px;
     width: 90%;
@@ -252,5 +281,9 @@ body{
 @font-face {
     font-family: 'Poppins';
     src: url(../fonts/Poppins-Black.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url(../fonts/Poppins-Light.ttf) format('truetype');
 }
 

@@ -1,6 +1,8 @@
 <?php
 session_start();
-include '../models/conexion.php';
+include '../../models/conexion.php';
+
+date_default_timezone_set('America/Caracas');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../../views/login/index.php");
@@ -35,6 +37,13 @@ try {
         $_SESSION['correo'] = $result['correo'];
         $_SESSION['ci'] = $result['ci'];
         $_SESSION['Logueado'] = true;
+
+        $dateNow = date("d-m-Y H:i:s");
+        if(isset($_COOKIE['lastVisited'])){
+            $_SESSION['lastVisited'] = $_COOKIE['lastVisited'];
+        }
+        setcookie('lastVisited', $dateNow, time() + (86400 * 30));
+
         unset($_SESSION['error']);
 
         header("Location: ../../views/login/index.php");
