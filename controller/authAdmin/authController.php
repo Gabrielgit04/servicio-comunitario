@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../models/conexion.php';
+include '../../models/conexion.php';
 
 date_default_timezone_set('America/Caracas');
 
