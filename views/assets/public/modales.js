@@ -216,6 +216,7 @@ function changeInput() {
             if (removeField) removeField.style.display = "block";
         }
     });
+<<<<<<< HEAD
 
     // Delegación de eventos para capturar el valor dinámico
     createField.addEventListener("change", function (e) {
@@ -223,4 +224,6 @@ function changeInput() {
             console.log("Valor elegido:", e.target.value);
         }
     });
+=======
+>>>>>>> ef11a0db1be1ef5fc4a883171419ca9239588b9d
 }

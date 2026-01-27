@@ -30,6 +30,10 @@ try {
     $_SESSION['idRegistered'] = $idUser;
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ef11a0db1be1ef5fc4a883171419ca9239588b9d
     header("Location: ../../views/secure-questions/successfull.php?success=1");
     exit;
 } catch (PDOException $e) {

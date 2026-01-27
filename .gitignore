@@ -1,2 +1,3 @@
-**.htaccess
-**errores.php
+.htaccess
+models/servicio.db
+/controller/helpers
