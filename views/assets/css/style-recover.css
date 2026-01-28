@@ -17,6 +17,13 @@ body{
     border-radius:50% ;
 }
 /* preguntas de seguridad */
+#small-error{
+        color: red;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        padding: 5px;
+        font-size: 12px;
+        margin: 0 20px;
+    }
 
 .question-box,.question-box-id{
     width: 100%;
@@ -29,7 +36,6 @@ body{
 }
 .question-box form{
     width: 450px;
-    height: 460px;
     min-height: fit-content;
     background-color: whitesmoke;
     border-radius: 20px;
@@ -37,11 +43,12 @@ body{
     flex-direction: column;
     /* row-gap:3px; */
     position: absolute;
-    padding: 0 10px;
+    padding: 20px 10px;
+    row-gap: 15px;
 }
 .ced-form{
     width: 450px;
-    height:300px;
+    height:320px;
     padding: 10px;
     background-color: whitesmoke;
     border-radius: 20px;
@@ -50,11 +57,12 @@ body{
     /* row-gap:3px; */
     position: absolute;
     padding: 0 10px;
+    min-height: fit-content;
 
 }
 .ced-form p{
     text-indent: 30px;
-    color:rgba(191, 9, 9, 0.874) ;
+    color:rgba(11, 18, 147, 0.874) ;
 }
 
 .entry,.entry_pass{
@@ -133,7 +141,7 @@ body{
     margin-top: 10px;
     font-size: 16px;
     text-transform: uppercase;
-    color: rgba(191, 9, 9, 0.874);
+    color: rgba(16, 11, 125, 0.874);
 }
 
 /* cambio de contrasena */
@@ -142,12 +150,15 @@ body{
     font-size: 14px;
     text-align: center;
     width: 370px;
-    height: 370px;
+    height: 390px;
     row-gap: 10px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     background-color: whitesmoke;
     border-radius: 20px;
+    height: fit-content;
+    padding: 20px 10px;
 }
 .form-change h1{
     font-size: 22px;
@@ -174,7 +185,7 @@ body{
     text-transform: uppercase;
     transform: translateX(23px);
     font-family: 'Poppins',Arial, Helvetica, sans-serif;
-    margin-top:45px;
+    margin-top:10px;
     border-radius: 7px;
     border: 1px solid  rgba(8, 24, 146, 0.807);
     background-color:  rgba(8, 24, 146, 0.807);
@@ -188,7 +199,9 @@ body{
 .text{
     font-family: "Poppins-light",Arial, Helvetica, sans-serif;
     text-indent: 20px;
-    letter-spacing: 2px;
+    font-size: 16px;
+    color: rgba(29, 29, 35, 0.874);
+    margin-block: 0;
 }
 #messageErrores{
     background-color: rgb(117, 7, 7);

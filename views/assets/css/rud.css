@@ -279,8 +279,10 @@ dialog::backdrop {
     transition: al ease .2s;
     left: 15px;
     text-transform: capitalize;
-    font-size: medium;
+    font-size: 13px;
     margin-top: 10px;
+    font-family: 'Poppins-light', Arial, Helvetica, sans-serif;
+
     /* box-shadow: 0 0 6px darkslategray; */
 }
 

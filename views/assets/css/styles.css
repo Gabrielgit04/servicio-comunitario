@@ -50,11 +50,30 @@ body{
     height: 450px;
     display: flex;
     flex-direction:column;
+    height: fit-content;
     align-items: center;
     /* justify-content: center; */
     background-color: whitesmoke;
     gap: 20px;
     border-radius: 20px;
+
+}
+#small-error{
+        color: red;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        padding: 10px;
+        font-size: 12px;
+        margin: 0 20px;
+    }
+#small-success{
+    color: rgb(235, 239, 234);
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    font-size: 12px;
+    margin: 0 20px;
+    padding: 10px;
+    background-color: #28a745;
+    border-radius: 6px;
 }
 .inputs{
     width: 100%;

@@ -1,4 +1,9 @@
-<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; ?>
+<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; 
+session_start();
+$errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
+unset($_SESSION['errors']);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +27,8 @@
                 <div class="labelline"><span><img src="../assets/imgs/icons/id.svg" alt="icon"
                             class="icon_user"></span></div>
             </div>
+            <small id="small-error"><?php echo isset($errors) ? implode('<br>', $errors) : ''; ?></small>
+
 
             <button class="btn-secure">Enviar</button>
         </form>

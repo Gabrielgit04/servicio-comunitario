@@ -1,4 +1,16 @@
-<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; ?>
+<?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; 
+session_start();
+if (isset($_SESSION['errors']) && is_array($_SESSION['errors'])) {
+    $errors = $_SESSION['errors'];
+    unset($_SESSION['errors']);
+}
+$mensaje = '';
+if (isset($_SESSION['success']) && $_SESSION['success'] == true) {
+    $mensaje = 'Usuario registrado exitosamente.';
+    unset($_SESSION['success']);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +45,7 @@
                 
 
                     <div class="input_form">
-                        <input type="text" name="nombre" class="entry" placeholder="Nombre completo" pattern="^[a-zA-Z]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}$" required>
+                        <input type="text" name="nombre" class="entry" placeholder="Nombre completo" style="text-transform: capitalize;" pattern="^[a-zA-Z]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}$" required>
                         <div class="labelline"><span><img src="../assets/imgs/icons/label.svg" alt="icon"
                                     class="icon_user"></span></div>
                     </div>
@@ -47,7 +59,7 @@
                 </div>
 
                 <div class="input_form">
-                    <input type="password" class="entry_pass" name="passw"
+                    <input type="password" class="entry_pass" name="passw" 
                         placeholder="Contraseña | Max 15 caracteres" title="Ingrese minimo 8 caracteres y maximo 15" minlength="8" maxlength="15"  required>
                     <div class="labelline_pass"><span><img src="../assets/imgs/icons/icons8-lock-48.png" alt="icon"
                                 class="icon_lock"></span>
@@ -58,8 +70,22 @@
                     <option selected disabled>Selecciona un rol</option>
                     <option value="Administrador">Administrador</option>
                 </select>
-                <button>Registrar</button>
 
+            
+                <small id="small-error"><?php echo isset($errors) ? implode('<br>', $errors) : ''; ?></small>
+                <?php if(!empty($mensaje)): ?>
+                    <small id="small-success"><?php echo $mensaje; ?></small>
+                <script>
+                        setTimeout(() => {
+                            window.location.href = "../../views/secure-questions/index.php";
+                            error.style.display = "none"
+
+                        }, 3500);
+                </script>
+                <?php unset($_SESSION['success']); ?>
+                <?php endif; ?>
+                
+                <button>Registrar</button>
             </section>
         </form>
         <article class="registro-link">

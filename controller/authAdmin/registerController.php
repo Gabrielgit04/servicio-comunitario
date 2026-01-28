@@ -19,8 +19,8 @@ $passw = isset($raw['passw']) ? $raw['passw'] : '';
 $rol = isset($raw['rol']) ? preg_replace('/[^A-Za-z0-9_\-]/', '', $raw['rol']) : '';
 
 // Validaciones básicas
-if ($id === '' || !preg_match('/^[0-9]{6,10}$/', $id)) {
-    $errors[] = 'Cédula inválida.';
+if ($id === '' || !preg_match('/^[0-9]{6,9}$/', $id)) {
+    $errors[] = 'Cédula inválida, debe tener entre 6 y 9 dígitos.';
 }
 if ($name === '' || !preg_match('/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s\-]{2,80}$/', $name)) {
     $errors[] = 'Nombre inválido.';
@@ -51,8 +51,15 @@ try {
     $query->bindParam(':rol', $rol);
 
     $query->execute();
+    if ($query->rowCount() === 0) {
+        $_SESSION['errors'] = ['No se pudo registrar el usuario. Intente nuevamente.'];
+        header('Location: ../../views/register/index.php');
+        exit();
+        }else{
+            $_SESSION['success'] = true;
+        }
     $_SESSION['idGlobal'] = $id;
-    header('Location: ../../views/secure-questions/index.php');
+    header('Location: ../../views/register/index.php');
     exit();
 } catch (PDOException $e) {
     error_log('Register error: ' . $e->getMessage());

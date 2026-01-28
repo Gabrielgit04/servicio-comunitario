@@ -1,6 +1,9 @@
 <?php require_once dirname(__DIR__, 3) . '/servicio-comunitario/config.php'; 
 session_start();
-$idUsuario = $_SESSION["id_user"]
+$idUsuario = $_SESSION["id_user"];
+$errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
+unset($_SESSION['errors']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,16 +15,8 @@ $idUsuario = $_SESSION["id_user"]
 </head>
 <body>
     <main class="main-box-change">
-        <img src="../assets/imgs/icons/arrow-left.svg" alt="exit" class="exit">
-        <?php if (isset($_SESSION['errors'])): ?>
-            <article id="messageErrores">
-                <p><?php echo implode(', ', $_SESSION["errors"]) ?></p>
-                <?php unset($_SESSION['errors']) ?>
             </article>
-            <script>
-                setTimeout(() => document.getElementById('messageErrores').style.display = 'none', 2000);
-            </script>
-        <?php endif; ?>
+
 
         
         <form action="../../controller/recover/newPasswordController.php" method="POST" class="form-change">
@@ -38,7 +33,9 @@ $idUsuario = $_SESSION["id_user"]
             <div class="labelline"><span><img src="../assets/imgs/icons/icons8-lock-48.png" alt="icon"
                         class="icon_lock_rep"></span></div>
         </div>
-<button type="submit" class="send-new">Cambiar contraseña</button>
+        <small id="small-error"><?php echo isset($errors) ? implode('<br>', $errors) : ''; ?></small>
+
+        <button type="submit" class="send-new">Cambiar contraseña</button>
     </form>
 </main>
 </body>
