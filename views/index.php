@@ -84,13 +84,13 @@ try {
                         <td class="columna_name"><?php echo htmlspecialchars($proyecto['name_project']); ?></td>
                         <td class="columna_boton">
 
-                            <a href="./Visualize Project/index.php?id=<?php echo htmlspecialchars($proyecto['id_project']); ?>" class="btn-accion btn-ver"> 👁️ Ver </a> 
-                            <a href="./Modify Project/index.php?id=<?php echo htmlspecialchars($proyecto['id_project']); ?>" class="btn-accion btn-editar"> ✏️ Editar </a> 
+                            <a href="./Visualize Project/index.php?id=<?php echo htmlspecialchars($proyecto['id_project']); ?>" class="btn-accion btn-ver">  Ver </a> 
+                            <a href="./Modify Project/index.php?id=<?php echo htmlspecialchars($proyecto['id_project']); ?>" class="btn-accion btn-editar">  Editar </a> 
                             
                             <form action="http://localhost/servicio-comunitario/controller/system-project/eliminate project.php" method="POST" style="display:inline;">
                                 <input type="hidden" name="id_project" value="<?php echo htmlspecialchars($proyecto['id_project']); ?>">
                                 <button type="submit" 
-                                    onclick="return confirm('¿Está seguro de que desea eliminar el proyecto \'<?php echo htmlspecialchars($proyecto['name_project']); ?>\'? Esto es irreversible.');" class="btn-accion btn-eliminar"> ❌ Eliminar
+                                    onclick="return confirm('¿Está seguro de que desea eliminar el proyecto \'<?php echo htmlspecialchars($proyecto['name_project']); ?>\'? Esto es irreversible.');" class="btn-accion btn-eliminar">  Eliminar
                                 </button>
                             </form>
                         </td>

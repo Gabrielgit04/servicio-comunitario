@@ -337,3 +337,18 @@ body.fade-out {
         
     }
 }
+
+@media screen and (max-width: 1920px) and (max-height:1080px) { 
+    .cont-header header h2{
+        color: #DDDDDD;
+        padding: 20px;
+    
+    }
+    .form-container{
+        height:85%;
+        > section{
+            height: 80%;
+        }
+    }
+
+}
