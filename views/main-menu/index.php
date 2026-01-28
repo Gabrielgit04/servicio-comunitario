@@ -70,7 +70,7 @@ $_SESSION["id_user"] = $_SESSION['ci'];
                 <article class="info_admin">
                     <figure>
                         <img src="../assets/imgs/logo-unidos.webp" alt="bandera de venezuela" class="img-bandera">
-                        <article>Venezuela - Estado Falcón</article>
+                        <article><p>Venezuela - Estado Falcón</p></article>
                     </figure>
                     <ul>
                         <li><strong>Cedula:</strong> <?php echo $_SESSION['ci'] ?></li>
