@@ -82,7 +82,7 @@ table {
 
 .columna_name {
     min-width: 85%; 
-    white-space: nowrap;
+    white-space: wrap;
     overflow: hidden;
     color: rgb(22, 21, 21);
     text-overflow: ellipsis;

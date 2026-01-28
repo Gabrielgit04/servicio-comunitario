@@ -57,7 +57,7 @@ a:hover {
 include '../../models/conexion.php';
 
 $id = htmlspecialchars($_POST["Id"]);
-$name_project = htmlspecialchars(ucfirst($_POST["Titulo"]));
+$name_project = ucfirst($_POST["Titulo"]);
 $fecha_inicio = $_POST["Fecha_inicio"];
 $fecha_culminacion = $_POST["Fecha_culminacion"];
 $estado = $_POST["Estado"];
